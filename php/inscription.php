@@ -24,18 +24,74 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Page d'inscription</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Inscription</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="container text-left">
+                    <!-- Inscription Section Form-->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <form id="inscriptionForm" name="inscription" novalidate="novalidate">
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Prénom</label>
+                                        <input class="form-control" id="prenom" name="prenom" type="text" placeholder="Prénom" required="required" data-validation-required-message="Veuillez entrer votre prénom." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Nom</label>
+                                        <input class="form-control" id="nom" name="nom" type="text" placeholder="Nom" required="required" data-validation-required-message="Veuillez entrer votre nom." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez entrer votre mail." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Numéro de téléphone</label>
+                                        <input class="form-control" id="tel" name="tel" type="tel" placeholder="Numéro de téléphone" required="required" data-validation-required-message="Veuillez entrer votre numéro de téléphone." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        <input class="form-control" id="pass" name="pass" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Confirmer le mot de passe</label>
+                                        <input class="form-control" id="confPass" name="confPass" type="password" placeholder="Confirmer le mot de passe" required="required" data-validation-required-message="Veuillez confirmer votre mot de passe." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br />
+                                <div id="success"></div>
+                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">S'inscrire</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <!-- Footer-->

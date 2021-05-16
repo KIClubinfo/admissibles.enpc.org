@@ -24,18 +24,47 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Page de connexion</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Connexion</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="container text-left">
+                    <!-- Inscription Section Form-->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <form id="inscriptionForm" name="inscription" novalidate="novalidate">
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez entrer votre mail." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        <input class="form-control" id="pass" name="pass" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="text-center"><p><a href="">Mot de passe oublié ?</a></p></div>
+                                <br />
+                                <div id="success"></div>
+                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Se connecter</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <!-- Footer-->
