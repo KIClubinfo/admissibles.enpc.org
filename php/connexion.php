@@ -42,18 +42,22 @@
                     <!-- Inscription Section Form-->
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <form id="inscriptionForm" name="inscription" novalidate="novalidate">
+                            <form id="inscriptionForm" name="inscription" action="authenticate.php" method="post">
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label>Email</label>
+                                        <label for="username">
+					                        <i class="fas fa-user"></i>
+				                        </label>
                                         <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez entrer votre mail." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label>Mot de passe</label>
-                                        <input class="form-control" id="pass" name="pass" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
+                                        <label for="password">
+					                        <i class="fas fa-lock"></i>
+				                        </label>
+                                        <input class="form-control" id="pass" name="password" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
