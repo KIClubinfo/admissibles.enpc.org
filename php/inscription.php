@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (isset($_SESSION['loggedin'])) {
+	    header('Location: profil.php');
+	    exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <?php
@@ -29,7 +37,7 @@
                     <!-- Inscription Section Form-->
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <form id="inscriptionForm" name="inscription" novalidate="novalidate">
+                            <form id="inscriptionForm" name="inscription" action="validate.php" method="post" autocomplete="off">
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label>Prénom</label>
@@ -61,14 +69,14 @@
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label>Mot de passe</label>
-                                        <input class="form-control" id="pass" name="pass" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
+                                        <input class="form-control" id="password" name="password" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez entrer un mot de passe." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label>Confirmer le mot de passe</label>
-                                        <input class="form-control" id="confPass" name="confPass" type="password" placeholder="Confirmer le mot de passe" required="required" data-validation-required-message="Veuillez confirmer votre mot de passe." />
+                                        <input class="form-control" id="confpassword" name="confpassword" type="password" placeholder="Confirmer le mot de passe" required="required" data-validation-required-message="Veuillez confirmer votre mot de passe." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>

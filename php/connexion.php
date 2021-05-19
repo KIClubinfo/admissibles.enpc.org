@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (isset($_SESSION['loggedin'])) {
+	    header('Location: profil.php');
+	    exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <?php
