@@ -14,6 +14,12 @@
         <!-- Navigation-->
         <?php
             include("navinscrip.php");
+        
+            if (isset($_GET['erreur'])){
+                if ($_GET['erreur'] == 1){
+                    include("popupErreur.php");
+                }
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
@@ -68,5 +74,6 @@
         <?php
             include("footer.php");
         ?>
+        <script src="js/demo.js"></script>
     </body>
 </html>

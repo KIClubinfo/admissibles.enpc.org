@@ -33,10 +33,10 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['id'] = $id;
         header('Location: index.php');
 	} else {
-		echo 'Email et/ou mot de passe incorrect.';
+		header('Location: connexion.php?erreur=1');
 	}
 } else {
-	echo 'Email et/ou mot de passe incorrect.';   
+	header('Location: connexion.php?erreur=1'); 
 }
 $stmt->close();
 ?>
