@@ -31,7 +31,7 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['id'] = $id;
-        header('Location: profil.php');
+        header('Location: index.php');
 	} else {
 		echo 'Email et/ou mot de passe incorrect.';
 	}
