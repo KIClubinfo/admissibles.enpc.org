@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 //---------NOT FOR PROD---------//
 
+//include("mailer.php");
+
 $db_password = $_ENV["mysql_password"];
 $con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
 if ($con->connect_error) {
@@ -41,11 +43,19 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	if ($stmt->num_rows > 0) {
 		echo 'Cet email est déjà utilisé.';
 	} else {
-		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, password, mail, tel, admin) VALUES (?, ?, ?, ?, ?, 0)');
+		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, password, mail, tel, admin, activation_code) VALUES (?, ?, ?, ?, ?, 0, ?)');
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	    $stmt->bind_param('sssss', $_POST['prenom'], $_POST['nom'], $password, $_POST['email'], $_POST['tel']);
+		$uniqid = uniqid();
+	    $stmt->bind_param('ssssss', $_POST['prenom'], $_POST['nom'], $password, $_POST['email'], $_POST['tel'], $uniqid);
 	    $stmt->execute();
-	    echo 'Inscription réussie.';
+
+		//send_mail($_POST['email'], $uniqid, $_POST['prenom']);
+	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
+
+		//******Only while there is no mailer******//
+		header('Location: temp.php?email='.$_POST['email'].'&code='.$uniqid.'');
+	    exit();
+		//*****************************************//
 	}
 	$stmt->close();
 }

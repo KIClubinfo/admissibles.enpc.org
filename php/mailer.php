@@ -65,7 +65,4 @@ try {
 
 };
 };
-
-send_mail("bastien.lechenadec@orange.fr", "test", "Bastien");
-
 ?>
