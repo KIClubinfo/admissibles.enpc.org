@@ -13,6 +13,7 @@ services:
       - 8123:80
     environment:
       - mysql_password=${mysql_password}
+      - gmail_password=${gmail_password}
   db:
     container_name: mysql8
     image: mysql:8.0.20

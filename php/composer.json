@@ -1,0 +1,14 @@
+{
+    "name": "ki/admissibles",
+    "description": "The back of admissibles_logement",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.3"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Bastien Le Chenadec"
+        }
+    ]
+}
