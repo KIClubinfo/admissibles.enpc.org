@@ -1,0 +1,7 @@
+{
+    "name": "ki/admissibles",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.3"
+    }
+}
