@@ -7,10 +7,10 @@ EXPOSE 80
 COPY conf_server/php.ini /usr/local/etc/php/php.ini
 COPY conf_server/apache.conf /usr/local/apache2/conf/httpd.conf
 
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 WORKDIR /var/www/html/
-COPY composer.sh .
+COPY composer_install.sh .
 COPY composer.json .
 COPY composer.lock .
-RUN chmod +x composer.sh
-RUN ./composer.sh
+RUN chmod +x composer_install.sh
+RUN ./composer_install.sh
+RUN php composer.phar install

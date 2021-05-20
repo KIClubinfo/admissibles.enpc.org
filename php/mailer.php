@@ -4,6 +4,10 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
+require __DIR__ . '/vendor/autoload.php';
+//require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+//require '/usr/local/lib/php/vendor/autoload.php';
+//require '/var/www/html/vendor/autoload.php';
 //require 'vendor/autoload.php';
 
 function send_mail($email, $activation_code, $prenom) {
