@@ -13,12 +13,10 @@
     <body id="page-top">
         <!-- Navigation-->
         <?php
-            include("navinscrip.php");
+            include("navbar.php");
         
             if (isset($_GET['erreur'])){
-                if ($_GET['erreur'] == 1){
-                    include("popupErreur.php");
-                }
+                include("popupErreur.php");
             }
         ?>
         <!-- Masthead-->

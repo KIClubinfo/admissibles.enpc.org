@@ -14,7 +14,7 @@
     <body id="page-top">
         <!-- Navigation-->
         <?php
-            include("navinscrip.php");
+            include("navbar.php");
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">

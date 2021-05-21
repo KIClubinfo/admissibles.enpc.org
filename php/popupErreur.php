@@ -17,7 +17,17 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Text-->
-                            <h4 class="mb-5" style="color:grey;">Email et/ou mot de passe incorrect.<br/> <br/> Veuillez réessayer.</h4>
+                            <?php
+                            if($_GET['erreur'] == 1){
+                                echo '<h4 class="mb-5" style="color:grey;">Email et/ou mot de passe incorrect.<br/> <br/> Veuillez réessayer.</h4>';
+                            }
+                            else if($_GET['erreur'] == 2){
+                                echo '<h4 class="mb-5" style="color:grey;">Votre compte n\'est pas activé.<br/> <br/>Suivez le lien reçu par mail pour l\'activer.</h4>';
+                            }
+                            else{
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';
+                            }
+                            ?>
                             <button class="btn btn-primary" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
                                 Fermer
