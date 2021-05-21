@@ -4,6 +4,11 @@
 	    header('Location: connexion.php');
 	    exit();
     }
+    $db_password = $_ENV["mysql_password"];
+    $con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
+    if ($con->connect_error) {
+        die('Erreur lors de la connexion à la base de donnée: ' . $con->connect_error);
+    }  
 ?>
 
 <!DOCTYPE html>
@@ -50,24 +55,65 @@
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Informations personnelles :</h4>
                             <ul style="margin-top:1em">
-                                <li><h5>Nom :</h5></li>
-                                <li><h5>Prénom :</h5></li>
-                                <li><h5>Mail :</h5></li>
-                                <li><h5>Numéro :</h5></li>
+                                <li><h5>Nom : <?php echo $_SESSION['nom'] ?></h5></li>
+                                <li><h5>Prénom : <?php echo $_SESSION['prenom'] ?></h5></li>
+                                <li><h5>Mail : <?php echo $_SESSION['email'] ?></h5></li>
+                                <li><h5>Numéro : <?php echo $_SESSION['tel'] ?></h5></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row justify-content-center" style="margin-top:3em">
+                    <?php
+                    if($_SESSION['a_reserve']){
+                        if ($stmt = $con->prepare('SELECT * FROM demande WHERE id_eleve = ?')) {
+                            $stmt->bind_param('i', $_SESSION['id']);
+                            $stmt->execute();
+                            $stmt->store_result();
+                        }
+                        if ($stmt->num_rows > 0) {
+                            $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $gender_choice, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate, $mate_email, $validee);
+                            $stmt->fetch();
+                            $stmt->close();
+                        }
+
+                        if($type_chambre==1){
+                            $type_chambre="Simple";
+                        }
+                        else if($type_chambre==2){
+                            $type_chambre="Binômée";
+                        }
+                        else if($type_chambre==3){
+                            $type_chambre="Double";
+                        }
+
+                    echo '<div class="row justify-content-center" style="margin-top:3em">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
                             <ul style="margin-top:1em">
-                                <li><h5>Demande effectué le :</h5></li>
-                                <li><h5>Type de chambre :</h5></li>
+                                <li><h5>Type de chambre : '; echo $type_chambre; echo '</h5></li>
+                                <li><h5>Si pas de chambre '; echo $type_chambre; if($remplace){
+                                                                                    echo ' : Accepte un autre type de chambre';
+                                                                                }
+                                                                                else{
+                                                                                    echo ' : Ne prends pas de chambre d\'un autre type';
+                                                                                }
+                                                                                echo ' </h5></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>';
+                    }
+                    else{echo'
+                    <div class="row justify-content-center" style="margin-top:3em">
+                        <div class="col-lg-8">
+                            <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
+                            <h5 style="text-align: center"></br>Aucune demande effectuée</h5>
+                        </div>
+                    </div>';
+                    }
+                    ?>
                 </div>
                 <!-- Profil Section Button-->
+                <?php
+                if($_SESSION['a_reserve']){echo'
                 <div class="text-center mt-4">
                     <a class="btn btn-xl btn-primary" href="">
                         Modifier ma demande
@@ -75,7 +121,18 @@
                     <a class="btn btn-xl btn-danger" href="">
                         Annuler ma demande
                     </a>
-                </div>
+                </div>';
+                }
+                else{echo'
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-primary" href="choice.php">
+                        Faire ma demande
+                    </a>
+                </div>';   
+                }
+                ?>
+                
+                
             </div>
         </section>
         <!-- Footer-->
