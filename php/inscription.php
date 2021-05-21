@@ -15,6 +15,12 @@
         <!-- Navigation-->
         <?php
             include("navbar.php");
+            if (isset($_GET['erreur'])){
+                include("popupErreur.php");
+            }
+            if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">

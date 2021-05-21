@@ -24,6 +24,30 @@
                             else if($_GET['erreur'] == 2){
                                 echo '<h4 class="mb-5" style="color:grey;">Votre compte n\'est pas activé.<br/> <br/>Suivez le lien reçu par mail pour l\'activer.</h4>';
                             }
+                            else if($_GET['erreur'] == "bdderror"){
+                                echo '<h4 class="mb-5" style="color:grey;">Erreur de connexion à la base de donnée.<br/> <br/>Contactez l\'administration du site.</h4>';
+                            }
+                            else if($_GET['erreur'] == "form"){
+                                echo '<h4 class="mb-5" style="color:grey;">Merci de compléter le formulaire d\'inscription.</h4>';
+                            }
+                            else if($_GET['erreur'] == "password"){
+                                echo '<h4 class="mb-5" style="color:grey;">Les mots de passe ne correspondent pas.</h4>';
+                            }
+                            else if($_GET['erreur'] == "prenom"){
+                                echo '<h4 class="mb-5" style="color:grey;">Prénom incorrect.<br/> <br/>Merci de ne pas utiliser de caractères spéciaux (sauf accents).</h4>';
+                            }
+                            else if($_GET['erreur'] == "nom"){
+                                echo '<h4 class="mb-5" style="color:grey;">Nom incorrect.<br/> <br/>Merci de ne pas utiliser de caractères spéciaux (sauf accents).</h4>';
+                            }
+                            else if($_GET['erreur'] == "mail"){
+                                echo '<h4 class="mb-5" style="color:grey;">Adresse email incorrecte.</h4>';
+                            }
+                            else if($_GET['erreur'] == "phone"){
+                                echo '<h4 class="mb-5" style="color:grey;">Numéro de téléphone incorrect.</h4>';
+                            }
+                            else if($_GET['erreur'] == "mailexist"){
+                                echo '<h4 class="mb-5" style="color:grey;">Cet email est déjà utilisé.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';
                             }

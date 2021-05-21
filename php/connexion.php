@@ -18,6 +18,9 @@
             if (isset($_GET['erreur'])){
                 include("popupErreur.php");
             }
+            else if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">

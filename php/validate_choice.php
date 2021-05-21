@@ -103,4 +103,7 @@ else {
     $stmt->close();
     $con->close();
 }
+
+header('Location: profil.php');
+exit();
 ?>

@@ -1,8 +1,16 @@
 <?php
+
+session_start();
+if (isset($_SESSION['loggedin'])) {
+    header('Location: profil.php');
+    exit();
+}
+
 $db_password = $_ENV["mysql_password"];
 $con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
 if ($con->connect_error) {
-    die('Erreur lors de la connexion à la base de donnée: ' . $con->connect_error);
+    header('Location: connexion.php?erreur=bdderror');
+	exit();
 }
 
 if (isset($_GET['email'], $_GET['code'])) {
@@ -15,10 +23,12 @@ if (isset($_GET['email'], $_GET['code'])) {
 				$newcode = 'activated';
 				$stmt->bind_param('sss', $newcode, $_GET['email'], $_GET['code']);
 				$stmt->execute();
-				echo 'Votre compte a bien été activé. <a href="connexion.php">Se connecter</a>';
+				header('Location: connexion.php?info=activation');
+	    		exit();
 			}
 		} else {
-			echo 'Ce compte est déjà activé.';
+			header('Location: connexion.php?info=alreadyactive');
+			exit();
 		}
 	}
 }
