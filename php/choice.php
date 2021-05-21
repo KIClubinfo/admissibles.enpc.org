@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if (isset($_SESSION['loggedin'])) {
-	    header('Location: profil.php');
+    if (!isset($_SESSION['loggedin'])) {
+	    header('Location: connexion.php');
 	    exit();
     }
 ?>
@@ -14,7 +14,7 @@
     <body id="page-top">
         <!-- Navigation-->
         <?php
-            include("navinscrip.php");
+            include("navbar.php");
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez vous tout de même une chambre d'un autre type?</label>
+                                        <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez-vous tout de même une chambre d'un autre type?</label>
                                         <select class="form-control" id="replace-choice" name="replace-choice"required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="1">Oui</option>
@@ -63,12 +63,12 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='replace-choice'>Si vous êtiez dans une chambre à deux places, souhaiteriez vous être avec:</label>
+                                        <label for='replace-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec:</label>
                                         <select class="form-control" id="gender-choice" name="gender-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
+                                            <option value="3">indifférent</option>
                                             <option value="1">une femme</option>
                                             <option value="2">un homme</option>
-                                            <option value="3">une personne non binaire</option>
                                         </select>
                                         <p class="help-block text-danger"></p>
                                 </div>
@@ -76,34 +76,34 @@
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label for="arrival-date">Date d'arrivée</label>
-                                        <input class="form-control" id="arrival-date" name="arrival-date" type="date" placeholder="date-arrivee" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." />
+                                        <input class="form-control" id="arrival-date" name="arrival-date" type="date" placeholder="Date d'arrivée" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label for="arrival-date">Heure d'arrivée</label>
-                                        <input class="form-control" id="arrival-time" name="arrival-time" type="time" placeholder="heure-arrivee" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." step="900"/>
+                                        <input class="form-control" id="arrival-time" name="arrival-time" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." step="60"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label>Date de départ</label>
-                                        <input class="form-control" id="departure-date" name="departure-date" type="date" placeholder="date-depart" required="required" data-validation-required-message="Veuillez entrer une date de départ." />
+                                        <input class="form-control" id="departure-date" name="departure-date" type="date" placeholder="Date de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label>Heure de départ</label>
-                                        <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="heure-depart" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="900"/>
+                                        <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="Heure de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="60"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group"  style="Display : None" id="mate-choice-block">
                                     <div class="form-group">
-                                        <label>Souhaitez vous être avec une personne en particulier?</label>
+                                        <label>Souhaitez-vous être avec une personne en particulier?</label>
                                         <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="0">Non</option>
@@ -114,8 +114,8 @@
                                 </div>
                                 <div class="control-group" style="Display : None" id="mate-email-block">
                                     <div class="form-group">
-                                        <label>Adresse mail de la personne souhaitée</label>
-                                        <input class="form-control" id="mate-email" name="email" type="mail" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
+                                        <label>Adresse mail de la personne souhaitée (ATTENTION: celle utilisée pour l'inscription)</label>
+                                        <input class="form-control" id="mate-email" name="mate-email" type="mail" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
                                         <p class="help-block text-danger"></p>
                                     </div>  
                                 </div>

@@ -26,16 +26,16 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`reservation` (
 CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `id_demande` INT NOT NULL AUTO_INCREMENT ,
   `id_eleve` INT NOT NULL ,
-  `type` INT NOT NULL ,
+  `type_chambre` INT NOT NULL ,
   `remplace` BOOLEAN ,
   `gender_choice` INT NOT NULL ,
-  `arrival_date` DATE ,
-  `arrival_time` TIME ,
-  `departure_date` DATE ,
-  `departure_time` TIME ,
+  `arrival_date` VARCHAR(15) ,
+  `arrival_time` VARCHAR(10) ,
+  `departure_date` VARCHAR(15) ,
+  `departure_time` VARCHAR(10) ,
   `mate` BOOLEAN ,
   `mate_email` VARCHAR(100) ,
-  `validée` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 1 homme, 2 femme, 3 autre ou ne precise pas
+  `validee` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 1 homme, 2 femme, 3 autre ou ne precise pas
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
   INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
