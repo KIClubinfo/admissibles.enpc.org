@@ -23,5 +23,19 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`reservation` (
   `date_depart` DATETIME NOT NULL, PRIMARY KEY (`id_res`))
   ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
+  `id_demande` INT NOT NULL AUTO_INCREMENT ,
+  `id_eleve` INT NOT NULL ,
+  `type` INT NOT NULL ,
+  `remplace` BOOLEAN ,
+  `arrival_date` DATE ,
+  `arrival_time` TIME ,
+  `departure_date` DATE ,
+  `departure_time` TIME ,
+  `mate` BOOLEAN ,
+  `mate_email` VARCHAR(100) ,
+  ENGINE = InnoDB DEFAULT CHARSET=utf8;;
+
+  `validée` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`))
   INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
   VALUES ('1', 'admin', 'admin', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', '');

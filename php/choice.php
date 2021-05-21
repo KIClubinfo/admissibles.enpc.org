@@ -1,0 +1,182 @@
+<?php
+    session_start();
+    if (isset($_SESSION['loggedin'])) {
+	    header('Location: profil.php');
+	    exit();
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <?php
+        include("head.php");
+    ?>
+    <body id="page-top">
+        <!-- Navigation-->
+        <?php
+            include("navinscrip.php");
+        ?>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Choix de la chambre</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="container text-left">
+                    <!-- Inscription Section Form-->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <form id="choiceForm" name="choice" action="validate_choice.php" method="post" autocomplete="off">
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label for='Type-choice'>Type de Chambre souhaitée</label>
+                                        <select class="form-control" id="Type-choice" name="Type-choice" required="required" data-validation-required-message="Veuillez choisir un type de Chambre.">
+                                            <option value="" disabled>Choisir un type de chambre</option>
+                                            <option value= "1">Simple</option>
+                                            <option value= "2">Binômée</option>
+                                            <option value= "3">Double</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez vous tout de même une chambre d'un autre type?</label>
+                                        <select class="form-control" id="replace-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
+                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="1">Oui</option>
+                                            <option value="0">Non</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label for="arrival-date">Date d'arrivée</label>
+                                        <input class="form-control" id="arrival-date" name="arrival-date" type="date" placeholder="date-arrivee" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label for="arrival-date">Heure d'arrivée</label>
+                                        <input class="form-control" id="arrival-time" name="arrival-time" type="time" placeholder="heure-arrivee" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." step="900"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Date de départ</label>
+                                        <input class="form-control" id="departure-date" name="departure-date" type="date" placeholder="date-depart" required="required" data-validation-required-message="Veuillez entrer une date de départ." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Heure de départ</label>
+                                        <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="heure-depart" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="900"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group"  style="Display : None" id="mate-choice-block">
+                                    <div class="form-group">
+                                        <label>Souhaitez vous être avec une personne en particulier?</label>
+                                        <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
+                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="0">Non</option>
+                                            <option value="1">Oui</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group" style="Display : None" id="mate-email-block">
+                                    <div class="form-group">
+                                        <label>Adresse mail de la personne souhaitée</label>
+                                        <input class="form-control" id="mate-email" name="email" type="mail" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>  
+                                </div>
+                                <br />
+                                <div id="success"></div>
+                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Effectuer une demande</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <p class="lead mb-0">
+                            2215 John Daniel Drive
+                            <br />
+                            Clark, MO 65243
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Around the Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <p class="lead mb-0">
+                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            .
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer-->
+        <?php
+            include("footer.php");
+        ?>
+
+        <script>
+
+            document.getElementById("Type-choice").addEventListener("change", (event) => {
+                if (event.target.value === "2" || event.target.value === "3") {
+                    document.getElementById("mate-choice-block").style.display = "block";
+                    document.getElementById("mate-choice-block").setAttribute(required, "required");
+                }
+                else {
+                    document.getElementById("mate-choice-block").style.display = "none";
+                    document.getElementById("mate-choice-block").removeAttribute(required);
+                }
+            });
+            
+            document.getElementById("mate-choice").addEventListener("change", (event) => {
+                if (event.target.value === "1") {
+                    document.getElementById("mate-email-block").style.display = "block";
+                    document.getElementById("mate-email-block").setAttribute(required, "required");
+                }
+                else {
+                    document.getElementById("mate-email-block").style.display = "none";
+                    document.getElementById("mate-email-block").removeAttribute(required);
+                }
+            });
+        </script>
+    </body>
+</html>
