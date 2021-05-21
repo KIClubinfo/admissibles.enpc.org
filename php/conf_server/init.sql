@@ -34,8 +34,9 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `departure_time` TIME ,
   `mate` BOOLEAN ,
   `mate_email` VARCHAR(100) ,
+  `validée` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`))
   ENGINE = InnoDB DEFAULT CHARSET=utf8;;
 
-  `validée` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`))
+
   INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
-  VALUES ('1', 'admin', 'admin', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', '');
+  VALUES ('1', 'admin', 'admin', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', 'activated');
