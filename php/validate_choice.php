@@ -94,16 +94,27 @@ if ($_POST["mate-choice"] == 1)
     $stmt->bind_param('iiiissssis', $_SESSION['id'], $_POST['Type-choice'], $_POST['gender-choice'], $_POST['replace-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_POST['mate-email']);
     $stmt->execute();
     $stmt->close();
-    $con->close();
 }
 else {
     $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee) VALUES (?,?,?,?,?,?,?,?,?,NULL,0)');
     $stmt->bind_param('iiiissssi', $_SESSION['id'], $_POST['Type-choice'], $_POST['gender-choice'], $_POST['replace-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice']);
     $stmt->execute();
     $stmt->close();
-    $con->close();
 }
 
+
+if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
+    $stmt->bind_param('i', $_SESSION['id']);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        if ($stmt = $con->prepare('UPDATE eleves SET a_reserve=1 WHERE id=?')) {
+            $stmt->bind_param('i', $_SESSION['id']);
+            $stmt->execute();
+        }
+    }
+}
+$con->close();
 header('Location: profil.php');
 exit();
 ?>
