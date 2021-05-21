@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `id_eleve` INT NOT NULL ,
   `type` INT NOT NULL ,
   `remplace` BOOLEAN ,
+  `gender_choice` INT NOT NULL , --1 Female, 2 Male, 3 non-binary
   `arrival_date` DATE ,
   `arrival_time` TIME ,
   `departure_date` DATE ,

@@ -5,8 +5,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 //---------NOT FOR PROD---------//
 
-//include("mailer.php");
-
 function isRealDate($date) { 
     if (false === strtotime($date)) { 
         return false;
@@ -21,10 +19,10 @@ if ($con->connect_error) {
     die('Erreur lors de la connexion à la base de donnée: ' . $con->connect_error);
 }
 
-if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"])) {
+if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["gender-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"])) {
 	exit('Merci de compléter le formulaire d\'inscription.');
 }
-if (empty($_POST["Type-choice"]) || empty($_POST["replace-choice"]) || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
+if (empty($_POST["Type-choice"]) || empty($_POST["replace-choice"]) || $_POST["gender-choice"] || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
 	exit('Merci de compléter le formulaire d\'inscription.');
 }
 
@@ -52,14 +50,18 @@ if ($_POST["Type-choice"] == 2 || $_POST["Type-choice"] == 3) {
 
 if ($_POST["Type-choice"] == 1) {
     if ($_POST["mate-choice"] == 1) {
-        exit(('Vous ne pouvez pas être deux dans une chambre simple');
+        exit('Vous ne pouvez pas être deux dans une chambre simple');
     }
 }
 
 if ($_POST["Type-choice"] == 1 || $_POST["mate-choice"] == 0) {
     if (!empty($_POST['mate-email']) {
-        exit(('Erreur');
+        exit('Erreur');
     }
+}
+
+if ($_POST["gender-choice"] != 1 && $_POST["gender-choice"] != 2 && $_POST["gender-choice"] != 3) {
+    exit("Genre incorrect")
 }
 
 if ($_POST["Type-choice"] != 1 && $_POST["Type-choice"] != 2 && $_POST["Type-choice"] != 3) {
@@ -83,30 +85,14 @@ if (preg_match("([01]?[0-9]|2[0-3]):[0-5][0-9]", $_POST["departure-time"]) == 0)
     exit('Heure incorrecte.')
 }
 
-//TO DO
-if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
-	$stmt->bind_param('s', $_POST['email']);
-	$stmt->execute();
-	$stmt->store_result();
-	if ($stmt->num_rows > 0) {
-		echo 'Cet email est déjà utilisé.';
-	} else {
-		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, password, mail, tel, admin, activation_code) VALUES (?, ?, ?, ?, ?, 0, ?)');
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-		$uniqid = uniqid();
-	    $stmt->bind_param('ssssss', $_POST['prenom'], $_POST['nom'], $password, $_POST['email'], $_POST['tel'], $uniqid);
-	    $stmt->execute();
-
-		//send_mail($_POST['email'], $uniqid, $_POST['prenom']);
-	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
-
-		//******Only while there is no mailer******//
-		header('Location: temp.php?email='.$_POST['email'].'&code='.$uniqid.'');
-	    exit();
-		//*****************************************//
-	}
-	$stmt->close();
+$stmt = $con->prepare('INSERT INTO demande (id_eleve, type, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email) VALUES (?,?,?,?,?,?,?,?,?,?)');
+if ("mate-choice" == 1)
+{
+    $stmt->bind_param('iiiissssis', $_SESSION["id"], $_POST['type'], $_POST["gender-choice"], $_POST["replace-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"], $_POST["mate"], $_POST["mate_email"]);
+} else {
+    $stmt->bind_param('iiiissssis', $_SESSION["id"], $_POST['type'], $_POST["gender-choice"], $_POST["replace-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"], $_POST["mate"], NULL);    
 }
-
+$stmt->execute();
+$stmt->close();
 $con->close();
 ?>

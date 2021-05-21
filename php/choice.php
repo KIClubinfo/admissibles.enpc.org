@@ -53,13 +53,25 @@
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez vous tout de même une chambre d'un autre type?</label>
-                                        <select class="form-control" id="replace-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
+                                        <select class="form-control" id="replace-choice" name="replace-choice"required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="1">Oui</option>
                                             <option value="0">Non</option>
                                         </select>
                                         <p class="help-block text-danger"></p>
                                     </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label for='replace-choice'>Si vous êtiez dans une chambre à deux places, souhaiteriez vous être avec:</label>
+                                        <select class="form-control" id="gender-choice" name="gender-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
+                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="1">une femme</option>
+                                            <option value="2">un homme</option>
+                                            <option value="3">une personne non binaire</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
