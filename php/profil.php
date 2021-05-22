@@ -57,8 +57,19 @@
                             <ul style="margin-top:1em">
                                 <li><h5>Nom : <?php echo $_SESSION['nom'] ?></h5></li>
                                 <li><h5>Prénom : <?php echo $_SESSION['prenom'] ?></h5></li>
+                                <?php
+                                if($_SESSION['gender']==1){
+                                    echo '<li><h5>Je suis : Une femme</h5></li>';
+                                }
+                                else if($_SESSION['gender']==2){
+                                    echo '<li><h5>Je suis : Un homme</h5></li>';
+                                }
+                                else{
+                                    echo '<li><h5>Je suis : Autre ou ne souhaite pas préciser</h5></li>';
+                                }
+                                ?>
                                 <li><h5>Mail : <?php echo $_SESSION['email'] ?></h5></li>
-                                <li><h5>Numéro : <?php echo $_SESSION['tel'] ?></h5></li>
+                                <li><h5>Numéro de téléphone : <?php echo $_SESSION['tel'] ?></h5></li>
                             </ul>
                         </div>
                     </div>

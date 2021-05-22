@@ -17,14 +17,14 @@ if ( !isset($_POST['email'], $_POST['password']) ) {
 	exit('Merci de remplir l\'email et le mot de passe.');
 }
 
-if ($stmt = $con->prepare('SELECT id, prenom, nom, password, tel, admin, a_reserve, activation_code FROM eleves WHERE mail = ?')) {
+if ($stmt = $con->prepare('SELECT id, prenom, nom, gender, password, tel, admin, a_reserve, activation_code FROM eleves WHERE mail = ?')) {
 	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
 	$stmt->store_result();
 }
 
 if ($stmt->num_rows > 0) {
-	$stmt->bind_result($id, $prenom, $nom, $password, $tel, $admin, $a_reserve, $activation_code);
+	$stmt->bind_result($id, $prenom, $nom, $gender, $password, $tel, $admin, $a_reserve, $activation_code);
 	$stmt->fetch();
 	if (password_verify($_POST['password'], $password)) {
 		if($activation_code=='activated'){
@@ -37,6 +37,7 @@ if ($stmt->num_rows > 0) {
 			$_SESSION['tel'] = $tel;
 			$_SESSION['admin'] = $admin;
 			$_SESSION['a_reserve'] = $a_reserve;
+			$_SESSION['gender'] = $gender;
         	header('Location: index.php');
 		}
 		else{

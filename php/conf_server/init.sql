@@ -2,12 +2,13 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`eleves` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `prenom` VARCHAR(100) NOT NULL ,
   `nom` VARCHAR(100) NOT NULL ,
+  `gender`INT NOT NULL ,
   `password` VARCHAR(255) NOT NULL ,
   `mail` VARCHAR(100) NOT NULL ,
   `tel` VARCHAR(15) NOT NULL ,
   `admin` BOOLEAN  DEFAULT FALSE ,
   `a_reserve` BOOLEAN DEFAULT FALSE ,
-  `activation_code` VARCHAR(50) DEFAULT '', PRIMARY KEY (`id`))
+  `activation_code` VARCHAR(50) DEFAULT '', PRIMARY KEY (`id`)) -- genre 1 femme, 2 homme, 3 autre ou ne precise pas
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `admissibles`.`chambre` (
@@ -38,5 +39,5 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `validee` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 2 homme, 1 femme, 3 autre ou ne precise pas
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-  INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
-  VALUES ('1', 'admin', 'admin', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', 'activated');
+  INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
+  VALUES ('1', 'admin', 'admin', '3', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', 'activated');

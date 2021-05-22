@@ -60,6 +60,18 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
+                                        <label>Je suis</label>
+                                        <select class="form-control" id="gender" name="gender" required="required" data-validation-required-message="Veuillez choisir une option.">
+                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="1">Une femme</option>
+                                            <option value="2">Un homme</option>
+                                            <option value="3">Autre ou ne souhaite pas préciser</option>
+                                        </select>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
                                         <label>Email</label>
                                         <input class="form-control" id="email" name="email" type="email" placeholder="Email" required="required" data-validation-required-message="Veuillez entrer votre mail." />
                                         <p class="help-block text-danger"></p>

@@ -75,7 +75,7 @@
                                             <option value="2">un homme</option>
                                         </select>
                                         <p class="help-block text-danger"></p>
-                                </div>
+                                    </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">

@@ -58,10 +58,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 		header('Location: inscription.php?erreur=mailexist');
 		exit();
 	} else {
-		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, password, mail, tel, admin, activation_code) VALUES (?, ?, ?, ?, ?, 0, ?)');
+		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, gender, password, mail, tel, admin, activation_code) VALUES (?, ?, ?, ?, ?, ?, 0, ?)');
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$uniqid = uniqid();
-	    $stmt->bind_param('ssssss', $_POST['prenom'], $_POST['nom'], $password, $_POST['email'], $_POST['tel'], $uniqid);
+	    $stmt->bind_param('ssissss', $_POST['prenom'], $_POST['nom'], $_POST['gender'], $password, $_POST['email'], $_POST['tel'], $uniqid);
 	    $stmt->execute();
 
 		//send_mail($_POST['email'], $uniqid, $_POST['prenom']);
