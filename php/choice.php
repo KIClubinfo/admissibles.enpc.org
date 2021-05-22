@@ -4,6 +4,10 @@
 	    header('Location: connexion.php');
 	    exit();
     }
+    if($_SESSION['a_reserve']){
+        header('Location: profil.php');
+	    exit();
+    }
 ?>
 
 <!DOCTYPE html>

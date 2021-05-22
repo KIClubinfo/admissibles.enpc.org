@@ -85,6 +85,9 @@
                             $type_chambre="Double";
                         }
 
+                        list($year1, $month1, $day1) = explode('-', $arrival_date);
+                        list($year2, $month2, $day2) = explode('-', $departure_date);  
+
                     echo '<div class="row justify-content-center" style="margin-top:3em">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
@@ -97,7 +100,37 @@
                                                                                     echo ' : Ne prends pas de chambre d\'un autre type';
                                                                                 }
                                                                                 echo ' </h5></li>
-                            </ul>
+                                <li><h5>Date d\'arrivée : '; echo $day1; echo '/'; echo $month1; echo '/'; echo $year1; echo '</h5></li>
+                                <li><h5>Heure d\'arrivée : '; echo $arrival_time; echo '</h5></li>
+                                <li><h5>Date de départ : '; echo $day2; echo '/'; echo $month2; echo '/'; echo $year2; echo '</h5></li>
+                                <li><h5>Heure de départ : '; echo $departure_time; echo '</h5></li>
+                                <li><h5>A demandé à être avec une autre personne : '; if($mate){
+                                                                                        echo "Oui";                                                      
+                                                                                        }
+                                                                                        else{
+                                                                                            echo "Non";
+                                                                                        }
+                                                                                         echo '</h5></li>';
+                                if($mate){
+                                    echo '<li><h5>Adresse mail de la personne souhaitée : '; echo $mate_email; echo '</h5></li>';                                                 
+                                }
+                                if($gender_choice==1){
+                                    echo '<li><h5>Ne souhaite pas être avec : Une femme</h5></li>';
+                                }
+                                else if($gender_choice==2){
+                                    echo '<li><h5>Ne souhaite pas être avec : Un homme</h5></li>';
+                                }
+                                else{
+                                    echo '<li><h5>Ne souhaite pas être avec : Indifférent</h5></li>';
+                                }
+
+                                if($validee){
+                                    echo '<li><h5>État de la demande : Demande acceptée</h5></li>';                                                 
+                                }
+                                else{
+                                    echo '<li><h5>État de la demande : Demande en attente</h5></li>';    
+                                }                                                 
+                            echo '</ul>
                         </div>
                     </div>';
                     }

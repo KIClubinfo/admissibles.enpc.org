@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `departure_time` VARCHAR(10) ,
   `mate` BOOLEAN ,
   `mate_email` VARCHAR(100) ,
-  `validee` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 1 homme, 2 femme, 3 autre ou ne precise pas
+  `validee` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 2 homme, 1 femme, 3 autre ou ne precise pas
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
   INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `activation_code`)
