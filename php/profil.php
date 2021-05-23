@@ -55,21 +55,21 @@
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Informations personnelles :</h4>
                             <ul style="margin-top:1em">
-                                <li><h5>Nom : <?php echo $_SESSION['nom'] ?></h5></li>
-                                <li><h5>Prénom : <?php echo $_SESSION['prenom'] ?></h5></li>
+                                <li><h5>Nom : <strong><?php echo $_SESSION['nom'] ?></strong></h5></li>
+                                <li><h5>Prénom : <strong><?php echo $_SESSION['prenom'] ?></strong></h5></li>
                                 <?php
                                 if($_SESSION['gender']==1){
-                                    echo '<li><h5>Je suis : Une femme</h5></li>';
+                                    echo '<li><h5>Je suis : <strong>Une femme</strong></h5></li>';
                                 }
                                 else if($_SESSION['gender']==2){
-                                    echo '<li><h5>Je suis : Un homme</h5></li>';
+                                    echo '<li><h5>Je suis : <strong>Un homme</strong></h5></li>';
                                 }
                                 else{
-                                    echo '<li><h5>Je suis : Autre ou ne souhaite pas préciser</h5></li>';
+                                    echo '<li><h5>Je suis : <strong>Autre ou ne souhaite pas préciser</strong></h5></li>';
                                 }
                                 ?>
-                                <li><h5>Mail : <?php echo $_SESSION['email'] ?></h5></li>
-                                <li><h5>Numéro de téléphone : <?php echo $_SESSION['tel'] ?></h5></li>
+                                <li><h5>Mail : <strong><?php echo $_SESSION['email'] ?></strong></h5></li>
+                                <li><h5>Numéro de téléphone : <strong><?php echo $_SESSION['tel'] ?><strong></h5></li>
                             </ul>
                         </div>
                     </div>
