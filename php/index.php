@@ -15,9 +15,9 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+                <img class="masthead-avatar mb-5" src="assets/img/maison2.svg" alt="..." />
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase text-white mb-0">Page d'accueil</h1>
+                <h1 class="masthead-heading text-uppercase text-white mb-0">Accueil</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -25,7 +25,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles</p>
+                <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles au concours Mines-Ponts</p>
             </div>
         </header>
          <!-- About Section-->
@@ -66,7 +66,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/simple.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
@@ -76,7 +76,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/binome.png" alt="..." />
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
@@ -86,7 +86,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/double.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,13 @@
                             <li><h5>La distance entre votre logement et l'École des Ponts</h5></li>
                         </ul>
                         <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer à quelle personne sera donné le logement, nous prendrons la demande qui a été faite en première.</p>
+                        <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l'onglet profil</strong></p>
                     </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-primary" href="profil.php">
+                        Voir mon profil
+                    </a>
                 </div>
             </div>
         </section>

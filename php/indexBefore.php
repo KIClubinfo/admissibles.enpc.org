@@ -15,7 +15,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
+                <img class="masthead-avatar mb-5" title="Icônes conçues par Smashicons from www.flaticon.com" src="assets/img/maison2.svg" alt="..." />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase text-white mb-0">Bienvenue !</h1>
                 <!-- Icon Divider-->

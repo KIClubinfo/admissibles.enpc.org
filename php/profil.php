@@ -21,25 +21,8 @@
         <?php
             include("navbar.php");
         ?>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Page de Profil</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0"></p>
-            </div>
-        </header>
         <!-- Profil Section-->
-        <section class="page-section text-secondary mb-0" id="about">
+        <section style="margin-top: 5%;" class="page-section text-secondary mb-0" id="about">
             <div class="container">
                 <!-- Profil Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary">Mon Profil</h2>
@@ -54,22 +37,22 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Informations personnelles :</h4>
-                            <ul style="margin-top:1em">
-                                <li><h5>Nom : <strong><?php echo $_SESSION['nom'] ?></strong></h5></li>
-                                <li><h5>Prénom : <strong><?php echo $_SESSION['prenom'] ?></strong></h5></li>
+                            <ul style="margin-top:1em;">
+                                <li><h6>Nom : <strong><?php echo $_SESSION['nom'] ?></strong></h6></li>
+                                <li><h6>Prénom : <strong><?php echo $_SESSION['prenom'] ?></strong></h6></li>
                                 <?php
                                 if($_SESSION['gender']==1){
-                                    echo '<li><h5>Je suis : <strong>Une femme</strong></h5></li>';
+                                    echo '<li><h6>Je suis : <strong>Une femme</strong></h6></li>';
                                 }
                                 else if($_SESSION['gender']==2){
-                                    echo '<li><h5>Je suis : <strong>Un homme</strong></h5></li>';
+                                    echo '<li><h6>Je suis : <strong>Un homme</strong></h6></li>';
                                 }
                                 else{
-                                    echo '<li><h5>Je suis : <strong>Autre ou ne souhaite pas préciser</strong></h5></li>';
+                                    echo '<li><h6>Je suis : <strong>Autre ou ne souhaite pas préciser</strong></h6></li>';
                                 }
                                 ?>
-                                <li><h5>Mail : <strong><?php echo $_SESSION['email'] ?></strong></h5></li>
-                                <li><h5>Numéro de téléphone : <strong><?php echo $_SESSION['tel'] ?><strong></h5></li>
+                                <li><h6>Mail : <strong><?php echo $_SESSION['email'] ?></strong></h6></li>
+                                <li><h6>Numéro de téléphone : <strong><?php echo $_SESSION['tel'] ?></strong></h6></li>
                             </ul>
                         </div>
                     </div>
@@ -99,47 +82,48 @@
                         list($year1, $month1, $day1) = explode('-', $arrival_date);
                         list($year2, $month2, $day2) = explode('-', $departure_date);  
 
-                    echo '<div class="row justify-content-center" style="margin-top:3em">
+                    echo '
+                    <div class="row justify-content-center" style="margin-top:3em">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
                             <ul style="margin-top:1em">
-                                <li><h5>Type de chambre : '; echo $type_chambre; echo '</h5></li>
-                                <li><h5>Si pas de chambre '; echo $type_chambre; if($remplace){
-                                                                                    echo ' : Accepte un autre type de chambre';
+                                <li><h6>Type de chambre : <strong>'; echo $type_chambre; echo '</strong></h6></li>
+                                <li><h6>Si pas de chambre '; echo $type_chambre; if($remplace){
+                                                                                    echo ' : <strong>Accepte un autre type de chambre</strong>';
                                                                                 }
                                                                                 else{
-                                                                                    echo ' : Ne prends pas de chambre d\'un autre type';
+                                                                                    echo ' : <strong>Ne prends pas de chambre d\'un autre type</strong>';
                                                                                 }
-                                                                                echo ' </h5></li>
-                                <li><h5>Date d\'arrivée : '; echo $day1; echo '/'; echo $month1; echo '/'; echo $year1; echo '</h5></li>
-                                <li><h5>Heure d\'arrivée : '; echo $arrival_time; echo '</h5></li>
-                                <li><h5>Date de départ : '; echo $day2; echo '/'; echo $month2; echo '/'; echo $year2; echo '</h5></li>
-                                <li><h5>Heure de départ : '; echo $departure_time; echo '</h5></li>
-                                <li><h5>A demandé à être avec une autre personne : '; if($mate){
+                                                                                echo ' </h6></li>
+                                <li><h6>Date d\'arrivée : <strong>'; echo $day1; echo '/'; echo $month1; echo '/'; echo $year1; echo '</strong></h6></li>
+                                <li><h6>Heure d\'arrivée : <strong>'; echo $arrival_time; echo '</strong></h6></li>
+                                <li><h6>Date de départ : <strong>'; echo $day2; echo '/'; echo $month2; echo '/'; echo $year2; echo '</strong></h6></li>
+                                <li><h6>Heure de départ : <strong>'; echo $departure_time; echo '</strong></h6></li>
+                                <li><h6>A demandé à être avec une autre personne : <strong>'; if($mate){
                                                                                         echo "Oui";                                                      
                                                                                         }
                                                                                         else{
                                                                                             echo "Non";
                                                                                         }
-                                                                                         echo '</h5></li>';
+                                                                                         echo '</strong></h6></li>';
                                 if($mate){
-                                    echo '<li><h5>Adresse mail de la personne souhaitée : '; echo $mate_email; echo '</h5></li>';                                                 
+                                    echo '<li><h6>Adresse mail de la personne souhaitée : <strong>'; echo $mate_email; echo '</strong></h6></li>';                                                 
                                 }
                                 if($gender_choice==1){
-                                    echo '<li><h5>Ne souhaite pas être avec : Une femme</h5></li>';
+                                    echo '<li><h6>Ne souhaite pas être avec : <strong>Une femme</strong></h6></li>';
                                 }
                                 else if($gender_choice==2){
-                                    echo '<li><h5>Ne souhaite pas être avec : Un homme</h5></li>';
+                                    echo '<li><h6>Ne souhaite pas être avec : <strong>Un homme</strong></h6></li>';
                                 }
                                 else{
-                                    echo '<li><h5>Ne souhaite pas être avec : Indifférent</h5></li>';
+                                    echo '<li><h6>Ne souhaite pas être avec : <strong>Indifférent</strong></h6></li>';
                                 }
 
                                 if($validee){
-                                    echo '<li><h5>État de la demande : Demande acceptée</h5></li>';                                                 
+                                    echo '<li><h6>État de la demande : <strong>Demande acceptée</strong></h6></li>';                                                 
                                 }
                                 else{
-                                    echo '<li><h5>État de la demande : Demande en attente</h5></li>';    
+                                    echo '<li><h6>État de la demande : <strong>Demande en attente</strong></h6></li>';    
                                 }                                                 
                             echo '</ul>
                         </div>
@@ -149,7 +133,7 @@
                     <div class="row justify-content-center" style="margin-top:3em">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
-                            <h5 style="text-align: center"></br>Aucune demande effectuée</h5>
+                            <h6 style="text-align: center"></br><strong>Aucune demande effectuée</strong></h6>
                         </div>
                     </div>';
                     }
@@ -162,6 +146,8 @@
                     <a class="btn btn-xl btn-primary" href="">
                         Modifier ma demande
                     </a>
+                </div>
+                <div class="text-center mt-4">
                     <a class="btn btn-xl btn-danger" href="cancel.php">
                         Annuler ma demande
                     </a>

@@ -11,7 +11,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Log Cabin</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Chambre Simple :</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -19,12 +19,12 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/simple.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            <p class="mb-5 text-secondary">La <strong>surface</strong> de la chambre simple varie entre 18,2 à 24,5 m2. <br/>Chaque chambre inclut une <strong>cuisine</strong>, des <strong>toilettes</strong> et un <strong>bureau</strong>.</p>
                             <button class="btn btn-primary" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
-                                Close Window
+                                Fermer
                             </button>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Tasty Cake</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Chambre Binomé :</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -53,12 +53,12 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/binome.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            <p class="mb-5 text-secondary">La <strong>surface</strong> de la chambre binomé est d'envrion 20 m2 <br/>Chaque chambre inclut une <strong>cuisine</strong>, des <strong>toilettes</strong> et un <strong>bureau</strong>.</p>
                             <button class="btn btn-primary" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
-                                Close Window
+                                Fermer
                             </button>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Circus Tent</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Chambre Double :</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -87,12 +87,12 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/double.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                            <p class="mb-5 text-secondary">La <strong>surface</strong> de la chambre double est d'environ 30 m2. <br/>Chaque chambre inclut une <strong>cuisine</strong>, des <strong>toilettes</strong> et un <strong>bureau individuelle</strong>.</p>
                             <button class="btn btn-primary" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
-                                Close Window
+                                Fermer
                             </button>
                         </div>
                     </div>
