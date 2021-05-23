@@ -62,7 +62,7 @@
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="text-center"><p><a href="">Mot de passe oublié ?</a></p></div>
+                                <div class="text-center"><p><a href="forgotpassword.php">Mot de passe oublié ?</a></p></div>
                                 <br />
                                 <div id="success"></div>
                                 <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Se connecter</button></div>

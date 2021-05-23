@@ -10,7 +10,9 @@ require __DIR__ . '/vendor/autoload.php';
 //require '/var/www/html/vendor/autoload.php';
 //require 'vendor/autoload.php';
 
-function send_mail($email, $activation_code, $prenom) {
+function send_mail($email, $activation_code, $typemessage) {
+
+if($typemessage==0){
 $message= '
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,12 +22,30 @@ $message= '
 </head>
 <body style="margin: 0; padding: 0;">
     <p>
-        Bonjour '.$prenom.'.
+        Bonjour,
         <a href="localhost:8123/activate.php?email='.$email.'&code='.$activation_code.'">Clique ici pour activer ton compte</a>
     </p>
 </body>
 </html>
 ';
+}
+if($typemessage==1){
+    $message= '
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Changement de ton mot de passe Admissibles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <p>
+            Bonjour. Tu as demandé à modifier ton mot de passe Admissibles.
+            <a href="localhost:8123/changepassword2.php?email='.$email.'&code='.$activation_code.'">Clique ici pour le modifier.</a>
+        </p>
+    </body>
+    </html>
+    ';
+    }
 
 $subject = 'Validation de ton compte Admissibles';
 $mail = new PHPMailer(true);

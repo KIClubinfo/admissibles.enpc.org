@@ -64,7 +64,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	    $stmt->bind_param('ssissss', $_POST['prenom'], $_POST['nom'], $_POST['gender'], $password, $_POST['email'], $_POST['tel'], $uniqid);
 	    $stmt->execute();
 
-		//send_mail($_POST['email'], $uniqid, $_POST['prenom']);
+		//send_mail($_POST['email'], $uniqid,0);
 	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
 		//******Only while there is no mailer******//

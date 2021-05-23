@@ -24,6 +24,9 @@
                             else if($_GET['info'] == "alreadyactive"){
                                 echo '<h4 class="mb-5" style="color:grey;">Votre compte a déjà été activé.<br/> <br/> Vous pouvez vous connecter.</h4>';
                             }
+                            else if($_GET['info'] == "mdpchanged"){
+                                echo '<h4 class="mb-5" style="color:grey;">Votre mot de passe a bien été changé. </br> </br> Vous pouvez vous connecter.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue.</h4>';
                             }
