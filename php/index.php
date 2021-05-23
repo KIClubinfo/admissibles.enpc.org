@@ -61,6 +61,7 @@
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                        <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Simple</h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -70,6 +71,7 @@
                     </div>
                     <!-- Portfolio Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                        <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Binomé</h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -79,12 +81,37 @@
                     </div>
                     <!-- Portfolio Item 3-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                        <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Double</h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
                             <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Informations Section-->
+        <section class="page-section text-secondary mb-0" id="about">
+            <div class="container">
+                <!-- Informations Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traiter les demandes ?</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Informations Section Content-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="lead" style="text-align: justify">Afin d'être le plus équitable possible dans l'attribution des logements, les paramètres pris en compte seront :</p>
+                        <ul style="">
+                            <li><h5>Si vous êtes boursiers ou non<h5></li>
+                            <li><h5>La distance entre votre logement et l'École des Ponts</h5></li>
+                        </ul>
+                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer à quelle personne sera donné le logement, nous prendrons la demande qui a été faite en première.</p>
                     </div>
                 </div>
             </div>
