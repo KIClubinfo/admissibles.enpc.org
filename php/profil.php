@@ -162,7 +162,7 @@
                     <a class="btn btn-xl btn-primary" href="">
                         Modifier ma demande
                     </a>
-                    <a class="btn btn-xl btn-danger" href="">
+                    <a class="btn btn-xl btn-danger" href="cancel.php">
                         Annuler ma demande
                     </a>
                 </div>';

@@ -115,6 +115,7 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
     }
 }
 $_SESSION['a_reserve']=1;
+$stmt->close();
 $con->close();
 header('Location: profil.php');
 exit();
