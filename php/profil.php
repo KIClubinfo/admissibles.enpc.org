@@ -146,9 +146,7 @@
                     <a class="btn btn-xl btn-primary" href="choice.php">
                         Modifier ma demande
                     </a>
-                </div>
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-danger" href="cancel.php">
+                    <a class="btn btn-xl btn-danger" href="cancel.php" style="margin:1rem">
                         Annuler ma demande
                     </a>
                 </div>';
