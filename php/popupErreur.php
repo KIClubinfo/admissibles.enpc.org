@@ -49,10 +49,40 @@
                                 echo '<h4 class="mb-5" style="color:grey;">Distance incorrecte.</h4>';
                             }
                             else if($_GET['erreur'] == "boursier"){
-                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Êtes vous boursier?".</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Êtes vous boursier?". Veuillez réessayer.</h4>';
                             }
                             else if($_GET['erreur'] == "mailexist"){
                                 echo '<h4 class="mb-5" style="color:grey;">Cet email est déjà utilisé.</h4>';
+                            }
+                            else if($_GET['erreur'] == "choice-form"){
+                                echo '<h4 class="mb-5" style="color:grey;">Merci de compléter le formulaire de demande.</h4>';
+                            }
+                            else if($_GET['erreur'] == "choice-mail"){
+                                echo '<h4 class="mb-5" style="color:grey;">L\'adresse mail de la personne avec vous souhaitez être est incorrecte.</h4>';
+                            }
+                            else if($_GET['erreur'] == "mate"){
+                                echo '<h4 class="mb-5" style="color:grey;">Vous ne pouvez pas être deux dans une chambre simple.</h4>';
+                            }
+                            else if($_GET['erreur'] == "choice-gender"){
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d\'être avec :". Veuillez réessayer.</h4>';
+                            }
+                            else if($_GET['erreur'] == "choice-type"){
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Type de Chambre souhaitée". Veuillez réessayer.</h4>';
+                            }
+                            else if($_GET['erreur'] == "choice-replace"){
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez-vous tout de même une chambre d\'un autre type?". Veuillez réessayer.</h4>';
+                            }
+                            else if($_GET['erreur'] == "arrival-date"){
+                                echo '<h4 class="mb-5" style="color:grey;">La date d\'arrivée est incorrecte</h4>';
+                            }
+                            else if($_GET['erreur'] == "departure-date"){
+                                echo '<h4 class="mb-5" style="color:grey;">La date de départ est incorrecte</h4>';
+                            }
+                            else if($_GET['erreur'] == "arrival-time"){
+                                echo '<h4 class="mb-5" style="color:grey;">L\'heure d\'arrivée est incorrecte</h4>';
+                            }
+                            else if($_GET['erreur'] == "departure-time"){
+                                echo '<h4 class="mb-5" style="color:grey;">L\'heure de départ est incorrecte</h4>';
                             }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';

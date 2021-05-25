@@ -15,29 +15,36 @@ function isRealDate($date) {
 }
 
 if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["gender-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"])) {
-	exit('Merci de compléter le formulaire de demande.');
+	header('Location: choice.php?erreur=choice-form');
+    exit();
 }
 if (empty($_POST["Type-choice"]) || empty($_POST["replace-choice"]) || empty($_POST["gender-choice"]) || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
-	exit('Merci de compléter le formulaire de demande.');
+	header('Location: choice.php?erreur=choice-form');
+    exit();
 }
 
 if ($_POST["Type-choice"] == 2 || $_POST["Type-choice"] == 3) {
     if (!isset($_POST["mate-choice"])) {
-        exit('Merci de compléter le formulaire de demande.');
+        header('Location: choice.php?erreur=choice-form');
+        exit();
     }
     if (empty($_POST["mate-choice"])) {
-        exit('Merci de compléter le formulaire de demande.');
+        header('Location: choice.php?erreur=choice-form');
+        exit();
     }
     if ($_POST["mate-choice"] == 1)
     {
         if (!isset($_POST["mate-email"])) {
-            exit('Merci de compléter le formulaire de demande.');
+            header('Location: choice.php?erreur=choice-form');
+            exit();
         }
         if (empty($_POST["mate-email"])) {
-            exit('Merci de compléter le formulaire de demande.');
+            header('Location: choice.php?erreur=choice-form');
+            exit();
         }
         if (!filter_var($_POST['mate-email'], FILTER_VALIDATE_EMAIL)) {
-            exit('Adresse email incorrecte.');
+            header('Location: choice.php?erreur=choice-mail');
+            exit();
         }
     }
 }
@@ -45,36 +52,43 @@ if ($_POST["Type-choice"] == 2 || $_POST["Type-choice"] == 3) {
 if ($_POST["Type-choice"] == 1) {
     if (isset($_POST["mate-choice"])){
         if ($_POST["mate-choice"] == 1) {
-            exit('Vous ne pouvez pas être deux dans une chambre simple');
+            header('Location: choice.php?erreur=mate');
+            exit();
         }
     } 
 }
 
 if ($_POST["gender-choice"] != 1 && $_POST["gender-choice"] != 2 && $_POST["gender-choice"] != 3) {
-    exit("Erreur de saisie.");
+    header('Location: choice.php?erreur=choice-gender');
+    exit();
 }
-
 if ($_POST["Type-choice"] != 1 && $_POST["Type-choice"] != 2 && $_POST["Type-choice"] != 3) {
-    exit('Erreur de saisie.');
+    header('Location: choice.php?erreur=choice-type');
+    exit();
 }
 if ($_POST["replace-choice"] != 1 && $_POST["replace-choice"] != 0) {
-    exit('Erreur de saisie.');
+    header('Location: choice.php?erreur=choice-replace');
+    exit();
 }
 
 if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $_POST["arrival-date"])) {
-    exit('Date incorrecte.');
+    header('Location: choice.php?erreur=arrival-date');
+    exit();
 }
 
 if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $_POST["departure-date"])) {
-    exit('Date incorrecte.');
+    header('Location: choice.php?erreur=departure-date');
+    exit();
 }
 
 if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $_POST["arrival-time"]) == 0) {
-    exit('Heure incorrecte.');
+    header('Location: choice.php?erreur=arrival-time');
+    exit();
 }
 
 if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $_POST["departure-time"]) == 0) {
-    exit('Heure incorrecte.');
+    header('Location: choice.php?erreur=departure-time');
+    exit();
 }
 if(!$_SESSION['a_reserve']){
 

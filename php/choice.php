@@ -15,6 +15,12 @@
         <!-- Navigation-->
         <?php
             include("navbar.php");
+            if (isset($_GET['erreur'])){
+                include("popupErreur.php");
+            }
+            if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
@@ -115,7 +121,7 @@
                                 <div class="control-group" style="Display : None" id="mate-email-block">
                                     <div class="form-group">
                                         <label>Adresse mail de la personne souhaitée (ATTENTION: celle utilisée pour l'inscription)</label>
-                                        <input class="form-control" id="mate-email" name="mate-email" type="mail" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
+                                        <input class="form-control" id="mate-email" name="mate-email" type="email" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
                                         <p class="help-block text-danger"></p>
                                     </div>  
                                 </div>
