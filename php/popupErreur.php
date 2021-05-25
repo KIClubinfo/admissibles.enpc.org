@@ -45,6 +45,12 @@
                             else if($_GET['erreur'] == "phone"){
                                 echo '<h4 class="mb-5" style="color:grey;">Numéro de téléphone incorrect.</h4>';
                             }
+                            else if($_GET['erreur'] == "distance"){
+                                echo '<h4 class="mb-5" style="color:grey;">Distance incorrecte.</h4>';
+                            }
+                            else if($_GET['erreur'] == "boursier"){
+                                echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue à la question "Êtes vous boursier?".</h4>';
+                            }
                             else if($_GET['erreur'] == "mailexist"){
                                 echo '<h4 class="mb-5" style="color:grey;">Cet email est déjà utilisé.</h4>';
                             }

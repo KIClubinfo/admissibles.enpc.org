@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`eleves` (
   `password` VARCHAR(255) NOT NULL ,
   `mail` VARCHAR(100) NOT NULL ,
   `tel` VARCHAR(15) NOT NULL ,
+  `distance` FLOAT NOT NULL ,
+  `boursier` BOOLEAN ,
   `admin` BOOLEAN  DEFAULT FALSE ,
   `a_reserve` BOOLEAN DEFAULT FALSE ,
   `change_password` VARCHAR(50) DEFAULT 'no',
@@ -40,5 +42,5 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   `validee` BOOLEAN DEFAULT FALSE, PRIMARY KEY (`id_demande`)) -- genre 2 homme, 1 femme, 3 autre ou ne precise pas
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-  INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `admin` , `a_reserve`, `change_password`, `activation_code`)
-  VALUES ('1', 'admin', 'admin', '3', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '1', '0', 'no', 'activated');
+  INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `distance`, `boursier`, `admin` , `a_reserve`, `change_password`, `activation_code`)
+  VALUES ('1', 'admin', 'admin', '3', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');

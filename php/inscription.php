@@ -1,5 +1,5 @@
 <?php
-    include("config.php");
+    session_start();
     if (isset($_SESSION['loggedin'])) {
 	    header('Location: profil.php');
 	    exit();
@@ -83,6 +83,22 @@
                                         <input class="form-control" id="tel" name="tel" type="tel" placeholder="Numéro de téléphone" required="required" data-validation-required-message="Veuillez entrer votre numéro de téléphone." />
                                         <p class="help-block text-danger"></p>
                                     </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <label>Distance avec Champs-sur-Marne (il pourra vous être demandé de le justifier)</label>
+                                        <input class="form-control" id="distance" name="distance" type="number" min="0" placeholder="Distance (en km)" required="required" data-validation-required-message="Veuillez entrer la distance entre votre domicile et Champs-sur-Marne." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Êtes-vous boursier? (il pourra vous être demandé de le justifier)</label>
+                                    <select class="form-control" id="boursier" name="boursier" data-validation-required-message="Veuillez indiquer si vous êtes boursier.">
+                                        <option value="" disabled>Choisir une option</option>
+                                        <option value="0">Non</option>
+                                        <option value="1">Oui</option>
+                                    </select>
+                                    <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">

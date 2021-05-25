@@ -7,11 +7,11 @@ if (isset($_SESSION['loggedin'])) {
 
 //include("mailer.php");
 
-if (!isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['tel'], $_POST['password'], $_POST['confpassword'])) {
+if (!isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['tel'], $_POST['distance'], $_POST['boursier'], $_POST['password'], $_POST['confpassword'])) {
 	header('Location: inscription.php?erreur=form');
 	exit();
 }
-if (empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['password']) || empty($_POST['confpassword'])){
+if (empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['distance']) || empty($_POST['password']) || empty($_POST['confpassword'])){
 	header('Location: inscription.php?erreur=form');
 	exit();
 }
@@ -35,7 +35,14 @@ if (preg_match("/^(?:(?:\+|00)33|0)[1-9](\d{8})$/", $_POST['tel']) == 0) {
     header('Location: inscription.php?erreur=phone');
 	exit();
 }
-
+if (!is_numeric($_POST['distance']) || $_POST['distance'] < 0) {
+	header('Location: inscription.php?erreur=distance');
+	exit();
+}
+if ($_POST['boursier'] != 0 && $_POST['boursier'] != 1) {
+	header('Location: inscription.php?erreur=boursier');
+	exit();
+}
 
 if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	$stmt->bind_param('s', $_POST['email']);
@@ -45,10 +52,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 		header('Location: inscription.php?erreur=mailexist');
 		exit();
 	} else {
-		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, gender, password, mail, tel, admin, activation_code) VALUES (?, ?, ?, ?, ?, ?, 0, ?)');
+		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, gender, password, mail, tel, distance, boursier, admin, activation_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?)');
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$uniqid = uniqid();
-	    $stmt->bind_param('ssissss', $_POST['prenom'], $_POST['nom'], $_POST['gender'], $password, $_POST['email'], $_POST['tel'], $uniqid);
+	    $stmt->bind_param('ssisssdis', $_POST['prenom'], $_POST['nom'], $_POST['gender'], $password, $_POST['email'], $_POST['tel'], $_POST['distance'], $_POST['boursier'], $uniqid);
 	    $stmt->execute();
 
 		//send_mail($_POST['email'], $uniqid,0);
