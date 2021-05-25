@@ -57,7 +57,9 @@
                 </div>
             </div>
         </section>
+        <!--Footer Information-->
         <?php
+            include("footer_info.php");
             include("footer.php");
         ?>
     </body>

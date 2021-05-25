@@ -26,26 +26,26 @@ if ($con->connect_error) {
 }
 
 if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["gender-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"])) {
-	exit('Merci de compléter le formulaire d\'inscription.');
+	exit('Merci de compléter le formulaire de demande.');
 }
 if (empty($_POST["Type-choice"]) || empty($_POST["replace-choice"]) || empty($_POST["gender-choice"]) || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
-	exit('Merci de compléter le formulaire d\'inscription.');
+	exit('Merci de compléter le formulaire de demande.');
 }
 
 if ($_POST["Type-choice"] == 2 || $_POST["Type-choice"] == 3) {
     if (!isset($_POST["mate-choice"])) {
-        exit('Merci de compléter le formulaire d\'inscription.');
+        exit('Merci de compléter le formulaire de demande.');
     }
     if (empty($_POST["mate-choice"])) {
-        exit('Merci de compléter le formulaire d\'inscription.');
+        exit('Merci de compléter le formulaire de demande.');
     }
     if ($_POST["mate-choice"] == 1)
     {
         if (!isset($_POST["mate-email"])) {
-            exit('Merci de compléter le formulaire d\'inscription.');
+            exit('Merci de compléter le formulaire de demande.');
         }
         if (empty($_POST["mate-email"])) {
-            exit('Merci de compléter le formulaire d\'inscription.');
+            exit('Merci de compléter le formulaire de demande.');
         }
         if (!filter_var($_POST['mate-email'], FILTER_VALIDATE_EMAIL)) {
             exit('Adresse email incorrecte.');
