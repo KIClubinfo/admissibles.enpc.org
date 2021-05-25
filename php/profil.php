@@ -143,7 +143,7 @@
                 <?php
                 if($_SESSION['a_reserve']){echo'
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" href="">
+                    <a class="btn btn-xl btn-primary" href="choice.php">
                         Modifier ma demande
                     </a>
                 </div>

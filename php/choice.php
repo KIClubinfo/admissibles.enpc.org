@@ -4,10 +4,6 @@
 	    header('Location: connexion.php');
 	    exit();
     }
-    if($_SESSION['a_reserve']){
-        header('Location: profil.php');
-	    exit();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +121,12 @@
                                 </div>
                                 <br />
                                 <div id="success"></div>
-                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Effectuer une demande</button></div>
+                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">
+                                <?php if($_SESSION['a_reserve']){
+                                    echo 'Modifier ma demande';}
+                                    else{
+                                        echo 'Effectuer ma demande';}?>
+                                </button></div>
                             </form>
                         </div>
                     </div>

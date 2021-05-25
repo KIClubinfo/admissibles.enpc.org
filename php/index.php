@@ -32,7 +32,7 @@
          <section class="page-section text-secondary mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">A quoi sert ce site ?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">à quoi sert ce site ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -96,7 +96,7 @@
         <section class="page-section text-secondary mb-0" id="about">
             <div class="container">
                 <!-- Informations Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traiter les demandes ?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traitées les demandes ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -108,10 +108,10 @@
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify">Afin d'être le plus équitable possible dans l'attribution des logements, les paramètres pris en compte seront :</p>
                         <ul style="">
-                            <li><h5>Si vous êtes boursiers ou non<h5></li>
-                            <li><h5>La distance entre votre logement et l'École des Ponts</h5></li>
+                            <li><h5>Le statut de boursier<h5></li>
+                            <li><h5>La distance entre votre domicile et l'École des Ponts</h5></li>
                         </ul>
-                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer à quelle personne sera donné le logement, nous prendrons la demande qui a été faite en première.</p>
+                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
                         <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l'onglet profil</strong></p>
                     </div>
                 </div>

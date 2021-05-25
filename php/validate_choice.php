@@ -87,6 +87,7 @@ if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $_POST["arrival-time"]) ==
 if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $_POST["departure-time"]) == 0) {
     exit('Heure incorrecte.');
 }
+if(!$_SESSION['a_reserve']){
 
 if ($_POST["mate-choice"] == 1)
 {
@@ -116,6 +117,25 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
 }
 $_SESSION['a_reserve']=1;
 $stmt->close();
+
+}
+else{
+
+if ($_POST["mate-choice"] == 1)
+{
+    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0 WHERE id_eleve=?');
+    $stmt->bind_param('iiiissssisi', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_POST['mate-email'], $_SESSION['id']);
+    $stmt->execute();
+    $stmt->close();
+}
+else {
+    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=NULL, validee=0 WHERE id_eleve=?');
+    $stmt->bind_param('iiiissssii', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_SESSION['id']);
+    $stmt->execute();
+    $stmt->close();
+}
+
+}
 $con->close();
 header('Location: profil.php');
 exit();
