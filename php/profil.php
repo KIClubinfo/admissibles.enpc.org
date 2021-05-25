@@ -29,28 +29,47 @@
                 </div>
                 <!-- Profil Section Content-->
                 <div class="">
+                    <?php
+                    if ($stmt = $con->prepare('SELECT nom, prenom, gender, tel, distance, boursier FROM eleves WHERE id = ?')) {
+                        $stmt->bind_param('i', $_SESSION['id']);
+                        $stmt->execute();
+                        $stmt->store_result();
+                    }   
+                    if ($stmt->num_rows > 0) {
+                        $stmt->bind_result($nom, $prenom, $gender, $tel, $distance, $boursier);
+                        $stmt->fetch();
+                    }
+                    echo '
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
-                                <li><h6>Nom : <strong><?php echo $_SESSION['nom'] ?></strong></h6></li>
-                                <li><h6>Prénom : <strong><?php echo $_SESSION['prenom'] ?></strong></h6></li>
-                                <?php
-                                if($_SESSION['gender']==1){
+                                <li><h6>Nom : <strong>';echo $nom; echo '</strong></h6></li>
+                                <li><h6>Prénom : <strong>'; echo $prenom; echo'</strong></h6></li>';
+                                if($gender == 1){
                                     echo '<li><h6>Je suis : <strong>Une femme</strong></h6></li>';
                                 }
-                                else if($_SESSION['gender']==2){
+                                else if($gender == 2){
                                     echo '<li><h6>Je suis : <strong>Un homme</strong></h6></li>';
                                 }
                                 else{
                                     echo '<li><h6>Je suis : <strong>Autre ou ne souhaite pas préciser</strong></h6></li>';
                                 }
-                                ?>
-                                <li><h6>Mail : <strong><?php echo $_SESSION['email'] ?></strong></h6></li>
-                                <li><h6>Numéro de téléphone : <strong><?php echo $_SESSION['tel'] ?></strong></h6></li>
+                                echo '
+                                <li><h6>Mail : <strong>'; echo $_SESSION['email']; echo'</strong></h6></li>
+                                <li><h6>Numéro de téléphone : <strong>'; echo $tel; echo'</strong></h6></li>
+                                <li><h6>Distance à Champs-sur-Marne : <strong>'; echo $distance; echo '</strong></h6></li>';
+                                if($boursier == 0) {
+                                    echo '<li><h6>Boursier : <strong>Non</strong></h6></li>';
+                                }
+                                else {
+                                    echo '<li><h6>Boursier : <strong>Oui</strong></h6></li>';
+                                }
+                                echo '
                             </ul>
                         </div>
-                    </div>
+                    </div>'
+                    ?>
                     <?php
                     if($_SESSION['a_reserve']){
                         if ($stmt = $con->prepare('SELECT * FROM demande WHERE id_eleve = ?')) {
