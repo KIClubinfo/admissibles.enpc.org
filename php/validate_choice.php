@@ -1,15 +1,10 @@
 <?php
 
-session_start();
+include("config.php");
 if (!isset($_SESSION['loggedin'])) {
     header('Location: connexion.php');
     exit();
 }
-
-//---------NOT FOR PROD---------//
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
-//---------NOT FOR PROD---------//
 
 function isRealDate($date) { 
     if (false === strtotime($date)) { 
@@ -17,12 +12,6 @@ function isRealDate($date) {
     } 
     list($year, $month, $day) = explode('-', $date); 
     return checkdate($month, $day, $year);
-}
-
-$db_password = $_ENV["mysql_password"];
-$con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
-if ($con->connect_error) {
-    die('Erreur lors de la connexion à la base de donnée: ' . $con->connect_error);
 }
 
 if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["gender-choice"], $_POST["arrival-date"], $_POST["arrival-time"], $_POST["departure-date"], $_POST["departure-time"])) {

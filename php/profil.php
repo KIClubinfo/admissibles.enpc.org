@@ -1,14 +1,9 @@
 <?php
-    session_start();
+    include("config.php");
     if (!isset($_SESSION['loggedin'])) {
 	    header('Location: connexion.php');
 	    exit();
-    }
-    $db_password = $_ENV["mysql_password"];
-    $con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
-    if ($con->connect_error) {
-        die('Erreur lors de la connexion à la base de donnée: ' . $con->connect_error);
-    }  
+    } 
 ?>
 
 <!DOCTYPE html>
