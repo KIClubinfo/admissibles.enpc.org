@@ -1,6 +1,6 @@
 <?php
     //This page is to be used only while there is no mailer//
-    session_start();
+    include("config.php");
     if (isset($_SESSION['loggedin'])) {
 	    header('Location: profil.php');
 	    exit();

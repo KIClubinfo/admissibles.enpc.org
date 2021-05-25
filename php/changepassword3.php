@@ -1,11 +1,5 @@
 <?php
-
-//---------NOT FOR PROD---------//
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
-//---------NOT FOR PROD---------//
-
-session_start();
+include("config.php");
 if (isset($_SESSION['loggedin'])) {
     header('Location: profil.php');
     exit();
@@ -17,13 +11,6 @@ if (!isset($_SESSION['email'])) {
 if (!isset($_SESSION['code'])) {
     header('Location: changepassword2.php');
     exit();
-}
-
-$db_password = $_ENV["mysql_password"];
-$con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
-if ($con->connect_error) {
-    header('Location: changepassword2.php?erreur=bdderror');
-	exit();
 }
 
 if (!isset($_POST['password'], $_POST['confpassword'])) {
