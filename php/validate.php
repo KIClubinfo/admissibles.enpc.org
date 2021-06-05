@@ -44,25 +44,35 @@ if ($_POST['boursier'] != 0 && $_POST['boursier'] != 1) {
 	exit();
 }
 
+$safemail=sanitize_string($_POST['email']);
+
 if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
-	$stmt->bind_param('s', $_POST['email']);
+	$stmt->bind_param('s', $safemail);
 	$stmt->execute();
 	$stmt->store_result();
 	if ($stmt->num_rows > 0) {
 		header('Location: inscription.php?erreur=mailexist');
 		exit();
 	} else {
+		$safepass=sanitize_string($_POST['password']);
+		$safeprenom=sanitize_string($_POST['prenom']);
+		$safenom=sanitize_string($_POST['nom']);
+		$safegender=sanitize_string($_POST['gender']);
+		$safetel=sanitize_string($_POST['tel']);
+		$safedistance=sanitize_string($_POST['distance']);
+		$safeboursier=sanitize_string($_POST['boursier']);
+
 		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, gender, password, mail, tel, distance, boursier, admin, activation_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?)');
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = password_hash($safepass, PASSWORD_DEFAULT);
 		$uniqid = uniqid();
-	    $stmt->bind_param('ssisssdis', $_POST['prenom'], $_POST['nom'], $_POST['gender'], $password, $_POST['email'], $_POST['tel'], $_POST['distance'], $_POST['boursier'], $uniqid);
+	    $stmt->bind_param('ssisssdis', $safeprenom, $safenom, $safegender, $password, $safemail, $safetel, $safedistance, $safeboursier, $uniqid);
 	    $stmt->execute();
 
 		//send_mail($_POST['email'], $uniqid,0);
 	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
 		//******Only while there is no mailer******//
-		header('Location: temp.php?email='.$_POST['email'].'&code='.$uniqid.'');
+		header('Location: temp.php?email='.$safemail.'&code='.$uniqid.'');
 	    exit();
 		//*****************************************//
 	}

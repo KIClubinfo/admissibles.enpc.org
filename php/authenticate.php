@@ -5,8 +5,11 @@ if ( !isset($_POST['email'], $_POST['password']) ) {
 	exit('Merci de remplir l\'email et le mot de passe.');
 }
 
+$safemail=sanitize_string($_POST['email']);
+$safepass=sanitize_string($_POST['password']);
+
 if ($stmt = $con->prepare('SELECT id, password, admin, a_reserve, activation_code FROM eleves WHERE mail = ?')) {
-	$stmt->bind_param('s', $_POST['email']);
+	$stmt->bind_param('s', $safemail);
 	$stmt->execute();
 	$stmt->store_result();
 }
@@ -14,7 +17,7 @@ if ($stmt = $con->prepare('SELECT id, password, admin, a_reserve, activation_cod
 if ($stmt->num_rows > 0) {
 	$stmt->bind_result($id, $password, $admin, $a_reserve, $activation_code);
 	$stmt->fetch();
-	if (password_verify($_POST['password'], $password)) {
+	if (password_verify($safepass, $password)) {
 		if($activation_code=='activated'){
 			session_regenerate_id();
 			$_SESSION['loggedin'] = TRUE;

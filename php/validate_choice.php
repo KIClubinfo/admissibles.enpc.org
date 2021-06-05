@@ -94,18 +94,28 @@ if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $_POST["departure-time"]) 
     header('Location: choice.php?erreur=departure-time');
     exit();
 }
-if(!$_SESSION['a_reserve']){
 
+$safetypechoice=sanitize_string($_POST['Type-choice']);
+$safereplacechoice=sanitize_string($_POST['replace-choice']);
+$safegenderchoice=sanitize_string($_POST['gender-choice']);
+$safearrivaldate=sanitize_string($_POST['arrival-date']);
+$safearrivaltime=sanitize_string($_POST['arrival-time']);
+$safedeparturedate=sanitize_string($_POST['departure-date']);
+$safedeparturetime=sanitize_string($_POST['departure-time']);
+$safematechoice=sanitize_string($_POST['mate-choice']);
+
+if(!$_SESSION['a_reserve']){
 if ($_POST["mate-choice"] == 1)
 {
+    $safematemail=sanitize_string($_POST['mate-email']);
     $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee) VALUES (?,?,?,?,?,?,?,?,?,?,0)');
-    $stmt->bind_param('iiiissssis', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_POST['mate-email']);
+    $stmt->bind_param('iiiissssis', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail);
     $stmt->execute();
     $stmt->close();
 }
 else {
     $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee) VALUES (?,?,?,?,?,?,?,?,?,NULL,0)');
-    $stmt->bind_param('iiiissssi', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice']);
+    $stmt->bind_param('iiiissssi', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice);
     $stmt->execute();
     $stmt->close();
 }
@@ -130,14 +140,15 @@ else{
 
 if ($_POST["mate-choice"] == 1)
 {
+    $safematemail=sanitize_string($_POST['mate-email']);
     $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0 WHERE id_eleve=?');
-    $stmt->bind_param('iiiissssisi', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_POST['mate-email'], $_SESSION['id']);
+    $stmt->bind_param('iiiissssisi', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail, $_SESSION['id']);
     $stmt->execute();
     $stmt->close();
 }
 else {
     $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=NULL, validee=0 WHERE id_eleve=?');
-    $stmt->bind_param('iiiissssii', $_SESSION['id'], $_POST['Type-choice'], $_POST['replace-choice'], $_POST['gender-choice'], $_POST['arrival-date'], $_POST['arrival-time'], $_POST['departure-date'], $_POST['departure-time'], $_POST['mate-choice'], $_SESSION['id']);
+    $stmt->bind_param('iiiissssii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $_SESSION['id']);
     $stmt->execute();
     $stmt->close();
 }

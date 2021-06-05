@@ -6,12 +6,14 @@
     }
     
     if (isset($_GET['email'], $_GET['code'])) {
+        $safemail=sanitize_string($_GET['email']);
+        $safecode=sanitize_string($_GET['code']);
         if($_GET['code']=='no'){
             header('Location: connexion.php?erreur=');
             exit();
         }
         if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ? AND change_password = ?')) {
-            $stmt->bind_param('ss', $_GET['email'], $_GET['code']);
+            $stmt->bind_param('ss', $safemail, $safecode);
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {

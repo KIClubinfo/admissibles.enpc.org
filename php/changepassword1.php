@@ -7,9 +7,10 @@ if (isset($_SESSION['loggedin'])) {
 
 //include("mailer.php");
 
-if ( !isset($_POST['email']) ) {
+if (!isset($_POST['email']) ) {
 	exit('Merci d\'indiquer votre email.');
 }
+$safemail=sanitize_string($_POST['email']);
 if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	header('Location: forgotpassword.php?erreur=mail');
 	exit();
@@ -18,19 +19,19 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 $uniqid = uniqid();
 
 if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')){
-    $stmt->bind_param('s', $_POST['email']);
+    $stmt->bind_param('s', $safemail);
     $stmt->execute();
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
         if ($stmt = $con->prepare('UPDATE eleves SET change_password=? WHERE mail=?')) {
-            $stmt->bind_param('ss', $uniqid, $_POST['email']);
+            $stmt->bind_param('ss', $uniqid, $safemail);
             $stmt->execute();
 
             //send_mail($_POST['email'], $uniqid, $_POST['prenom'],1);
 	        //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
 		    //******Only while there is no mailer******//
-		    header('Location: temp2.php?email='.$_POST['email'].'&code='.$uniqid.'');
+		    header('Location: temp2.php?email='.htmlspecialchars($_POST['email']).'&code='.$uniqid.'');
 	        exit();
 		    //*****************************************//
         }

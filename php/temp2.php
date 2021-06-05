@@ -45,7 +45,7 @@
                             <?php
                             if (isset($_GET['email'], $_GET['code'])){
                                 echo "Copiez ce lien dans votre navigateur pour changer votre mot de passe:</br></br>";
-                                echo "localhost:8123/changepassword2.php?email="; echo $_GET['email']; echo '&code='; echo $_GET['code'];
+                                echo "localhost:8123/changepassword2.php?email="; echo htmlspecialchars($_GET['email']); echo '&code='; echo htmlspecialchars($_GET['code']);
                             }
                             else{
                                 echo 'Erreur';

@@ -45,7 +45,7 @@
                             <?php
                             if (isset($_GET['email'], $_GET['code'])){
                                 echo "Copiez ce lien dans votre navigateur pour activer votre compte:</br></br>";
-                                echo "localhost:8123/activate.php?email="; echo $_GET['email']; echo '&code='; echo $_GET['code'];
+                                echo "localhost:8123/activate.php?email="; echo htmlspecialchars($_GET['email']); echo '&code='; echo htmlspecialchars($_GET['code']);
                             }
                             else{
                                 echo 'Erreur d\'activation.';

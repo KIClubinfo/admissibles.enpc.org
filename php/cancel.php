@@ -10,6 +10,10 @@
     }
 
 if(isset($_GET['cancel'])){
+    if($_GET['cancel']!=0 && $_GET['cancel']!=1){
+        header('Location: profil.php');
+	    exit();
+    }
     if($_GET['cancel']){
         if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
             $stmt->bind_param('i', $_SESSION['id']);

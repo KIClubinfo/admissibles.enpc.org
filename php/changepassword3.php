@@ -26,13 +26,15 @@ if ($_POST['password']!=$_POST['confpassword']){
 	exit();
 }
 
+$safepass=sanitize_string($_POST['password']);
+
 if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')) {
 	$stmt->bind_param('s', $_SESSION['email']);
 	$stmt->execute();
 	$stmt->store_result();
 	if ($stmt->num_rows > 0) {
 		$stmt = $con->prepare('UPDATE eleves SET password = ?, change_password = ? WHERE mail=?');
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = password_hash($safepass, PASSWORD_DEFAULT);
         $newcode = 'no';
 	    $stmt->bind_param('sss', $password, $newcode, $_SESSION['email']);
 	    $stmt->execute();

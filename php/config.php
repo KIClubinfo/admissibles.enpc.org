@@ -32,4 +32,11 @@ function protect($dateprotection) {
         return False;
     }
 }
+
+function sanitize_string($str)
+{
+    global $con;
+    $sanitize = mysqli_real_escape_string($con, $str);
+    return $sanitize;
+}
 ?>

@@ -44,8 +44,8 @@
                         <div class="col-lg-8">
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
-                                <li><h6>Nom : <strong>';echo $nom; echo '</strong></h6></li>
-                                <li><h6>Prénom : <strong>'; echo $prenom; echo'</strong></h6></li>';
+                                <li><h6>Nom : <strong>';echo htmlspecialchars($nom); echo '</strong></h6></li>
+                                <li><h6>Prénom : <strong>'; echo htmlspecialchars($prenom); echo'</strong></h6></li>';
                                 if($gender == 1){
                                     echo '<li><h6>Je suis : <strong>Une femme</strong></h6></li>';
                                 }
@@ -56,9 +56,9 @@
                                     echo '<li><h6>Je suis : <strong>Autre ou ne souhaite pas préciser</strong></h6></li>';
                                 }
                                 echo '
-                                <li><h6>Mail : <strong>'; echo $_SESSION['email']; echo'</strong></h6></li>
-                                <li><h6>Numéro de téléphone : <strong>'; echo $tel; echo'</strong></h6></li>
-                                <li><h6>Distance à Champs-sur-Marne : <strong>'; echo $distance; echo '</strong></h6></li>';
+                                <li><h6>Mail : <strong>'; echo htmlspecialchars($_SESSION['email']); echo'</strong></h6></li>
+                                <li><h6>Numéro de téléphone : <strong>'; echo htmlspecialchars($tel); echo'</strong></h6></li>
+                                <li><h6>Distance à Champs-sur-Marne : <strong>'; echo htmlspecialchars($distance); echo '</strong></h6></li>';
                                 if($boursier == 0) {
                                     echo '<li><h6>Boursier : <strong>Non</strong></h6></li>';
                                 }
@@ -121,7 +121,7 @@
                                                                                         }
                                                                                          echo '</strong></h6></li>';
                                 if($mate){
-                                    echo '<li><h6>Adresse mail de la personne souhaitée : <strong>'; echo $mate_email; echo '</strong></h6></li>';                                                 
+                                    echo '<li><h6>Adresse mail de la personne souhaitée : <strong>'; echo htmlspecialchars($mate_email); echo '</strong></h6></li>';                                                 
                                 }
                                 if($gender_choice==1){
                                     echo '<li><h6>Ne souhaite pas être avec : <strong>Une femme</strong></h6></li>';
