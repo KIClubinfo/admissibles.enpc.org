@@ -5,6 +5,10 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: connexion.php');
     exit();
 }
+if(protect($debut_inscription)){
+    header('Location: index.php');
+    exit();
+}
 
 function isRealDate($date) { 
     if (false === strtotime($date)) { 

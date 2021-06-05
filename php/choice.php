@@ -4,6 +4,10 @@
 	    header('Location: connexion.php');
 	    exit();
     }
+    if(protect($debut_inscription)){
+        header('Location: index.php');
+	    exit();
+    }
 ?>
 
 <!DOCTYPE html>

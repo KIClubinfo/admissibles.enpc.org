@@ -165,12 +165,22 @@
                     </a>
                 </div>';
                 }
-                else{echo'
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" href="choice.php">
+                else{
+                    if(protect($debut_inscription)){
+                        echo '<div class="row justify-content-center" style="margin-top:3em">
+                        <div class="col-lg-8">
+                            <h6 style="text-align: center"></br><strong>Vous pourrez effectuer une demande à partir du ';echo $debut_inscription->format('d-m-Y H:i:s');echo'</strong></h6>
+                        </div>
+                        </div>';
+                    }
+                    else{
+                        echo'
+                        <div class="text-center mt-4">
+                        <a class="btn btn-xl btn-primary" href="choice.php">
                         Faire ma demande
-                    </a>
-                </div>';   
+                        </a>
+                        </div>';   
+                    }
                 }
                 ?>
                 
