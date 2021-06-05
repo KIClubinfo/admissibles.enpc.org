@@ -39,13 +39,27 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+                <?php if(isset($_SESSION['loggedin'])){echo '
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead" style="text-align: justify">Si tu es sur ce site, c'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
+                    <div class="col-lg-4 ml-auto"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
                     <div class="col-lg-4 mr-auto"><p class="lead" style="text-align: justify">Tu peux découvrir dans la section suivante les différentes possibilités de logement qui te sont proposés.</p></div>
-                </div>
+                </div>';}
+                else{
+                    echo '<!-- About Section Content-->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
+                        <div class="text-center mt-4">
+                            <a class="btn btn-xl btn-primary" href="inscription.php">
+                            Inscris-toi dès maintenant pour demander un logement.
+                            </a>
+                        </div>
+                    </div>';
+                }?>
+
             </div>
         </section>
+        <?php if(isset($_SESSION['loggedin'])){echo '
         <!-- Portfolio Section-->
         <section class="page-section bg-primary text-white portfolio" id="portfolio">
             <div class="container">
@@ -106,13 +120,13 @@
                 <!-- Informations Section Content-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify">Afin d'être le plus équitable possible dans l'attribution des logements, les paramètres pris en compte seront :</p>
+                        <p class="lead" style="text-align: justify">Afin d\'être le plus équitable possible dans l\'attribution des logements, les paramètres pris en compte seront :</p>
                         <ul style="">
                             <li><h5>Le statut de boursier<h5></li>
-                            <li><h5>La distance entre votre domicile et l'École des Ponts</h5></li>
+                            <li><h5>La distance entre votre domicile et l\'École des Ponts</h5></li>
                         </ul>
-                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
-                        <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l'onglet profil</strong></p>
+                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
+                        <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l\'onglet profil</strong></p>
                     </div>
                 </div>
                 <div class="text-center mt-4">
@@ -121,7 +135,9 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </section>';}?>
+
+
         <!--Footer Information-->
         <?php
             include("footer_info.php");
