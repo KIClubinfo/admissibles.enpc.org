@@ -101,7 +101,7 @@ $message= '
 ';
 }
 if($typemessage==1){
-    $subject = 'Réinitialisation de mot de passe'
+    $subject = 'Réinitialisation de mot de passe';
 
     $message= '
     <html xmlns="http://www.w3.org/1999/xhtml">
