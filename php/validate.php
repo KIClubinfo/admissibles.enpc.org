@@ -69,7 +69,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	    $stmt->execute();
 
 		send_mail($_POST['email'], $uniqid,0);
-		header('Location: index.php');
+		header('Location: index.php?info=mailinscription');
 	    exit();
 	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
