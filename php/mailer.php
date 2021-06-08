@@ -5,50 +5,190 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require __DIR__ . '/vendor/autoload.php';
+//require __DIR__ . '/vendor/autoload.php';
 //require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 //require '/usr/local/lib/php/vendor/autoload.php';
 //require '/var/www/html/vendor/autoload.php';
-//require 'vendor/autoload.php';
+require 'vendor/autoload.php';
 
 function send_mail($email, $activation_code, $typemessage) {
 
 if($typemessage==0){
+$subject = 'Validation de ton compte Admissibles';
 $message= '
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Validation de ton compte Admissibles</title>
+<title>Validation de compte Admissibles</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body style="margin: 0; padding: 0;">
-    <p>
-        Bonjour,
-        <a href="localhost:8123/activate.php?email='.$email.'&code='.$activation_code.'">Clique ici pour activer ton compte</a>
-    </p>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+        <tr>
+            <td style="padding: 10px 0 30px 0;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+                    <tr>
+                        <td align="center" bgcolor="#5fa8d3" style="padding: 40px 0 30px 0; color: #ffffff; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
+                            <b>Admissibles : École des Ponts</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
+                                        <b>Finalisation de ton inscription</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        Bonjour,<br/>
+                                        <br/>
+                                        Le Club Informatique de l\'École des Ponts te confirme que ton inscription a bien été prise en compte.<br/><br/>
+                                        Vérifies ton inscription en cliquant sur le lien ci-dessous :
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center; font-family: Arial, sans-serif;">
+                                        
+                                        <a href="admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
+                                        onmouseover="this.style.background=\'#5fa8d3\';this.style.color=\'white\';" 
+                                        onmouseout="this.style.background=\'white\';this.style.color=\'#5fa8d3\';" 
+                                        style="display: inline-block;
+                                        font-weight: 400;
+                                        color: #5fa8d3;
+                                        text-align: center;
+                                        background-color: transparent;
+                                        border: 0.125rem solid #5fa8d3;
+                                        padding: 0.375rem 0.75rem;
+                                        font-size: 1.1rem;
+                                        line-height: 1.5;
+                                        border-radius: 0.5rem;
+                                        text-decoration: none;
+                                        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                                            Vérifier mon compte
+                                        </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="padding: 20px 0 0 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                        Cordialement,<br/>
+                                        <br/>
+                                        Le Club Informatique des Ponts.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#5fa8d3" style="padding: 30px 30px 30px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="color: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 14px;" width="100%">
+                                        Cet email a été envoyé automatiquement, merci de ne pas y répondre.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
 ';
 }
 if($typemessage==1){
+    $subject = 'Réinitialisation de mot de passe'
+
     $message= '
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Changement de ton mot de passe Admissibles</title>
+    <title>Réinitialisation de mot de passe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body style="margin: 0; padding: 0;">
-        <p>
-            Bonjour. Tu as demandé à modifier ton mot de passe Admissibles.
-            <a href="localhost:8123/changepassword2.php?email='.$email.'&code='.$activation_code.'">Clique ici pour le modifier.</a>
-        </p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+            <tr>
+                <td style="padding: 10px 0 30px 0;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+                        <tr>
+                            <td align="center" bgcolor="#5fa8d3" style="padding: 40px 0 30px 0; color: #ffffff; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
+                                <b>Admissibles : École des Ponts</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
+                                            <b>Réinitialisation de ton mot de passe</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                            Bonjour,<br/>
+                                            <br/>
+                                            Tu as demandé une réinitialisation de ton mot de passe<br/><br/>
+                                            Tu peux réinitialiser ton mot de passe en cliquant sur le lien ci-dessous :
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center; font-family: Arial, sans-serif;">
+                                            
+                                            <a href="admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
+                                            onmouseover="this.style.background=\'#5fa8d3\';this.style.color=\'white\';" 
+                                            onmouseout="this.style.background=\'white\';this.style.color=\'#5fa8d3\';" 
+                                            style="display: inline-block;
+                                            font-weight: 400;
+                                            color: #5fa8d3;
+                                            text-align: center;
+                                            background-color: transparent;
+                                            border: 0.125rem solid #5fa8d3;
+                                            padding: 0.375rem 0.75rem;
+                                            font-size: 1.1rem;
+                                            line-height: 1.5;
+                                            border-radius: 0.5rem;
+                                            text-decoration: none;
+                                            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                                                Réinitialiser mon mot de passe
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td style="padding: 20px 0 0 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                            Cordialement,<br/>
+                                            <br/>
+                                            Le Club Informatique des Ponts.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#5fa8d3" style="padding: 30px 30px 30px 30px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td style="color: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 14px;" width="100%">
+                                            Cet email a été envoyé automatiquement, merci de ne pas y répondre.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </body>
     </html>
     ';
     }
 
-$subject = 'Validation de ton compte Admissibles';
 $mail = new PHPMailer(true);
 try {
     //Server settings
