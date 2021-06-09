@@ -27,7 +27,7 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')){
             $stmt->bind_param('ss', $uniqid, $safemail);
             $stmt->execute();
 
-            send_mail($_POST['email'], $uniqid, $_POST['prenom'],1);
+            send_mail($_POST['email'], $uniqid,1);
             header('Location: index.php');
 	        exit();
 	        //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
