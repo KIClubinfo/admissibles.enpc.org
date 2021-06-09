@@ -33,8 +33,6 @@ services:
     restart: always
     environment:
       PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: ${mysql_password}
     ports:
       - 8124:80
     depends_on:
