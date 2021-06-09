@@ -28,7 +28,7 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')){
             $stmt->execute();
 
             send_mail($_POST['email'], $uniqid,1);
-            header('Location: index.php');
+            header('Location: connexion.php?info=changepassword');
 	        exit();
 	        //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 

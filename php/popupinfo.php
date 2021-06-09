@@ -30,6 +30,9 @@
                             else if($_GET['info'] == "mailinscription"){
                                 echo '<h4 class="mb-5" style="color:grey;">Un lien d\'activation vous a été envoyé par mail. </br> </br> Merci de vérifier votre boîte mail.</h4>';
                             }
+                            else if($_GET['info'] == "changepassword"){
+                                echo '<h4 class="mb-5" style="color:grey;">Un lien dde réinitialisation vous a été envoyé par mail. </br> </br> Merci de vérifier votre boîte mail.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue.</h4>';
                             }
