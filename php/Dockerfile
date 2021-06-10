@@ -11,6 +11,7 @@ WORKDIR /var/www/html/
 COPY composer_install.sh .
 COPY composer.json .
 COPY composer.lock .
+COPY . .
 RUN chmod +x composer_install.sh
 RUN ./composer_install.sh
 RUN php composer.phar install

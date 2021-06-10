@@ -5,7 +5,7 @@ if (isset($_SESSION['loggedin'])) {
     exit();
 }
 
-//include("mailer.php");
+include("mailer.php");
 
 if (!isset($_POST['email']) ) {
 	exit('Merci d\'indiquer votre email.');
@@ -27,12 +27,14 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')){
             $stmt->bind_param('ss', $uniqid, $safemail);
             $stmt->execute();
 
-            //send_mail($_POST['email'], $uniqid, $_POST['prenom'],1);
+            send_mail($_POST['email'], $uniqid,1);
+            header('Location: connexion.php?info=changepassword');
+	        exit();
 	        //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
 		    //******Only while there is no mailer******//
-		    header('Location: temp2.php?email='.htmlspecialchars($_POST['email']).'&code='.$uniqid.'');
-	        exit();
+		    //header('Location: temp2.php?email='.htmlspecialchars($_POST['email']).'&code='.$uniqid.'');
+	        //exit();
 		    //*****************************************//
         }
     }

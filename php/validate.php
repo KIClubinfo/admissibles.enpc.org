@@ -5,7 +5,7 @@ if (isset($_SESSION['loggedin'])) {
     exit();
 }
 
-//include("mailer.php");
+include("mailer.php");
 
 if (!isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['tel'], $_POST['distance'], $_POST['boursier'], $_POST['password'], $_POST['confpassword'])) {
 	header('Location: inscription.php?erreur=form');
@@ -68,12 +68,14 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	    $stmt->bind_param('ssisssdis', $safeprenom, $safenom, $safegender, $password, $safemail, $safetel, $safedistance, $safeboursier, $uniqid);
 	    $stmt->execute();
 
-		//send_mail($_POST['email'], $uniqid,0);
+		send_mail($_POST['email'], $uniqid,0);
+		header('Location: connexion.php?info=mailinscription');
+	    exit();
 	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
 
 		//******Only while there is no mailer******//
-		header('Location: temp.php?email='.$safemail.'&code='.$uniqid.'');
-	    exit();
+		//header('Location: temp.php?email='.$safemail.'&code='.$uniqid.'');
+	    //exit();
 		//*****************************************//
 	}
 	$stmt->close();
