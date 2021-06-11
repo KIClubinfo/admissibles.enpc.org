@@ -51,8 +51,6 @@ $message= '
                                     <td style="text-align:center; font-family: Arial, sans-serif;">
                                         
                                         <a href="admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
-                                        onmouseover="this.style.background=\'#5fa8d3\';this.style.color=\'white\';" 
-                                        onmouseout="this.style.background=\'white\';this.style.color=\'#5fa8d3\';" 
                                         style="display: inline-block;
                                         font-weight: 400;
                                         color: #5fa8d3;
@@ -139,8 +137,6 @@ if($typemessage==1){
                                         <td style="text-align:center; font-family: Arial, sans-serif;">
                                             
                                             <a href="admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
-                                            onmouseover="this.style.background=\'#5fa8d3\';this.style.color=\'white\';" 
-                                            onmouseout="this.style.background=\'white\';this.style.color=\'#5fa8d3\';" 
                                             style="display: inline-block;
                                             font-weight: 400;
                                             color: #5fa8d3;
