@@ -104,5 +104,6 @@
             include("footer_info.php");
             include("footer.php");
         ?>
+        <script src="js/demo.js"></script>
     </body>
 </html>
