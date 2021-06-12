@@ -17,6 +17,11 @@ if ($stmt = $con->prepare('SELECT id, password, admin, a_reserve, activation_cod
 if ($stmt->num_rows > 0) {
 	$stmt->bind_result($id, $password, $admin, $a_reserve, $activation_code);
 	$stmt->fetch();
+	//on arrête la réinitialisation du mot de passe si l'élève se connecte
+	$stmt = $con->prepare('UPDATE eleves SET change_password = ? WHERE mail=?');
+	$newcode = 'no';
+	$stmt->bind_param('ss', $newcode, $safemail);
+	$stmt->execute();
 	if (password_verify($safepass, $password)) {
 		if($activation_code=='activated'){
 			session_regenerate_id();
