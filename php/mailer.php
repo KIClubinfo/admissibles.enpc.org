@@ -61,8 +61,7 @@ $message= '
                                         font-size: 1.1rem;
                                         line-height: 1.5;
                                         border-radius: 0.5rem;
-                                        text-decoration: none;
-                                        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                                        text-decoration: none;">
                                             Vérifier mon compte
                                         </a>
                                     </td>
@@ -147,8 +146,7 @@ if($typemessage==1){
                                             font-size: 1.1rem;
                                             line-height: 1.5;
                                             border-radius: 0.5rem;
-                                            text-decoration: none;
-                                            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                                            text-decoration: none;">
                                                 Réinitialiser mon mot de passe
                                             </a>
                                         </td>
