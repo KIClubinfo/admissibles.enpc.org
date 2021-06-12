@@ -1,7 +1,7 @@
 <?php
 include("config.php");
 if (isset($_SESSION['loggedin'])) {
-    header('Location: profil.php');
+    header('Location: profil.php?erreur=connected');
     exit();
 }
 

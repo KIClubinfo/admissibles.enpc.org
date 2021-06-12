@@ -84,6 +84,12 @@
                             else if($_GET['erreur'] == "departure-time"){
                                 echo '<h4 class="mb-5" style="color:grey;">L\'heure de départ est incorrecte</h4>';
                             }
+                            else if($_GET['erreur'] == "connected"){
+                                echo '<h4 class="mb-5" style="color:grey;">Vous ne pouvez pas accéder à cette page si vous êtes connecté.</h4>';
+                            }
+                            else if($_GET['erreur'] == "interdit"){
+                                echo '<h4 class="mb-5" style="color:grey;">Vous ne devriez pas être ici.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';
                             }

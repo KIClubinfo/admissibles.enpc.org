@@ -1,19 +1,23 @@
 <?php
 include("config.php");
 if (isset($_SESSION['loggedin'])) {
-    header('Location: profil.php');
+    header('Location: profil.php?erreur=connected');
     exit();
 }
 if (!isset($_SESSION['email'])) {
-    header('Location: changepassword2.php');
+    header('Location: changepassword2.php?erreur=autre');
     exit();
 }
 if (!isset($_SESSION['code'])) {
-    header('Location: changepassword2.php');
+    header('Location: changepassword2.php?erreur=autre');
     exit();
 }
 
-if (!isset($_POST['password'], $_POST['confpassword'])) {
+if (!isset($_POST['password'])) {
+	header('Location: changepassword2.php?erreur=form');
+	exit();
+}
+if (!isset($_POST['confpassword'])) {
 	header('Location: changepassword2.php?erreur=form');
 	exit();
 }
@@ -39,7 +43,15 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ?')) {
 	    $stmt->bind_param('sss', $password, $newcode, $_SESSION['email']);
 	    $stmt->execute();
 	}
+	else{
+		header('Location: changepassword2.php?erreur=autre');
+		exit();
+	}
 	$stmt->close();
+}
+else{
+	header('Location: changepassword2.php?erreur=bdderror');
+	exit();
 }
 $con->close();
 header('Location: connexion.php?info=mdpchanged');

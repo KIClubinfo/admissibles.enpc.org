@@ -1,7 +1,7 @@
 <?php
     include("config.php");
     if (isset($_SESSION['loggedin'])) {
-	    header('Location: profil.php');
+	    header('Location: profil.php?erreur=connected');
 	    exit();
     }
     
@@ -9,7 +9,7 @@
         $safemail=sanitize_string($_GET['email']);
         $safecode=sanitize_string($_GET['code']);
         if($_GET['code']=='no'){
-            header('Location: connexion.php?erreur=');
+            header('Location: connexion.php?erreur=interdit');
             exit();
         }
         if ($stmt = $con->prepare('SELECT * FROM eleves WHERE mail = ? AND change_password = ?')) {
@@ -21,17 +21,17 @@
                 $_SESSION['code']=$_GET['code'];
             }
             else{
-                header('Location: connexion.php');
+                header('Location: connexion.php?erreur=autre');
 	            exit();
             }
         }
         else{
-            header('Location: connexion.php');
+            header('Location: connexion.php?erreur=bdderror');
             exit();
         }
     }
     else{
-        header('Location: connexion.php');
+        header('Location: connexion.php?erreur=interdit');
         exit();
     }
     $con->close();
