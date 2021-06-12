@@ -56,7 +56,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
                         <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" href="inscription.php">
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="inscription.php">
                             Inscris-toi dès maintenant pour demander un logement.
                             </a>
                         </div>
