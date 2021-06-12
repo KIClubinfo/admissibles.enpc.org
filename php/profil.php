@@ -166,10 +166,10 @@
                 </div>';
                 }
                 else{
-                    if(protect($debut_inscription)){
+                    if(protect($debut_demande)){
                         echo '<div class="row justify-content-center" style="margin-top:3em">
                         <div class="col-lg-8">
-                            <h6 style="text-align: center"></br><strong>Vous pourrez effectuer une demande à partir du ';echo $debut_inscription->format('d-m-Y H:i:s');echo'</strong></h6>
+                            <h6 style="text-align: center"></br><strong>Vous pourrez effectuer une demande à partir du ';echo $debut_demande->format('d-m-Y H:i:s');echo'</strong></h6>
                         </div>
                         </div>';
                     }

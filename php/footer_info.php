@@ -34,7 +34,7 @@
                         <h5 class="text-uppercase mb-4">Contactez-nous</h5>
                         <p class="lead mb-0" style="font-size:1rem;">
                             En cas de problème,<br/>
-                            vous pouvez nous contactez <br/>
+                            vous pouvez nous contacter <br/>
                             aux adresses suivantes :<br/>
                             <a class="bg-success" href="">Lien 1<a></br>
                             <a class="bg-success" href="">Lien 2<a></br>

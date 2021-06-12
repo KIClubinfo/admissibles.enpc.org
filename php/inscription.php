@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include("config.php");
     if (isset($_SESSION['loggedin'])) {
 	    header('Location: profil.php');
 	    exit();
@@ -39,6 +39,18 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+                <?php
+                if(protect($debut_inscription)){
+                    echo '<div class="container text-left">
+                    <div class="row justify-content-center" style="margin-top:3em">
+                    <div class="col-lg-8">
+                        <h6 style="text-align: center"></br><strong>Vous pourrez vous inscrire à partir du ';echo $debut_inscription->format('d-m-Y H:i:s');echo'</strong></h6>
+                    </div>
+                    </div>
+                    </div>';
+                }
+                else{
+                        echo'
                 <div class="container text-left">
                     <!-- Inscription Section Form-->
                     <div class="row">
@@ -116,11 +128,11 @@
                                 </div>
                                 <br />
                                 <div id="success"></div>
-                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">S'inscrire</button></div>
+                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">S\'inscrire</button></div>
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>';}?>
             </div>
         </header>
         <?php

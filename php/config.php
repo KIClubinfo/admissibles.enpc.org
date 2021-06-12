@@ -21,7 +21,8 @@ function is_admin()
     return False;
 }
 
-$debut_inscription=new DateTime('2021-06-16 12:00:00');//à modifier
+$debut_demande=new DateTime('2021-06-14 12:00:00');//à modifier
+$debut_inscription=new DateTime('2021-06-14 12:00:00');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
