@@ -84,7 +84,7 @@
                             $stmt->store_result();
                         }
                         if ($stmt->num_rows > 0) {
-                            $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $gender_choice, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate, $mate_email, $validee);
+                            $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $gender_choice, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate, $mate_email, $validee, $demand_time);
                             $stmt->fetch();
                             $stmt->close();
                         }

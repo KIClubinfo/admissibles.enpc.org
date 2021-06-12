@@ -103,19 +103,20 @@ $safearrivaltime=sanitize_string($_POST['arrival-time']);
 $safedeparturedate=sanitize_string($_POST['departure-date']);
 $safedeparturetime=sanitize_string($_POST['departure-time']);
 $safematechoice=sanitize_string($_POST['mate-choice']);
+$time=time();
 
 if(!$_SESSION['a_reserve']){
 if ($_POST["mate-choice"] == 1)
 {
     $safematemail=sanitize_string($_POST['mate-email']);
-    $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee) VALUES (?,?,?,?,?,?,?,?,?,?,0)');
-    $stmt->bind_param('iiiissssis', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail);
+    $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee, demand_time) VALUES (?,?,?,?,?,?,?,?,?,?,0,?)');
+    $stmt->bind_param('iiiissssisi', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail, $time);
     $stmt->execute();
     $stmt->close();
 }
 else {
-    $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee) VALUES (?,?,?,?,?,?,?,?,?,NULL,0)');
-    $stmt->bind_param('iiiissssi', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice);
+    $stmt = $con->prepare('INSERT INTO demande (id_eleve, type_chambre, remplace, gender_choice, arrival_date, arrival_time, departure_date, departure_time, mate, mate_email, validee, demand_time) VALUES (?,?,?,?,?,?,?,?,?,NULL,0,?)');
+    $stmt->bind_param('iiiissssii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $time);
     $stmt->execute();
     $stmt->close();
 }
@@ -141,14 +142,14 @@ else{
 if ($_POST["mate-choice"] == 1)
 {
     $safematemail=sanitize_string($_POST['mate-email']);
-    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0 WHERE id_eleve=?');
-    $stmt->bind_param('iiiissssisi', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail, $_SESSION['id']);
+    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0, demand_time=?, WHERE id_eleve=?');
+    $stmt->bind_param('iiiissssisii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail, $time, $_SESSION['id']);
     $stmt->execute();
     $stmt->close();
 }
 else {
-    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=NULL, validee=0 WHERE id_eleve=?');
-    $stmt->bind_param('iiiissssii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $_SESSION['id']);
+    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=NULL, validee=0, demand_time=? WHERE id_eleve=?');
+    $stmt->bind_param('iiiissssiii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $time, $_SESSION['id']);
     $stmt->execute();
     $stmt->close();
 }
