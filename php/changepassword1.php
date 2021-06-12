@@ -38,7 +38,19 @@ if ($stmt = $con->prepare('SELECT admin FROM eleves WHERE mail = ?')){
             header('Location: connexion.php?info=changepassword');
 	        exit();
         }
+        else{
+            header('Location: connexion.php?erreur=bdderror');
+            exit();
+        }
     }
+    else{
+        header('Location: connexion.php?erreur=nomail');
+        exit();
+    }
+}
+else{
+    header('Location: connexion.php?erreur=bdderror');
+    exit();
 }
 $stmt->close();
 $con->close();
