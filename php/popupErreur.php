@@ -90,6 +90,9 @@
                             else if($_GET['erreur'] == "interdit"){
                                 echo '<h4 class="mb-5" style="color:grey;">Vous ne devriez pas être ici.</h4>';
                             }
+                            else if($_GET['erreur'] == "nomail"){
+                                echo '<h4 class="mb-5" style="color:grey;">Cette adresse mail n\'est associée à aucun compte.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';
                             }
