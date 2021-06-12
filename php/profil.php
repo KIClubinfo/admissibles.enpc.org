@@ -15,6 +15,12 @@
         <!-- Navigation-->
         <?php
             include("navbar.php");
+            if (isset($_GET['erreur'])){
+                include("popupErreur.php");
+            }
+            if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Profil Section-->
         <section style="margin-top: 5%;" class="page-section text-secondary mb-0" id="about">
@@ -192,5 +198,6 @@
             include("footer_info.php");
             include("footer.php");
         ?>
+        <script src="js/demo.js"></script>
     </body>
 </html>

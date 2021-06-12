@@ -56,6 +56,12 @@ if(isset($_GET['cancel'])){
         <!-- Navigation-->
         <?php
             include("navbar.php");
+            if (isset($_GET['erreur'])){
+                include("popupErreur.php");
+            }
+            if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
@@ -100,5 +106,6 @@ if(isset($_GET['cancel'])){
             include("footer_info.php");
             include("footer.php");
         ?>
+        <script src="js/demo.js"></script>
     </body>
 </html>
