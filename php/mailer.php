@@ -271,9 +271,15 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
 
-    //SMTP username: (on switch entre 10 adresses)
-    $file = fopen('mailer.txt', 'r+');
-    $num = fgets($file);
+
+    if(file_exists('mailer.txt')){
+        $file = fopen('mailer.txt', 'r+');
+        $num = fgets($file);
+    }
+    else{
+        $file = fopen('mailer.txt', 'a+');
+        $num = 1;
+    }
     fseek($file, 0);
     if($num==1){$mail->Username='admissibles1.enpc@gmail.com';}
     else if($num==2){$mail->Username='admissibles2.enpc@gmail.com';}
@@ -285,15 +291,18 @@ try {
     else if($num==8){$mail->Username='admissibles8.enpc@gmail.com';}
     else if($num==9){$mail->Username='admissibles9.enpc@gmail.com';}
     else if($num==10){$mail->Username='admissibles10.enpc@gmail.com';}
-    else{$mail->Username='admissibles1.enpc@gmail.com';fputs($file, '1');fseek($file, 0);}
+    else{$mail->Username='admissibles1.enpc@gmail.com';}
     //actualisation du mailer actuel:
-    if($num==10){
-        fputs($file, '1');
+    if($num>9){
+        $num=1;
+        fputs($file, $num);
+        fclose($file);
     }
     else{
-        fputs($file, $num+1);
+        $num=$num+1;
+        fputs($file, $num);
+        fclose($file);
     }
-    fclose($file);
 
     $mail->Password   = getenv("gmail_password");                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
