@@ -87,6 +87,9 @@
                             else if($_GET['erreur'] == "connected"){
                                 echo '<h4 class="mb-5" style="color:grey;">Vous ne pouvez pas accéder à cette page si vous êtes connecté.</h4>';
                             }
+                            else if($_GET['erreur'] == "notconnected"){
+                                echo '<h4 class="mb-5" style="color:grey;">Vous devez être connecté pour accéder à cette page.</h4>';
+                            }
                             else if($_GET['erreur'] == "interdit"){
                                 echo '<h4 class="mb-5" style="color:grey;">Vous ne devriez pas être ici.</h4>';
                             }

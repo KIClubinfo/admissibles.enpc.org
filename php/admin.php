@@ -1,7 +1,7 @@
 <?php
     include("config.php");
     if (!isset($_SESSION['loggedin'])) {
-	    header('Location: connexion.php');
+	    header('Location: connexion.php?erreur=notconnected');
 	    exit();
     } 
     if (!is_admin()){
