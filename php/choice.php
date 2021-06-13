@@ -131,12 +131,16 @@
                                 </div>
                                 <br />
                                 <div id="success"></div>
-                                <div class="form-group text-center"><button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">
-                                <?php if($_SESSION['a_reserve']){
-                                    echo 'Modifier ma demande';}
-                                    else{
-                                        echo 'Effectuer ma demande';}?>
-                                </button></div>
+                                <div class="form-group text-center">
+                                <?php if($_SESSION['a_reserve']){echo '
+                                        <div class="text-center"><p><strong>Avertissement : </strong> en modifiant votre demande, vous perdrez votre position dans la file d\'attente !</p></div>
+                                        <button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Modifier ma demande</button>'
+                                    ;}
+                                    else{echo'
+                                        <div class="text-center"><p><strong>À noter : </strong> après validation, toute modification ultérieure de la demande entraînera une perte de la position dans la file d\'attente.</p></div>
+                                        <button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Effectuer ma demande</button>'
+                                    ;}?>
+                                </div>
                             </form>
                         </div>
                     </div>
