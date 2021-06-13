@@ -271,30 +271,30 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
 
-
+    //cette méthode d'écriture ne marche pas si num>=10
     if(file_exists('mailer.txt')){
         $file = fopen('mailer.txt', 'r+');
         $num = fgets($file);
     }
     else{
         $file = fopen('mailer.txt', 'a+');
-        $num = 1;
+        $num = 0;
     }
     fseek($file, 0);
-    if($num==1){$mail->Username='admissibles1.enpc@gmail.com';}
-    else if($num==2){$mail->Username='admissibles2.enpc@gmail.com';}
-    else if($num==3){$mail->Username='admissibles3.enpc@gmail.com';}
-    else if($num==4){$mail->Username='admissibles4.enpc@gmail.com';}
-    else if($num==5){$mail->Username='admissibles5.enpc@gmail.com';}
-    else if($num==6){$mail->Username='admissibles6.enpc@gmail.com';}
-    else if($num==7){$mail->Username='admissibles7.enpc@gmail.com';}
-    else if($num==8){$mail->Username='admissibles8.enpc@gmail.com';}
-    else if($num==9){$mail->Username='admissibles9.enpc@gmail.com';}
-    else if($num==10){$mail->Username='admissibles10.enpc@gmail.com';}
+    if($num==0){$mail->Username='admissibles1.enpc@gmail.com';}
+    else if($num==1){$mail->Username='admissibles2.enpc@gmail.com';}
+    else if($num==2){$mail->Username='admissibles3.enpc@gmail.com';}
+    else if($num==3){$mail->Username='admissibles4.enpc@gmail.com';}
+    else if($num==4){$mail->Username='admissibles5.enpc@gmail.com';}
+    else if($num==5){$mail->Username='admissibles6.enpc@gmail.com';}
+    else if($num==6){$mail->Username='admissibles7.enpc@gmail.com';}
+    else if($num==7){$mail->Username='admissibles8.enpc@gmail.com';}
+    else if($num==8){$mail->Username='admissibles9.enpc@gmail.com';}
+    else if($num==9){$mail->Username='admissibles10.enpc@gmail.com';}
     else{$mail->Username='admissibles1.enpc@gmail.com';}
     //actualisation du mailer actuel:
-    if($num>9){
-        $num=1;
+    if($num>8 || $num<0){
+        $num=0;
         fputs($file, $num);
         fclose($file);
     }
