@@ -25,7 +25,7 @@
                                 echo '<h4 class="mb-5" style="color:grey;">Votre compte n\'est pas activé.<br/> <br/>Suivez le lien reçu par mail pour l\'activer.</h4>';
                             }
                             else if($_GET['erreur'] == "bdderror"){
-                                echo '<h4 class="mb-5" style="color:grey;">Erreur de connexion à la base de donnée.<br/> <br/>Contactez l\'administration du site.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Erreur de connexion à la base de donnée.<br/>Veuillez réessayer. <br/>Si le problème persiste, contactez l\'administration du site.</h4>';
                             }
                             else if($_GET['erreur'] == "form"){
                                 echo '<h4 class="mb-5" style="color:grey;">Merci de compléter le formulaire d\'inscription.</h4>';
