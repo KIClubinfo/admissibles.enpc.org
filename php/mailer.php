@@ -229,7 +229,7 @@ if($typemessage==1){
 
                                                 <strong>Le numéro de la chambre qui t\'a été attribué est .$num_chambre.</strong><br/><br/>
 
-                                                <strong>Déroulé des évènements?</strong>
+                                                <strong>Déroulé des évènements?</strong><br/><br/>
 
                                                 Cordialement,<br/>
                                                 <br/>
