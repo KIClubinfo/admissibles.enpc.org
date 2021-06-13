@@ -91,6 +91,7 @@ if(isset($_GET['cancel'])){
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <h3 style="text-align: center">Voulez-vous vraiment annuler votre demande ? </br> Cette action sera irréversible.</h3>
+                            <h4 style="text-align: center">En particulier, si vous refaites une demande, vous perdrez votre place dans la file d'attente.</h4>
                         </div>
                     </div>
                 </div>
