@@ -49,7 +49,7 @@
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ml-auto"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead" style="text-align: justify">Tu peux découvrir dans la section suivante les différentes possibilités de logement qui te sont proposés.</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead" style="text-align: justify">Tu peux découvrir dans la section suivante les différentes possibilités de logement qui te sont proposées.</p></div>
                 </div>';}
                 else{
                     echo '<!-- About Section Content-->
@@ -91,7 +91,7 @@
                     </div>
                     <!-- Portfolio Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
-                        <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Binomé</h2>
+                        <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Binômé</h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -129,7 +129,7 @@
                         <p class="lead" style="text-align: justify">Afin d\'être le plus équitable possible dans l\'attribution des logements, les paramètres pris en compte seront :</p>
                         <ul style="">
                             <li><h5>Le statut de boursier<h5></li>
-                            <li><h5>La distance entre votre domicile et l\'École des Ponts</h5></li>
+                            <li><h5>La distance entre le domicile et l\'École des Ponts</h5></li>
                         </ul>
                         <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
                         <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l\'onglet profil</strong></p>

@@ -6,7 +6,7 @@
             <div class="col-lg-4 mb-5">
                 <h5 class="text-uppercase mb-4">Localisation</h5>
                 <p class="lead mb-0" style="font-size:1rem;">
-                    6-8 Avenue Blaise Pascal,
+                    6-8 Avenue Blaise-Pascal,
                     <br />
                     77420 Champs-sur-Marne, France
                 </p>

@@ -182,13 +182,13 @@ if($typemessage==1){
     ';
     }
     if($typemessage==2){
-        $subject = 'Demande de logement accepté';
+        $subject = 'Demande de logement acceptée';
 
         $message= '
         <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Demande de logement accepté</title>
+        <title>Demande de logement acceptée</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </head>
         <body style="margin: 0; padding: 0;">
@@ -206,31 +206,37 @@ if($typemessage==1){
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
                                             <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
-                                                <b>Votre demande de logement a été accepté</b>
+                                                <b>Votre demande de logement a été acceptée</b>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                 Bonjour,<br/>
                                                 <br/>
-                                                Nous te confirmons que ta demande de logement a été accepté.<br/><br/>
-                                                <strong>Récapitulatif de ta demande :</strong><br/>
-                                                
-                                                <ul>
-                                                    <li>Type de chambre : <em>Simple</em><br/></li>
-                                                    <li>Si pas de chambre Simple : <em>Accepte un autre type de chambre</em><br/></li>
-                                                    <li>Date d\'arrivée : <em>15/07/2021</em><br/></li>
-                                                    <li>Heure d\'arrivée : <em>14:14</em><br/></li>
-                                                    <li>Date de départ : <em>17/12/2021</em><br/></li>
-                                                    <li>Heure de départ : <em>14:14</em><br/></li>
-                                                    <li>A demandé à être avec une autre personne : <em>Non</em><br/></li>
-                                                    <li>Ne souhaite pas être avec : <em>Indifférent</em><br/></li>
-                                                </ul>
-
-                                                <strong>Le numéro de la chambre qui t\'a été attribué est .$num_chambre.</strong><br/><br/>
-
-                                                <strong>Déroulé des évènements?</strong><br/><br/>
-
+                                                Nous te confirmons que ta demande de logement a été acceptée.<br/><br/>
+                                                <strong>Nous t\'invitons à consulter ton profil pour plus d\'informations :</strong><br/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; font-family: Arial, sans-serif;">
+                                                        <a href="https://admissibles.enpc.org/profil.php" 
+                                                        style="display: inline-block;
+                                                        font-weight: 400;
+                                                        color: #5fa8d3;
+                                                        text-align: center;
+                                                        background-color: transparent;
+                                                        border: 0.125rem solid #5fa8d3;
+                                                        padding: 0.375rem 0.75rem;
+                                                        font-size: 1.1rem;
+                                                        line-height: 1.5;
+                                                        border-radius: 0.5rem;
+                                                        text-decoration: none;">
+                                                        Consulter mon profil
+                                                        </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
                                                 Cordialement,<br/>
                                                 <br/>
                                                 Le Club Informatique des Ponts.
