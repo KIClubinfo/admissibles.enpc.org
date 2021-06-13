@@ -18,7 +18,7 @@
             if (isset($_GET['erreur'])){
                 include("popupErreur.php");
             }
-            else if(isset($_GET['info'])){
+            if(isset($_GET['info'])){
                 include("popupinfo.php");
             }
         ?>

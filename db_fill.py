@@ -1,4 +1,5 @@
 import mysql.connector
+import os
 import random as rand
 import prenoms
 import string
@@ -7,13 +8,11 @@ from datetime import datetime, date, timedelta
 def delete_and_restore_just_admin():
     # Supprime toutes les lignes et remet uniquement la ligne de l'admin dans eleves.
 
-    # Pour savoir quoi renseigner dans "port", faire un "docker ps" et regarder dans "port" pour
-    # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
     connection = mysql.connector.connect(host='localhost',
                                          port=6033,
-                                         database='admissibles',
-                                         user='root',
-                                         password='NotSecretPassword')
+                                         database=os.environ['MYSQL_DATABASE'],
+                                         user=os.environ['MYSQL_USER'],
+                                         password=os.environ['MYSQL_PASSWORD'])
 
     delete_all_chambre = "DELETE FROM chambre;"
     delete_all_demande = "DELETE FROM demande;"
@@ -192,9 +191,9 @@ def generate_lines(nb_chambres, nb_eleves, nb_demandes_simples, nb_demandes_pair
         # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
         connection = mysql.connector.connect(host='localhost',
                                              port=6033,
-                                             database='admissibles',
-                                             user='root',
-                                             password='NotSecretPassword')
+                                             database=os.environ['MYSQL_DATABASE'],
+                                             user=os.environ['MYSQL_USER'],
+                                             password=os.environ['MYSQL_PASSWORD'])
 
         liste_queries_chambre = requetes_chambres(nb_chambres)
         liste_queries_eleve, liste_queries_demande = requetes_eleves_demandes(nb_eleves, nb_demandes_simples, nb_demandes_paires)
