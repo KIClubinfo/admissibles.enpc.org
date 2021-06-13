@@ -272,7 +272,9 @@ try {
     $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
 
     //SMTP username: (on switch entre 10 adresses)
-    $num=getenv("MAIL_actuel");
+    $file = fopen('mailer.txt', 'r+');
+    $num = fgets($file);
+    fseek($file, 0);
     if($num==1){$mail->Username='admissibles1.enpc@gmail.com';}
     else if($num==2){$mail->Username='admissibles2.enpc@gmail.com';}
     else if($num==3){$mail->Username='admissibles3.enpc@gmail.com';}
@@ -283,14 +285,15 @@ try {
     else if($num==8){$mail->Username='admissibles8.enpc@gmail.com';}
     else if($num==9){$mail->Username='admissibles9.enpc@gmail.com';}
     else if($num==10){$mail->Username='admissibles10.enpc@gmail.com';}
-    else{$mail->Username='admissibles1.enpc@gmail.com';putenv("MAIL_actuel=1");}
+    else{$mail->Username='admissibles1.enpc@gmail.com';fputs($file, '1');fseek($file, 0);}
     //actualisation du mailer actuel:
     if($num==10){
-        putenv("MAIL_actuel=1");
+        fputs($file, '1');
     }
     else{
-        putenv("MAIL_actuel=$num+1");
+        fputs($file, $num+1);
     }
+    fclose($file);
 
     $mail->Password   = getenv("gmail_password");                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
