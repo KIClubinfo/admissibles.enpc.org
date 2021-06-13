@@ -1,9 +1,5 @@
 <?php
     include("config.php");
-    if (!isset($_SESSION['loggedin'])) {
-	    header('Location: connexion.php');
-	    exit();
-    } 
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +11,12 @@
         <!-- Navigation-->
         <?php
             include("navbar.php");
+            if (isset($_GET['erreur'])){
+                include("popupErreur.php");
+            }
+            if(isset($_GET['info'])){
+                include("popupinfo.php");
+            }
         ?>
         <!-- Contact Section-->
         <section style="margin-top: 5%;" class="page-section text-secondary mb-0" id="about">
@@ -32,20 +34,21 @@
                 <h5 class="text-center" style="text-decoration:underline; text-align: justify; margin-bottom:2rem; line-height:2rem;">Vous trouverez ci-dessous des contacts pour vous renseigner en cas de problèmes</h5>
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant les logements :</strong> </br>Vous pouvez contacter Pierre Voisard, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
-                        <p class="lead" style="text-align: center"><strong>Num :   06.16.55.29.17</strong></br><strong>Mail :   piaulage.enpc@gmail.com</strong></p>
+                        <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Pierre Voisard, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
+                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>Téléphone :   06.16.55.29.17</strong></br>';}?><strong>Mail :   piaulage.enpc@gmail.com</strong></p>
                     </div>
                 </div>
+                <?php if (isset($_SESSION['loggedin'])){echo '
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify"><strong>Pour de questions plus générales :</strong></br>Vous pouvez contacter Clara Lemaitre, présidente du Bureau Des Élèves</p>
-                        <p class="lead" style="text-align: center"><strong>Num :   06.84.53.55.31</strong></p>
+                        <p class="lead" style="text-align: justify"><strong>Pour des questions ne concernant pas le logement ou si Pierre Voisard est injoignable :</strong></br>Vous pouvez contacter Clara Lemaitre, présidente du Bureau Des Élèves.</p>
+                        <p class="lead" style="text-align: center"><strong>Téléphone :   06.84.53.55.31</strong></p>
                     </div>
-                </div>
+                </div>';}?>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify"><strong>Pour des problèmes informatiques :</strong></br>Vous pouvez contacter le Club Informatique de l'école des Ponts.</p>
-                        <p class="lead" style="text-align: center"><strong>Mail :   clubinfo@enpc.fr</strong></p>
+                        <p class="lead" style="text-align: justify"><strong>Pour des problèmes concernant ce site internet :</strong></br>Vous pouvez contacter le Club Informatique de l'école des Ponts.</p>
+                        <p class="lead" style="text-align: center"><strong>Mail :   admissibles.enpc@gmail.com</strong></p>
                     </div>
                 </div>
         </section>
