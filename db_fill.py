@@ -78,7 +78,7 @@ def random_dates():
         else:
             demand_min = rand.randint(0, 59)
     else:
-        demand_hour = rand.randint(0, 24)
+        demand_hour = rand.randint(0, 23)
         demand_min = rand.randint(0, 59)
 
     pre_demand_time = datetime(demand_date.year, demand_date.month, demand_date.day, demand_hour, demand_min)
@@ -241,4 +241,6 @@ def generate_lines(nb_chambres, nb_eleves, nb_demandes_simples, nb_demandes_pair
             connection.close()
             print("MySQL connection is closed")
 
-generate_lines(20, 10, 4, 2)
+generate_lines(100, 500, 300, 75)
+# Il se peut que le programme plante parce qu'un des noms contient une apostrophe.
+# Dans ce cas, relancer le programme jusqu'à ce que ça n'arrive pas...
