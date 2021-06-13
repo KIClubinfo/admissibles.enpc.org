@@ -93,6 +93,18 @@
                             else if($_GET['erreur'] == "nomail"){
                                 echo '<h4 class="mb-5" style="color:grey;">Cette adresse mail n\'est associée à aucun compte.</h4>';
                             }
+                            else if($_GET['erreur'] == "date"){
+                                echo '<h4 class="mb-5" style="color:grey;">La date de départ ne peut pas être avant celle d\'arrivée.</h4>';
+                            }
+                            else if($_GET['erreur'] == "too_soon"){
+                                echo '<h4 class="mb-5" style="color:grey;">La résidence n\'est disponible qu\'à partir du ';echo $debut_oraux->format('d-m-Y');echo'. Veuillez choisir une date d\'arrivée après cette date.</h4>';
+                            }
+                            else if($_GET['erreur'] == "too_late_arrival"){
+                                echo '<h4 class="mb-5" style="color:grey;"> Vous ne pouvez pas arriver aussi tard, la résidence n\'est disponible que jusqu\'au ';echo $fin_oraux->format('d-m-Y');echo'.</h4>';
+                            }
+                            else if($_GET['erreur'] == "too_late_departure"){
+                                echo '<h4 class="mb-5" style="color:grey;">Il faut libérer la résidence avant le ';echo $fin_oraux->format('d-m-Y');echo'. Veuillez choisir une date de départ avant cette date.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';
                             }

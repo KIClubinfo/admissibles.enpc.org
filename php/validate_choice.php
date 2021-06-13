@@ -105,6 +105,26 @@ $safedeparturetime=sanitize_string($_POST['departure-time']);
 $safematechoice=sanitize_string($_POST['mate-choice']);
 $time=time();
 
+if (new DateTime($safearrivaldate)<$debut_oraux) {
+    header('Location: choice.php?erreur=too_soon');
+    exit();
+}
+
+if (new DateTime($safearrivaldate)>$fin_oraux) {
+    header('Location: choice.php?erreur=too_late_arrival');
+    exit();
+}
+
+if (new DateTime($safedeparturedate)>$fin_oraux) {
+    header('Location: choice.php?erreur=too_late_departure');
+    exit();
+}
+
+if (new DateTime($safedeparturedate)<new DateTime($safearrivaldate)) {
+    header('Location: choice.php?erreur=date');
+    exit();
+}
+
 if(!$_SESSION['a_reserve']){
 if ($_POST["mate-choice"] == 1)
 {

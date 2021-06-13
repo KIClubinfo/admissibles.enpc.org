@@ -23,6 +23,8 @@ function is_admin()
 
 $debut_demande=new DateTime('2021-06-14 12:00:00');//à modifier
 $debut_inscription=new DateTime('2021-06-14 12:00:00');//à modifier
+$debut_oraux=new DateTime('2021-06-14');//à modifier
+$fin_oraux=new DateTime('2021-07-14');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
