@@ -50,7 +50,7 @@
                             <form id="choiceForm" name="choice" action="validate_choice.php" method="post" autocomplete="off">
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='Type-choice'>Type de Chambre souhaitée</label>
+                                        <label for='Type-choice'>Type de chambre souhaité</label>
                                         <select class="form-control" id="Type-choice" name="Type-choice" required="required" data-validation-required-message="Veuillez choisir un type de Chambre.">
                                             <option value="" disabled>Choisir un type de chambre</option>
                                             <option value= "1">Simple</option>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribuée, souhaiteriez-vous tout de même une chambre d'un autre type?</label>
+                                        <label for='replace-choice'>Si ce type de chambre ne pouvait pas vous être attribué, souhaiteriez-vous tout de même une chambre d'un autre type ?</label>
                                         <select class="form-control" id="replace-choice" name="replace-choice"required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="1">Oui</option>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='replace-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec:</label>
+                                        <label for='replace-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec :</label>
                                         <select class="form-control" id="gender-choice" name="gender-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="3">indifférent</option>
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="control-group"  style="Display : None" id="mate-choice-block">
                                     <div class="form-group">
-                                        <label>Souhaitez-vous être avec une personne en particulier?</label>
+                                        <label>Souhaitez-vous être avec une personne en particulier ?</label>
                                         <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="0">Non</option>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="control-group" style="Display : None" id="mate-email-block">
                                     <div class="form-group">
-                                        <label>Adresse mail de la personne souhaitée (ATTENTION: celle utilisée pour l'inscription)</label>
+                                        <label>Adresse mail de la personne souhaitée (ATTENTION : celle utilisée pour l'inscription)</label>
                                         <input class="form-control" id="mate-email" name="mate-email" type="email" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
                                         <p class="help-block text-danger"></p>
                                     </div>  

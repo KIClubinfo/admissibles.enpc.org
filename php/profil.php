@@ -64,7 +64,7 @@
                                 echo '
                                 <li><h6>Mail : <strong>'; echo htmlspecialchars($_SESSION['email']); echo'</strong></h6></li>
                                 <li><h6>Numéro de téléphone : <strong>'; echo htmlspecialchars($tel); echo'</strong></h6></li>
-                                <li><h6>Distance à Champs-sur-Marne : <strong>'; echo htmlspecialchars($distance); echo '</strong></h6></li>';
+                                <li><h6>Distance de Champs-sur-Marne : <strong>'; echo htmlspecialchars($distance); echo '</strong></h6></li>';
                                 if($boursier == 0) {
                                     echo '<li><h6>Boursier : <strong>Non</strong></h6></li>';
                                 }
