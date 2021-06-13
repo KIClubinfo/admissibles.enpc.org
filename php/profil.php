@@ -103,7 +103,7 @@
                         else {
                             header('Location: connexion.php?erreur=unkown_error');
                             exit();
-                        } 
+                        }
                         if($type_chambre==1){
                             $type_chambre="Simple";
                         }
@@ -113,6 +113,10 @@
                         else if($type_chambre==3){
                             $type_chambre="Double";
                         }
+                        else {
+                            header('Location: connexion.php?erreur=unknown_error');
+                            exit();
+                        } 
 
                         list($year1, $month1, $day1) = explode('-', $arrival_date);
                         list($year2, $month2, $day2) = explode('-', $departure_date);  
