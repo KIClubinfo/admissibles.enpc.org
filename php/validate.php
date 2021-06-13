@@ -80,6 +80,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 	}
 	$stmt->close();
 }
+else {
+	header('Location: connexion.php?erreur=querry_error');
+    exit();
+} 
 
 $con->close();
 ?>

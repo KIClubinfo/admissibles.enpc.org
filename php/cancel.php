@@ -24,8 +24,20 @@ if(isset($_GET['cancel'])){
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
                 }
+                else {
+                    header('Location: connexion.php?erreur=querry_error');
+                    exit();
+                } 
             }
+            else {
+                header('Location: connexion.php?erreur=unknown_error');
+                exit();
+            } 
         }
+        else {
+            header('Location: connexion.php?erreur=querry_error');
+            exit();
+        } 
         $_SESSION['a_reserve']=0;
         $stmt->close();
         if ($stmt = $con->prepare('SELECT * FROM demande WHERE id_eleve = ?')){
@@ -37,8 +49,20 @@ if(isset($_GET['cancel'])){
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
                 }
+                else {
+                    header('Location: connexion.php?erreur=querry_error');
+                    exit();
+                } 
             }
+            else {
+                header('Location: connexion.php?erreur=unknown_error');
+                exit();
+            } 
         }
+        else {
+            header('Location: connexion.php?erreur=querry_error');
+            exit();
+        } 
         $stmt->close();
         $con->close();
         header('Location: profil.php');
