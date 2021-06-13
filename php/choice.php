@@ -4,7 +4,7 @@
 	    header('Location: connexion.php');
 	    exit();
     }
-    if(protect($debut_inscription)){
+    if(protect($debut_demande)){
         header('Location: index.php');
 	    exit();
     }
