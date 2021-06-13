@@ -269,8 +269,29 @@ try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'admissibles.enpc@gmail.com';                     //SMTP username
+    $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
+
+    //SMTP username: (on switch entre 10 adresses)
+    $num=getenv("MAIL_actuel");
+    if($num==1){$mail->Username='admissibles1.enpc@gmail.com';}
+    else if($num==2){$mail->Username='admissibles2.enpc@gmail.com';}
+    else if($num==3){$mail->Username='admissibles3.enpc@gmail.com';}
+    else if($num==4){$mail->Username='admissibles4.enpc@gmail.com';}
+    else if($num==5){$mail->Username='admissibles5.enpc@gmail.com';}
+    else if($num==6){$mail->Username='admissibles6.enpc@gmail.com';}
+    else if($num==7){$mail->Username='admissibles7.enpc@gmail.com';}
+    else if($num==8){$mail->Username='admissibles8.enpc@gmail.com';}
+    else if($num==9){$mail->Username='admissibles9.enpc@gmail.com';}
+    else if($num==10){$mail->Username='admissibles10.enpc@gmail.com';}
+    else{$mail->Username='admissibles1.enpc@gmail.com';putenv("MAIL_actuel=1");}
+    //actualisation du mailer actuel:
+    if($num==10){
+        putenv("MAIL_actuel=1");
+    }
+    else{
+        putenv("MAIL_actuel=$num+1");
+    }
+
     $mail->Password   = getenv("gmail_password");                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
@@ -297,7 +318,8 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-
+    header('Location: connexion.php?erreur=mail_error');
+    exit();
 };
 };
 ?>

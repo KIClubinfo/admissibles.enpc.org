@@ -28,4 +28,9 @@ if (isset($_GET['email'], $_GET['code'])) {
 		}
 	}
 }
+
+else {
+	header('Location: connexion.php?erreur=inconnue');
+    exit();
+} 
 ?>
