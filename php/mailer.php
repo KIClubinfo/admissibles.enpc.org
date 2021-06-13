@@ -219,20 +219,20 @@ if($typemessage==1){
                                         </tr>
                                         <tr>
                                             <td style="text-align:center; font-family: Arial, sans-serif;">
-                                                        <a href="https://admissibles.enpc.org/profil.php" 
-                                                        style="display: inline-block;
-                                                        font-weight: 400;
-                                                        color: #5fa8d3;
-                                                        text-align: center;
-                                                        background-color: transparent;
-                                                        border: 0.125rem solid #5fa8d3;
-                                                        padding: 0.375rem 0.75rem;
-                                                        font-size: 1.1rem;
-                                                        line-height: 1.5;
-                                                        border-radius: 0.5rem;
-                                                        text-decoration: none;">
-                                                        Consulter mon profil
-                                                        </a>
+                                                <a href="https://admissibles.enpc.org/profil.php" 
+                                                style="display: inline-block;
+                                                font-weight: 400;
+                                                color: #5fa8d3;
+                                                text-align: center;
+                                                background-color: transparent;
+                                                border: 0.125rem solid #5fa8d3;
+                                                padding: 0.375rem 0.75rem;
+                                                font-size: 1.1rem;
+                                                line-height: 1.5;
+                                                border-radius: 0.5rem;
+                                                text-decoration: none;">
+                                                Consulter mon profil
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>

@@ -136,6 +136,9 @@
             </div>
         </header>
         <?php
+            include("footer_info.php");
+        ?>
+        <?php
             include("footer.php");
         ?>
         <script src="js/demo.js"></script>

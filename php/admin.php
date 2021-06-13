@@ -5,7 +5,7 @@
 	    exit();
     } 
     if (!is_admin()){
-        header('Location: index.php');//Petit popup ?
+        header('Location: profil.php?erreur=interdit');
         exit();
     }
 ?>
@@ -20,10 +20,10 @@
         <?php
             include("navbar.php");
         ?>
-        <!-- Contact Section-->
+        <!-- Admin Section-->
         <section style="margin-top: 5%;" class="page-section text-secondary mb-0" id="about">
             <div class="container">
-                <!-- Contact Section Heading-->
+                <!-- Admin Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary">ADMIN</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -31,7 +31,7 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Contact Section Content-->
+                <!-- Admin Section Content-->
         </section>
         <!--Footer Information-->
         <?php
