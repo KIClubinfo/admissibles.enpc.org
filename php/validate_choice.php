@@ -151,8 +151,20 @@ if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
             $stmt->bind_param('i', $_SESSION['id']);
             $stmt->execute();
         }
+        else {
+            header('Location: connexion.php?erreur=querry_error');
+            exit();
+        }
+    }
+    else {
+        header('Location: connexion.php?erreur=unknown_error');
+        exit();
     }
 }
+else {
+	header('Location: connexion.php?erreur=querry_error');
+    exit();
+} 
 $_SESSION['a_reserve']=1;
 $stmt->close();
 

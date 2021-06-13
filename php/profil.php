@@ -40,11 +40,19 @@
                         $stmt->bind_param('i', $_SESSION['id']);
                         $stmt->execute();
                         $stmt->store_result();
-                    }   
+                    }
+                    else {
+                        header('Location: connexion.php?erreur=querry_error');
+                        exit();
+                    }    
                     if ($stmt->num_rows > 0) {
                         $stmt->bind_result($nom, $prenom, $gender, $tel, $distance, $boursier);
                         $stmt->fetch();
                     }
+                    else {
+                        header('Location: connexion.php?erreur=unknown_error');
+                        exit();
+                    } 
                     echo '
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
@@ -83,12 +91,19 @@
                             $stmt->execute();
                             $stmt->store_result();
                         }
+                        else {
+                            header('Location: connexion.php?erreur=querry_error');
+                            exit();
+                        } 
                         if ($stmt->num_rows > 0) {
                             $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $gender_choice, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate, $mate_email, $validee, $demand_time);
                             $stmt->fetch();
                             $stmt->close();
                         }
-
+                        else {
+                            header('Location: connexion.php?erreur=unkown_error');
+                            exit();
+                        }
                         if($type_chambre==1){
                             $type_chambre="Simple";
                         }
@@ -98,6 +113,10 @@
                         else if($type_chambre==3){
                             $type_chambre="Double";
                         }
+                        else {
+                            header('Location: connexion.php?erreur=unknown_error');
+                            exit();
+                        } 
 
                         list($year1, $month1, $day1) = explode('-', $arrival_date);
                         list($year2, $month2, $day2) = explode('-', $departure_date);  

@@ -318,7 +318,8 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-
+    header('Location: connexion.php?erreur=mail_error');
+    exit();
 };
 };
 ?>

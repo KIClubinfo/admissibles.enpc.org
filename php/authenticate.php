@@ -14,6 +14,11 @@ if ($stmt = $con->prepare('SELECT id, password, admin, a_reserve, activation_cod
 	$stmt->store_result();
 }
 
+else {
+	header('Location: connexion.php?erreur=querry_error');
+    exit();
+} 
+
 if ($stmt->num_rows > 0) {
 	$stmt->bind_result($id, $password, $admin, $a_reserve, $activation_code);
 	$stmt->fetch();
@@ -41,6 +46,7 @@ if ($stmt->num_rows > 0) {
 } else {
 	header('Location: connexion.php?erreur=1'); 
 }
+
 $stmt->close();
 $con->close();
 ?>
