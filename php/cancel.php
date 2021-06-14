@@ -9,12 +9,12 @@
 	    exit();
     }
 
-if(isset($_GET['cancel'])){
-    if($_GET['cancel']!=0 && $_GET['cancel']!=1){
+if(isset($_SESSION['cancel'])){
+    if($_SESSION['cancel']!=0 && $_SESSION['cancel']!=1){
         header('Location: profil.php');
 	    exit();
     }
-    if($_GET['cancel']){
+    if($_SESSION['cancel']){
         if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
             $stmt->bind_param('i', $_SESSION['id']);
             $stmt->execute();
@@ -24,8 +24,20 @@ if(isset($_GET['cancel'])){
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
                 }
+                else {
+                    header('Location: connexion.php?erreur=querry_error');
+                    exit();
+                } 
             }
+            else {
+                header('Location: connexion.php?erreur=unknown_error');
+                exit();
+            } 
         }
+        else {
+            header('Location: connexion.php?erreur=querry_error');
+            exit();
+        } 
         $_SESSION['a_reserve']=0;
         $stmt->close();
         if ($stmt = $con->prepare('SELECT * FROM demande WHERE id_eleve = ?')){
@@ -37,14 +49,27 @@ if(isset($_GET['cancel'])){
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
                 }
+                else {
+                    header('Location: connexion.php?erreur=querry_error');
+                    exit();
+                } 
             }
+            else {
+                header('Location: connexion.php?erreur=unknown_error');
+                exit();
+            } 
         }
+        else {
+            header('Location: connexion.php?erreur=querry_error');
+            exit();
+        } 
         $stmt->close();
         $con->close();
         header('Location: profil.php');
 	    exit();
     }
 }
+$_SESSION['cancel']=1;
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +116,7 @@ if(isset($_GET['cancel'])){
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <h3 style="text-align: center">Voulez-vous vraiment annuler votre demande ? </br> Cette action sera irréversible.</h3>
+                            <h4 style="text-align: center">En particulier, si vous refaites une demande, vous perdrez votre place dans la file d'attente.</h4>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@
                                 echo '<h4 class="mb-5" style="color:grey;">Votre compte n\'est pas activé.<br/> <br/>Suivez le lien reçu par mail pour l\'activer.</h4>';
                             }
                             else if($_GET['erreur'] == "bdderror"){
-                                echo '<h4 class="mb-5" style="color:grey;">Erreur de connexion à la base de donnée.<br/> <br/>Contactez l\'administration du site.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Erreur de connexion à la base de donnée.<br/>Veuillez réessayer. <br/>Si le problème persiste, contactez l\'administration du site.</h4>';
                             }
                             else if($_GET['erreur'] == "form"){
                                 echo '<h4 class="mb-5" style="color:grey;">Merci de compléter le formulaire d\'inscription.</h4>';
@@ -87,6 +87,9 @@
                             else if($_GET['erreur'] == "connected"){
                                 echo '<h4 class="mb-5" style="color:grey;">Vous ne pouvez pas accéder à cette page si vous êtes connecté.</h4>';
                             }
+                            else if($_GET['erreur'] == "notconnected"){
+                                echo '<h4 class="mb-5" style="color:grey;">Vous devez être connecté pour accéder à cette page.</h4>';
+                            }
                             else if($_GET['erreur'] == "interdit"){
                                 echo '<h4 class="mb-5" style="color:grey;">Vous ne devriez pas être ici.</h4>';
                             }
@@ -104,6 +107,12 @@
                             }
                             else if($_GET['erreur'] == "too_late_departure"){
                                 echo '<h4 class="mb-5" style="color:grey;">Il faut libérer la résidence avant le ';echo $fin_oraux->format('d-m-Y');echo'. Veuillez choisir une date de départ avant cette date.</h4>';
+                            }
+                            else if($_GET['erreur'] == "querry_error"){
+                                echo '<h4 class="mb-5" style="color:grey;">La requête a échoué.<br/>Veuillez réessayer. <br/>Si le problème persiste, contactez l\'administration du site.</h4>';
+                            }
+                            else if($_GET['erreur'] == "mail_error"){
+                                echo '<h4 class="mb-5" style="color:grey;">L\'envoi du mail a échoué.<br/> Contactez l\'administration du site.</h4>';
                             }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur inconnue est survenue.</h4>';

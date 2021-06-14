@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: php_74
     depends_on:
-      - db 
+      - db
     ports:
       - 8123:80
     environment:

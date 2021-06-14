@@ -50,7 +50,7 @@ $message= '
                                 <tr>
                                     <td style="text-align:center; font-family: Arial, sans-serif;">
                                         
-                                        <a href="admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
+                                        <a href="https://admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
                                         style="display: inline-block;
                                         font-weight: 400;
                                         color: #5fa8d3;
@@ -135,7 +135,7 @@ if($typemessage==1){
                                     <tr>
                                         <td style="text-align:center; font-family: Arial, sans-serif;">
                                             
-                                            <a href="admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
+                                            <a href="https://admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
                                             style="display: inline-block;
                                             font-weight: 400;
                                             color: #5fa8d3;
@@ -269,8 +269,41 @@ try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'admissibles.enpc@gmail.com';                     //SMTP username
+    $mail->SMTPAuth   = true;                                  //Enable SMTP authentication
+
+    //cette méthode d'écriture ne marche pas si num>=10
+    if(file_exists('mailer.txt')){
+        $file = fopen('mailer.txt', 'r+');
+        $num = fgets($file);
+    }
+    else{
+        $file = fopen('mailer.txt', 'a+');
+        $num = 0;
+    }
+    fseek($file, 0);
+    if($num==0){$mail->Username='admissibles1.enpc@gmail.com';}
+    else if($num==1){$mail->Username='admissibles2.enpc@gmail.com';}
+    else if($num==2){$mail->Username='admissibles3.enpc@gmail.com';}
+    else if($num==3){$mail->Username='admissibles4.enpc@gmail.com';}
+    else if($num==4){$mail->Username='admissibles5.enpc@gmail.com';}
+    else if($num==5){$mail->Username='admissibles6.enpc@gmail.com';}
+    else if($num==6){$mail->Username='admissibles7.enpc@gmail.com';}
+    else if($num==7){$mail->Username='admissibles8.enpc@gmail.com';}
+    else if($num==8){$mail->Username='admissibles9.enpc@gmail.com';}
+    else if($num==9){$mail->Username='admissibles10.enpc@gmail.com';}
+    else{$mail->Username='admissibles1.enpc@gmail.com';}
+    //actualisation du mailer actuel:
+    if($num>8 || $num<0){
+        $num=0;
+        fputs($file, $num);
+        fclose($file);
+    }
+    else{
+        $num=$num+1;
+        fputs($file, $num);
+        fclose($file);
+    }
+
     $mail->Password   = getenv("gmail_password");                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
@@ -297,7 +330,8 @@ try {
 
     $mail->send();
 } catch (Exception $e) {
-
+    header('Location: connexion.php?erreur=mail_error');
+    exit();
 };
 };
 ?>
