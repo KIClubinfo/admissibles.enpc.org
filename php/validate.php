@@ -43,6 +43,10 @@ if ($_POST['boursier'] != 0 && $_POST['boursier'] != 1) {
 	header('Location: inscription.php?erreur=boursier');
 	exit();
 }
+if ($_POST['gender'] != 1 && $_POST['gender'] != 2 && $_POST['gender'] != 3) {
+	header('Location: inscription.php?erreur=autre');
+	exit();
+}
 
 $safemail=sanitize_string($_POST['email']);
 
