@@ -50,7 +50,7 @@ $message= '
                                 <tr>
                                     <td style="text-align:center; font-family: Arial, sans-serif;">
                                         
-                                        <a href="admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
+                                        <a href="https://admissibles.enpc.org/activate.php?email='.$email.'&code='.$activation_code.'"
                                         style="display: inline-block;
                                         font-weight: 400;
                                         color: #5fa8d3;
@@ -135,7 +135,7 @@ if($typemessage==1){
                                     <tr>
                                         <td style="text-align:center; font-family: Arial, sans-serif;">
                                             
-                                            <a href="admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
+                                            <a href="https://admissibles.enpc.org/changepassword2.php?email='.$email.'&code='.$activation_code.'"
                                             style="display: inline-block;
                                             font-weight: 400;
                                             color: #5fa8d3;
