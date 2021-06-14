@@ -9,12 +9,12 @@
 	    exit();
     }
 
-if(isset($_GET['cancel'])){
-    if($_GET['cancel']!=0 && $_GET['cancel']!=1){
+if(isset($_SESSION['cancel'])){
+    if($_SESSION['cancel']!=0 && $_SESSION['cancel']!=1){
         header('Location: profil.php');
 	    exit();
     }
-    if($_GET['cancel']){
+    if($_SESSION['cancel']){
         if ($stmt = $con->prepare('SELECT * FROM eleves WHERE id = ?')){
             $stmt->bind_param('i', $_SESSION['id']);
             $stmt->execute();
@@ -69,6 +69,7 @@ if(isset($_GET['cancel'])){
 	    exit();
     }
 }
+$_SESSION['cancel']=1;
 ?>
 
 <!DOCTYPE html>
