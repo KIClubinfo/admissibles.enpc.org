@@ -17,7 +17,7 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2021-06-15 08:00:00');//à modifier
+$debut_demande=new DateTime('2021-06-15 11:00:00');//à modifier
 $debut_inscription=new DateTime('2021-06-13 23:00:15');//à modifier
 $debut_oraux=new DateTime('2021-06-14');//à modifier
 $fin_oraux=new DateTime('2021-07-14');//à modifier
