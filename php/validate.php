@@ -64,19 +64,13 @@ if ($stmt = $con->prepare('SELECT id, password FROM eleves WHERE mail = ?')) {
 
 		$stmt = $con->prepare('INSERT INTO eleves (prenom, nom, gender, password, mail, tel, distance, boursier, admin, activation_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?)');
         $password = password_hash($safepass, PASSWORD_DEFAULT);
-		$uniqid = uniqid();
+		$uniqid = bin2hex(random_bytes(16));
 	    $stmt->bind_param('ssisssdis', $safeprenom, $safenom, $safegender, $password, $safemail, $safetel, $safedistance, $safeboursier, $uniqid);
 	    $stmt->execute();
 
 		send_mail($_POST['email'], $uniqid,0);
 		header('Location: connexion.php?info=mailinscription');
 	    exit();
-	    //echo 'Un email vous a été envoyé. Merci de vérifier vos emails pour activer votre compte.';
-
-		//******Only while there is no mailer******//
-		//header('Location: temp.php?email='.$safemail.'&code='.$uniqid.'');
-	    //exit();
-		//*****************************************//
 	}
 	$stmt->close();
 }

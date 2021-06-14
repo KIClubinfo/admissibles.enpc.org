@@ -17,7 +17,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	exit();
 }
 
-$uniqid = uniqid();
+$uniqid = bin2hex(random_bytes(16));
 
 if ($stmt = $con->prepare('SELECT admin FROM eleves WHERE mail = ?')){
     $stmt->bind_param('s', $safemail);
