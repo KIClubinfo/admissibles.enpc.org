@@ -33,56 +33,153 @@
                 </div>
                 <!-- Admin Section Content-->
                 <div class="text-center mt-4" style="margin-bottom:2rem">
-                    <a class="btn btn-xl btn-primary" href="">
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=Eleves">
                         Table des élèves
                     </a>
-                    <a class="btn btn-xl btn-primary" href="" style="margin:1rem">
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=Reservations" style="margin:1rem">
                         Table des réservations
                     </a>
-                    <a class="btn btn-xl btn-primary" href="" >
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=Demandes" >
                         Table des demandes
                     </a>
-                    <a class="btn btn-xl btn-primary" href="" style="margin:1rem">
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=Chambres" style="margin:1rem">
                         Table des chambres
                     </a>
                 </div>
                 <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Mail</th>
-                            <th scope="col">Tel</th>
-                            <th scope="col">Reservation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                    </tbody>
+                <?php
+                    echo '<h4 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h4>';
+                    if ($_GET['table']=="Eleves"){
+                        echo '<thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Mail</th>
+                                <th scope="col">Tel</th>
+                                <th scope="col">Reservation</th>
+                            </tr>
+                        </thead>';
+
+                        if ($stmt = $con->prepare('SELECT id, prenom, nom, mail, tel, a_reserve FROM eleves')) {
+                            $stmt->execute();
+                        }
+                        else {
+                            header('Location: connexion.php?erreur=querry_error');
+                            exit();
+                        } 
+                        $stmt->bind_result($id, $prenom, $nom, $mail, $tel, $a_reserve);
+                        while ($donnees = $stmt->fetch()) {
+                            echo '
+                            <tbody>
+                                <tr>
+                                    <th scope="row">';echo htmlspecialchars($id); echo '</th>
+                                    <td>';echo htmlspecialchars($prenom); echo '</td>
+                                    <td>';echo htmlspecialchars($nom); echo '</td>
+                                    <td>';echo htmlspecialchars($mail); echo '</td>
+                                    <td>';echo htmlspecialchars($tel); echo '</td>
+                                    <td>';echo htmlspecialchars($a_reserve); echo '</td>
+                                </tr>
+                            </tbody>';
+                        }
+                    }
+                    else if ($_GET['table']=="Reservations"){
+                        echo '<thead>
+                            <tr>
+                                <th scope="col">id_res</th>
+                                <th scope="col">id_eleves</th>
+                                <th scope="col">Numéro chambre</th>
+                                <th scope="col">Date arrivée</th>
+                                <th scope="col">Date départ</th>
+                            </tr>
+                        </thead>';
+
+                        if ($stmt = $con->prepare('SELECT id_res, id_eleves, numero_chambre, date_arrivee, date_depart FROM reservation')) {
+                            $stmt->execute();
+                        }
+                        else {
+                            header('Location: connexion.php?erreur=querry_error');
+                            exit();
+                        } 
+                        $stmt->bind_result($id_res, $id_eleves, $numero_chambre, $date_arrivee, $date_depart);
+                        while ($donnees = $stmt->fetch()) {
+                            echo '
+                            <tbody>
+                                <tr>
+                                    <th scope="row">';echo htmlspecialchars($id_res); echo '</th>
+                                    <td>';echo htmlspecialchars($id_eleves); echo '</td>
+                                    <td>';echo htmlspecialchars($numero_chambre); echo '</td>
+                                    <td>';echo htmlspecialchars($date_arrivee); echo '</td>
+                                    <td>';echo htmlspecialchars($date_depart); echo '</td>
+                                </tr>
+                            </tbody>';
+                        }
+                    }
+                    else if ($_GET['table']=="Demandes"){
+                        echo '<thead>
+                            <tr>
+                                <th scope="col">id_demande</th>
+                                <th scope="col">id_eleve</th>
+                                <th scope="col">Type chambre</th>
+                                <th scope="col">Date arrivée</th>
+                                <th scope="col">Heure arrivée</th>
+                                <th scope="col">Date départ</th>
+                                <th scope="col">Heure départ</th>
+                                <th scope="col">Date demande</th>
+                            </tr>
+                        </thead>';
+
+                        if ($stmt = $con->prepare('SELECT id_demande, id_eleve, type_chambre, arrival_date, arrival_time, departure_date, departure_time, demand_time FROM demande')) {
+                            $stmt->execute();
+                        }
+                        else {
+                            header('Location: connexion.php?erreur=querry_error');
+                            exit();
+                        } 
+                        $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $arrival_date, $arrival_time, $departure_date, $departure_time, $demand_time);
+                        while ($donnees = $stmt->fetch()) {
+                            echo '
+                            <tbody>
+                                <tr>
+                                    <th scope="row">';echo htmlspecialchars($id_demande); echo '</th>
+                                    <td>';echo htmlspecialchars($id_eleve); echo '</td>
+                                    <td>';echo htmlspecialchars($type_chambre); echo '</td>
+                                    <td>';echo htmlspecialchars($arrival_date); echo '</td>
+                                    <td>';echo htmlspecialchars($arrival_time); echo '</td>
+                                    <td>';echo htmlspecialchars($departure_date); echo '</td>
+                                    <td>';echo htmlspecialchars($departure_time); echo '</td>
+                                    <td>';echo htmlspecialchars($demand_time); echo '</td>
+                                </tr>
+                            </tbody>';
+                        }
+                    }
+                    else if ($_GET['table']=="Chambres"){
+                        echo '<thead>
+                            <tr>
+                                <th scope="col">Numéro de la chambre</th>
+                                <th scope="col">Type</th>
+                            </tr>
+                        </thead>';
+
+                        if ($stmt = $con->prepare('SELECT numero,type FROM chambre')) {
+                            $stmt->execute();
+                        }
+                        else {
+                            header('Location: connexion.php?erreur=querry_error');
+                            exit();
+                        } 
+                        $stmt->bind_result($numero,$type);
+                        while ($donnees = $stmt->fetch()) {
+                            echo '
+                            <tbody>
+                                <tr>
+                                    <th scope="row">';echo htmlspecialchars($numero); echo '</th>
+                                    <td>';echo htmlspecialchars($type); echo '</td>
+                                </tr>
+                            </tbody>';
+                        }
+                    }
+                ?>  
                 </table>
         </section>
         <!--Footer Information-->
