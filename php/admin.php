@@ -32,6 +32,58 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Admin Section Content-->
+                <div class="text-center mt-4" style="margin-bottom:2rem">
+                    <a class="btn btn-xl btn-primary" href="">
+                        Table des élèves
+                    </a>
+                    <a class="btn btn-xl btn-primary" href="" style="margin:1rem">
+                        Table des réservations
+                    </a>
+                    <a class="btn btn-xl btn-primary" href="" >
+                        Table des demandes
+                    </a>
+                    <a class="btn btn-xl btn-primary" href="" style="margin:1rem">
+                        Table des chambres
+                    </a>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Prénom</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Mail</th>
+                            <th scope="col">Tel</th>
+                            <th scope="col">Reservation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
         </section>
         <!--Footer Information-->
         <?php
