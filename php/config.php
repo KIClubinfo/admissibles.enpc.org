@@ -17,10 +17,10 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2021-06-15 11:00:00');//à modifier
+$debut_demande=new DateTime('2021-06-17 20:00:00');//à modifier
 $debut_inscription=new DateTime('2021-06-13 23:00:15');//à modifier
-$debut_oraux=new DateTime('2021-06-14');//à modifier
-$fin_oraux=new DateTime('2021-07-14');//à modifier
+$debut_oraux=new DateTime('2021-06-21');//à modifier
+$fin_oraux=new DateTime('2021-07-16');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
