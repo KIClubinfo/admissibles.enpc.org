@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='replace-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec :</label>
+                                        <label for='gender-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec :</label>
                                         <select class="form-control" id="gender-choice" name="gender-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="3">indifférent</option>
@@ -99,21 +99,21 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label>Date de départ</label>
+                                        <label for="departure-date">Date de départ</label>
                                         <input class="form-control" id="departure-date" name="departure-date" type="date" placeholder="Date de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label>Heure de départ</label>
+                                        <label for="departure-time">Heure de départ</label>
                                         <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="Heure de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="60"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group"  style="Display : None" id="mate-choice-block">
                                     <div class="form-group">
-                                        <label>Souhaitez-vous être avec une personne en particulier ?</label>
+                                        <label for="mate-choice">Souhaitez-vous être avec une personne en particulier ?</label>
                                         <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled>Choisir une option</option>
                                             <option value="0">Non</option>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="control-group" style="Display : None" id="mate-email-block">
                                     <div class="form-group">
-                                        <label>Adresse mail de la personne souhaitée (ATTENTION : celle utilisée pour l'inscription)</label>
+                                        <label for="mate-email">Adresse mail de la personne souhaitée (ATTENTION : celle utilisée pour l'inscription)</label>
                                         <input class="form-control" id="mate-email" name="mate-email" type="email" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
                                         <p class="help-block text-danger"></p>
                                     </div>  

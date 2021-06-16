@@ -22,13 +22,20 @@ if (!isset($_POST["Type-choice"], $_POST["replace-choice"], $_POST["gender-choic
 	header('Location: choice.php?erreur=choice-form');
     exit();
 }
-if (empty($_POST["Type-choice"]) || empty($_POST["replace-choice"]) || empty($_POST["gender-choice"]) || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
+if (empty($_POST["Type-choice"]) || (empty($_POST["replace-choice"]) && $_POST["replace-choice"]!=0) || empty($_POST["gender-choice"]) || empty($_POST["arrival-date"]) || empty($_POST["arrival-time"]) || empty($_POST["departure-date"]) || empty($_POST["departure-time"])){
 	header('Location: choice.php?erreur=choice-form');
     exit();
 }
 
 if ($_POST["Type-choice"] == 2 || $_POST["Type-choice"] == 3) {
-    
+    if (!isset($_POST["mate-choice"])) {
+        header('Location: choice.php?erreur=choice-form');
+        exit();
+    }
+    if (empty($_POST["mate-choice"]) && $_POST["mate-choice"]!=0) {
+        header('Location: choice.php?erreur=choice-formtest');
+        exit();
+    }
     if ($_POST["mate-choice"] == 1)
     {
         if (!isset($_POST["mate-email"])) {
