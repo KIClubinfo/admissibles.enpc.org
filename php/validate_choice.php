@@ -174,7 +174,7 @@ else{
 if ($_POST["mate-choice"] == 1)
 {
     $safematemail=sanitize_string($_POST['mate-email']);
-    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0, demand_time=?, WHERE id_eleve=?');
+    $stmt = $con->prepare('UPDATE demande SET id_eleve=?, type_chambre=?, remplace=?, gender_choice=?, arrival_date=?, arrival_time=?, departure_date=?, departure_time=?, mate=?, mate_email=?, validee=0, demand_time=? WHERE id_eleve=?');
     $stmt->bind_param('iiiissssisii', $_SESSION['id'], $safetypechoice, $safereplacechoice, $safegenderchoice, $safearrivaldate, $safearrivaltime, $safedeparturedate, $safedeparturetime, $safematechoice, $safematemail, $time, $_SESSION['id']);
     $stmt->execute();
     $stmt->close();
