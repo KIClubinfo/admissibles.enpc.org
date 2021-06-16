@@ -65,6 +65,7 @@ if(isset($_SESSION['cancel'])){
         } 
         $stmt->close();
         $con->close();
+        $_SESSION['cancel']=0;
         header('Location: profil.php');
 	    exit();
     }
