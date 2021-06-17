@@ -38,7 +38,7 @@ $FIELD_DATE_ARRIVEE = "date_arrivee";
 $FIELD_DATE_DEPART = "date_depart";
 
 
-$SIMPLE = "0";
-$DOUBLE = "1";
+$SIMPLE = "1";
 $BINOMEE = "2";
+$DOUBLE = "3";
 ?>
