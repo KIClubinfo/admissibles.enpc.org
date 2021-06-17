@@ -49,8 +49,8 @@ $BINOMEE = "2";
 include("config.php");
 include("field_names.php");
 
-$liste_demandes_loin = $con->query("SELECT * FROM eleves JOIN demande ON id = id_eleve WHERE distance > 75 ORDER BY validee DESC, demand_time ASC"); //On récupère toutes les demandes triées selon Voisard
-$liste_demandes_pres = $con->query("SELECT * FROM eleves JOIN demande ON id = id_eleve WHERE distance <= 75 ORDER BY validee DESC, demand_time ASC"); //On récupère toutes les demandes triées selon Voisard
+$liste_demandes_loin = $con->query("SELECT * FROM eleves JOIN demande ON id = id_eleve WHERE distance > 75 AND validee <> 1 ORDER BY validee DESC, demand_time ASC"); //On récupère toutes les demandes triées selon Voisard
+$liste_demandes_pres = $con->query("SELECT * FROM eleves JOIN demande ON id = id_eleve WHERE distance <= 75 AND validee <> 1 ORDER BY validee DESC, demand_time ASC"); //On récupère toutes les demandes triées selon Voisard
 while($demande = $liste_demandes_loin->fetch_assoc()){   //On regarde 1 à 1 les demandes
     $condition_type = " type = ";
     //join pour les binomes
@@ -113,7 +113,7 @@ while($demande = $liste_demandes_loin->fetch_assoc()){   //On regarde 1 à 1 les
             $con -> query("INSERT INTO reservation (".$FIELD_RESERVATION_ELEVES_ID.",".$FIELD_CHAMBRE_NUMBER.",".$FIELD_DATE_ARRIVEE.",".$FIELD_DATE_DEPART.") 
             VALUES (".$demande[$FIELD_DEMANDE_ELEVE_ID].",".$room[$FIELD_NUMBER].",'".$demande[$FIELD_ARRIVAL_DATE]." ".$heure_arrivee."','".$demande[$FIELD_DEPARTURE_DATE]." ".$heure_depart."')"); //On réserve la chambre
             $cherche = false;//reussi -> affecter
-            $con -> query("DELETE FROM ".$TABLE_DEMANDE." WHERE ".$FIELD_DEMANDE_ELEVE_ID."=".$demande[$FIELD_DEMANDE_ELEVE_ID]);
+            $con -> query("UPDATE demande SET validee = 3 WHERE id_demande = ".$demande[$FIELD_DEMANDE_ID]);
         }
     }
     if($demande[$FIELD_REMPLACE] == 1){
@@ -147,7 +147,7 @@ while($demande = $liste_demandes_loin->fetch_assoc()){   //On regarde 1 à 1 les
                 $con -> query("INSERT INTO reservation (".$FIELD_RESERVATION_ELEVES_ID.",".$FIELD_CHAMBRE_NUMBER.",".$FIELD_DATE_ARRIVEE.",".$FIELD_DATE_DEPART.") 
                 VALUES (".$demande[$FIELD_DEMANDE_ELEVE_ID].",".$room[$FIELD_NUMBER].",'".$demande[$FIELD_ARRIVAL_DATE]." ".$heure_arrivee."','".$demande[$FIELD_DEPARTURE_DATE]." ".$heure_depart."')"); //On réserve la chambre
                 $cherche = false;//reussi -> affecter
-                $con -> query("DELETE FROM ".$TABLE_DEMANDE." WHERE ".$FIELD_DEMANDE_ELEVE_ID."=".$demande[$FIELD_DEMANDE_ELEVE_ID]);
+                $con -> query("UPDATE demande SET validee = 1 WHERE id_demande = ".$demande[$FIELD_DEMANDE_ID]);
             }
         }
     }
@@ -217,7 +217,7 @@ while($demande = $liste_demandes_pres->fetch_assoc()){   //On regarde 1 à 1 les
             $con -> query("INSERT INTO reservation (".$FIELD_RESERVATION_ELEVES_ID.",".$FIELD_CHAMBRE_NUMBER.",".$FIELD_DATE_ARRIVEE.",".$FIELD_DATE_DEPART.") 
             VALUES (".$demande[$FIELD_DEMANDE_ELEVE_ID].",".$room[$FIELD_NUMBER].",'".$demande[$FIELD_ARRIVAL_DATE]." ".$heure_arrivee."','".$demande[$FIELD_DEPARTURE_DATE]." ".$heure_depart."')"); //On réserve la chambre
             $cherche = false;//reussi -> affecter
-            $con -> query("DELETE FROM ".$TABLE_DEMANDE." WHERE ".$FIELD_DEMANDE_ELEVE_ID."=".$demande[$FIELD_DEMANDE_ELEVE_ID]);
+            $con -> query("UPDATE demande SET validee = 1 WHERE id_demande = ".$demande[$FIELD_DEMANDE_ID]);
         }
     }
     if($demande[$FIELD_REMPLACE] == 1){
@@ -251,7 +251,7 @@ while($demande = $liste_demandes_pres->fetch_assoc()){   //On regarde 1 à 1 les
                 $con -> query("INSERT INTO reservation (".$FIELD_RESERVATION_ELEVES_ID.",".$FIELD_CHAMBRE_NUMBER.",".$FIELD_DATE_ARRIVEE.",".$FIELD_DATE_DEPART.") 
                 VALUES (".$demande[$FIELD_DEMANDE_ELEVE_ID].",".$room[$FIELD_NUMBER].",'".$demande[$FIELD_ARRIVAL_DATE]." ".$heure_arrivee."','".$demande[$FIELD_DEPARTURE_DATE]." ".$heure_depart."')"); //On réserve la chambre
                 $cherche = false;//reussi -> affecter
-                $con -> query("DELETE FROM ".$TABLE_DEMANDE." WHERE ".$FIELD_DEMANDE_ELEVE_ID."=".$demande[$FIELD_DEMANDE_ELEVE_ID]);
+                $con -> query("UPDATE demande SET validee = 1 WHERE id_demande = ".$demande[$FIELD_DEMANDE_ID]);
             }
         }
     }
