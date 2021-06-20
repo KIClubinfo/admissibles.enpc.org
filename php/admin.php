@@ -138,7 +138,7 @@
                             header('Location: connexion.php?erreur=querry_error');
                             exit();
                         } 
-                        $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate_email, $demand_time);
+                        $stmt->bind_result($id_demande, $id_eleve, $remplace, $type_chambre, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate_email, $demand_time);
                         while ($donnees = $stmt->fetch()) {
                             echo '
                             <tbody>
