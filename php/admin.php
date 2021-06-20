@@ -48,7 +48,7 @@
                 </div>
                 <table class="table">
                 <?php
-                    echo '<h4 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h4>';
+                    echo '<h1 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h1>';
                     if ($_GET['table']=="Eleves"){
                         echo '<thead>
                             <tr>
@@ -120,6 +120,8 @@
                             <tr>
                                 <th scope="col">id_demande</th>
                                 <th scope="col">id_eleve</th>
+                                <th scope="col">Remplace</th>
+                                <th scope="col">Mate_Mail</th>
                                 <th scope="col">Type chambre</th>
                                 <th scope="col">Date arrivée</th>
                                 <th scope="col">Heure arrivée</th>
@@ -129,20 +131,22 @@
                             </tr>
                         </thead>';
 
-                        if ($stmt = $con->prepare('SELECT id_demande, id_eleve, type_chambre, arrival_date, arrival_time, departure_date, departure_time, demand_time FROM demande')) {
+                        if ($stmt = $con->prepare('SELECT id_demande, id_eleve, remplace, type_chambre, arrival_date, arrival_time, departure_date, departure_time, mate_email, demand_time FROM demande')) {
                             $stmt->execute();
                         }
                         else {
                             header('Location: connexion.php?erreur=querry_error');
                             exit();
                         } 
-                        $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $arrival_date, $arrival_time, $departure_date, $departure_time, $demand_time);
+                        $stmt->bind_result($id_demande, $id_eleve, $type_chambre, $remplace, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate_email, $demand_time);
                         while ($donnees = $stmt->fetch()) {
                             echo '
                             <tbody>
                                 <tr>
                                     <th scope="row">';echo htmlspecialchars($id_demande); echo '</th>
                                     <td>';echo htmlspecialchars($id_eleve); echo '</td>
+                                    <td>';echo htmlspecialchars($remplace); echo '</td>
+                                    <td>';echo htmlspecialchars($mate_email); echo '</td>
                                     <td>';echo htmlspecialchars($type_chambre); echo '</td>
                                     <td>';echo htmlspecialchars($arrival_date); echo '</td>
                                     <td>';echo htmlspecialchars($arrival_time); echo '</td>
