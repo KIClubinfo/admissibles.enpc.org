@@ -62,7 +62,13 @@ download="Consignes_Oraux_ENPC.pdf" class="text-secondary text-center" style="ma
                             <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Les résultats sont diponibles ici :</h4>
                             <a href="assets/Resultats/Admissibles_Meunier_Serie_1.xlsx"
    download="Admissibles_Meunier_Serie_1.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 1</strong></h6></a>
-                            <h6 class="text-secondary text-center"> Les résultats des autres séries devraient être disponibles ce week-end </h6>
+                            <a href="assets/Resultats/Admissibles_Meunier_Serie_2.xlsx"
+   download="Admissibles_Meunier_Serie_2.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 2</strong></h6></a>
+                            <a href="assets/Resultats/Admissibles_Meunier_Serie_3.xlsx"
+   download="Admissibles_Meunier_Serie_3.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 3</strong></h6></a>
+                            <a href="assets/Resultats/Admissibles_Meunier_Serie_4.xlsx"
+   download="Admissibles_Meunier_Serie_4.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 4</strong></h6></a>
+                            <h6 class="text-secondary text-center">Il reste des demandes à traiter. Pensez à consulter ces listes régulièrement !</h6>
                             <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
                                 <li><h6>Nom : <strong>';echo htmlspecialchars($nom); echo '</strong></h6></li>
