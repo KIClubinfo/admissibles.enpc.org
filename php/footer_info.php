@@ -26,7 +26,7 @@
                 <p class="lead mb-0" style="font-size:1rem;">
                     <a class="bg-success" href="https://www.ecoledesponts.fr">L'École des Ponts Paristech<a></br>
                     <a class="bg-success" href="https://bde.enpc.org">Le Bureau des Élèves<a></br>
-                    <a class="bg-success" href="https://bds.enpc.org">Le Bureau des Sports<a>
+                    <a class="bg-success" href="https://bds.enpc.org">Le Bureau des Sports<a></br>
                     <a class="bg-success" href="https://clubinfo.enpc.org">Le Club Informatique<a>
                 </p>
             </div>
