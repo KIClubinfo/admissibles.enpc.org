@@ -64,33 +64,6 @@
             </div>
         </section>
 
-        
-        <?php if(!isset($_SESSION['loggedin'])){echo '
-        <!-- Message Section-->
-        <section class="page-section bg-primary text-white portfolio" id="message">
-            <div class="container">
-                <!-- Informations Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Résultat des attributions</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> pour les <strong>séries 2, 3 et 4</strong> est disponible. <br/> Veuillez vous connecter pour y avoir accès.</p>
-                        <h4 style="text-decoration:underline;">Attention à deux points !</h4>
-                        <ul class="lead">
-                            <li>Il reste des demandes à traiter, donc il est nécessaire de consulter ces listes régulièrement, des noms vont s’ajouter dans la journée, et demain.</li>
-                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est le samedi dans l\'idéal, et le dimanche si vous ne pouvez pas faire autrement.</li>
-                        </ul>
-                        <p class="lead" style="text-align: justify">Si vous avez des questions, des remarques, des demandes, n’hésitez pas à nous contacter par mail ou téléphone !</p>
-                    </div>
-                </div>
-            </div>
-        </section>';}?>
-
         <?php if(isset($_SESSION['loggedin'])){echo '
         <!-- Portfolio Section-->
         <section class="page-section bg-primary text-white portfolio" id="portfolio">
@@ -167,7 +140,39 @@
                     </a>
                 </div>
             </div>
-        </section>';}?>
+        </section>';}
+
+        echo '
+        <!-- Message Section-->
+        <section class="page-section bg-primary text-white portfolio" id="message">
+            <div class="container">
+                <!-- Informations Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Résultat des attributions</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> pour les <strong>séries 2, 3 et 4</strong> est disponible. <br/> Veuillez vous connecter pour y avoir accès.</p>
+                        <h4 style="text-decoration:underline;">Attention à deux points !</h4>
+                        <ul class="lead">
+                            <li>Il reste des demandes à traiter, il est donc nécessaire de consulter ces listes régulièrement.</li>
+                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est le samedi dans l\'idéal, et le dimanche si vous ne pouvez pas faire autrement.
+                                </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivantes :
+                                <ul class="lead">
+                                    <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>
+                                    <li>Le <strong>samedi</strong>, 9h30-13h puis 14h-17h;</li>
+                                    <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-19h.</li>
+                                </ul></li>
+                        </ul>
+                        <p class="lead" style="text-align: justify">Si vous avez des questions, des remarques, des demandes, n’hésitez pas à nous contacter par mail ou téléphone !</p>
+                    </div>
+                </div>
+            </div>
+        </section>';?>
 
 
         <!--Footer Information-->

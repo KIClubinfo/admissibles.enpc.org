@@ -59,12 +59,13 @@
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Les candidats sont invités à prendre connaissance des consignes suivantes :</h4>
                             <a href="assets/Consignes_Oraux_ENPC.pdf"
     download="Consignes_Oraux_ENPC.pdf" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les consignes</strong></h6></a>
-                            <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Les résultats (datés du <strong>27/06/2021</strong>) sont diponibles ici :</h4>
+                            <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Les résultats (datés du <strong>30/06/2021</strong>) sont diponibles ici :</h4>
                             <a href="assets/Resultats/Admissibles_Meunier_Serie_1.xlsx"
    download="Admissibles_Meunier_Serie_1.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 1</strong></h6></a>
                             <a href="assets/Resultats/Admissibles_Ponts_séries_2_3_4.xlsx"
-   download="Admissibles_Ponts_séries_2_3_4.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats des séries 2, 3 et 4 (pensez à changer de feuille dans le classeur pour votre série) :</strong></h6></a>
+   download="Admissibles_Ponts_séries_2_3_4.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats des séries 2, 3 et 4 (pensez à changer de feuille dans le classeur pour votre série)</strong></h6></a>
                             <h6 class="text-secondary text-center">Il reste des demandes à traiter. Pensez à consulter ces listes régulièrement !</h6>
+                            <h6 class="text-secondary text-center">Pensez aussi à consulter les horaires d\'arrivée, tout en bas de la page d\'accueil.</h6>
                             <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
                                 <li><h6>Nom : <strong>';echo htmlspecialchars($nom); echo '</strong></h6></li>
