@@ -134,4 +134,7 @@ dmypy.json
 .pyre/
 
 #licences
-.lic
+*.lic
+
+#ZoneIdentifiers
+*:Zone.Identifier
