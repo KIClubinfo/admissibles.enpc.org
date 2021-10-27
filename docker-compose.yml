@@ -1,4 +1,9 @@
 version: '3.3'
+
+volumes:
+  models:
+    external: false
+
 services:
   web:
     restart: always
@@ -39,3 +44,11 @@ services:
       - 8124:80
     depends_on:
       - db 
+
+  optimizer:
+    build:
+      context: ./gurobi
+      dockerfile: Dockerfile
+    volumes:
+      - models:/models:ro
+      - ./gurobi/gurobi.lic:/opt/gurobi/gurobi.lic:ro
