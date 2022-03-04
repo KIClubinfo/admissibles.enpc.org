@@ -44,4 +44,4 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `distance`, `boursier`, `admin` , `a_reserve`, `change_password`, `activation_code`)
-VALUES ('1', 'admin', 'admin', '3', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');
+VALUES ('1', 'admin', 'admin', '3', '$2y$10$Gcl/r98YbthJoNggdnt36eyWwip8rSTisXC3cfD3ZRjdixG7CIW1u', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');

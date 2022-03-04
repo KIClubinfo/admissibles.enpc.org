@@ -1,0 +1,2 @@
+gurobipy
+mysql-connector-python
