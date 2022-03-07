@@ -1,9 +1,10 @@
 import operator
 import random
-from data_conversion import json_to_objects_rooms, json_to_objects_requests
+from data_conversion import json_to_objects_rooms, json_to_objects_requests, dictionary_from_requests, dictionary_from_rooms
 from milp import milp_solve
-from local_solver import local_solver, compute_score, dictionary_from_requests, dictionary_from_rooms
+from local_solver import local_solver, compute_score
 from import_data import fetch_data
+from export_data import export
 from params import parameters
 
 print("========================================= PREPARING HEURISTIC ========================================")
@@ -14,11 +15,10 @@ demandes_to_json, chambres_to_json = fetch_data()
 
 requests = json_to_objects_requests(demandes_to_json)
 rooms = json_to_objects_rooms(chambres_to_json)
-requests.sort(key=operator.methodcaller('absolute_score', parameters), reverse=True)
+requests.sort(key=operator.methodcaller('get_absolute_score', parameters), reverse=True)
 random.shuffle(rooms)
 requests_dictionary = dictionary_from_requests(requests)
 rooms_dictionary = dictionary_from_rooms(rooms)
-print("Requests and rooms loaded.")
 
 GROUP_SIZE = 40
 n = 2000
@@ -55,23 +55,15 @@ while room_index < len(rooms) and group_index < number_of_groups:
         capacity = 0
         group_index += 1
 
-print("=========================================== SOLVING GROUPS ===========================================")
 
 attributions = []
 for k in range(number_of_groups):
     print("-------- SOLVING GROUP ", k+1, "--------")
     attributions += milp_solve(requests_groups[k], room_groups[k], parameters)
 
-print("=========================================== GROUPS SOLVED ===========================================")
-print("====================================== LAUNCHING LOCAL SOLVER =======================================")
 
-print("Score before local solving : ", compute_score(attributions, requests_dictionary))
-
-attributions.sort(key=lambda attribution: attribution.request.student_id)
+attributions.sort(key=lambda attribution: attribution.request.demand_id)
 attributions = local_solver(attributions, requests_dictionary, rooms_dictionary, n)
 
-print("======================================== LOCAL SOLVER ENDED ========================================")
-
-print("============================================= SOLUTION =============================================")
-for attribution in attributions:
-    print(attribution)
+# save attributions in database
+export(attributions)

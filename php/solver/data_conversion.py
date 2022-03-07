@@ -1,6 +1,20 @@
 from objects import Request, Room
 
 
+def dictionary_from_requests(requests):
+    requests_dictionary = {}
+    for request in requests:
+        requests_dictionary[str(request.demand_id)] = request
+    return requests_dictionary
+
+
+def dictionary_from_rooms(rooms):
+    rooms_dictionary = {}
+    for room in rooms:
+        rooms_dictionary[str(room.room_id)] = room
+    return rooms_dictionary
+
+
 def json_to_objects_requests(requests_raw):
     """
     Converts a json database into a list of python "Request" objects. Conventions on encoding are converted from those
@@ -22,7 +36,7 @@ def json_to_objects_requests(requests_raw):
     gender_convention_conversion = [1, -1, 0]
 
     for (request_i, request) in enumerate(requests_raw):
-        student_id = int(request["id_demande"])
+        demand_id = int(request["id_demande"])
         gender = gender_convention_conversion[int(request["gender"]) - 1]
         scholarship = bool(int(request["boursier"]))
         distance = int(request["distance"])
@@ -46,7 +60,7 @@ def json_to_objects_requests(requests_raw):
             if not consistent_mate_request:
                 mate_id = None
 
-        request_object = Request(student_id, gender, scholarship, distance, prefered_room_type, accept_other_type,
+        request_object = Request(demand_id, gender, scholarship, distance, prefered_room_type, accept_other_type,
                                  has_mate, mate_id, shotgun_rank)
         requests_list.append(request_object)
 

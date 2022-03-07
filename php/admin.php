@@ -45,9 +45,31 @@
                     <a class="btn btn-xl btn-primary" href="admin.php?table=Chambres" style="margin:1rem">
                         Table des chambres
                     </a>
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=run" style="margin:1rem">
+                        Répartition
+                    </a>
                 </div>
-                <table class="table">
-                <?php
+                <?php if ($_GET['table']=="run"){
+                        exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
+                        if(empty($pids)) {
+                            if ($stmt = $con->prepare('SELECT id_res FROM reservation')) {
+                                $stmt->execute();
+                                $stmt->store_result();
+                                if ($stmt->num_rows == 0) {
+                                    echo '<hr><div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php" style="margin:1rem">
+                                        Lancer la répartition
+                                    </a></div>';
+                                }
+                                else {
+                                    echo '<div style="text-align:center; font-size:2rem;">Le calcul de la répartition est terminé.</div>';
+                                }
+                            }
+                        } else {
+                            echo '<div style="text-align:center; font-size:2rem;">La répartition est en cours de calcul...</div>';
+                        }
+                    }
+                else {
+                    echo '<table class="table">';
                     echo '<h1 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h1>';
                     if ($_GET['table']=="Eleves"){
                         echo '<thead>
@@ -183,8 +205,9 @@
                             </tbody>';
                         }
                     }
+                echo '</table>';
+                }
                 ?>  
-                </table>
         </section>
         <!--Footer Information-->
         <?php

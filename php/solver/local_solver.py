@@ -1,32 +1,21 @@
-from params import parameters, foreign_threshold, paris_threshold
+import params
+from params import parameters
 from copy import deepcopy
 import random
 from objects import Attribution
 import math
 
 
-def dictionary_from_requests(requests):
-    requests_dictionary = {}
-    for request in requests:
-        requests_dictionary[str(request.student_id)] = request
-    return requests_dictionary
-
-
-def dictionary_from_rooms(rooms):
-    rooms_dictionary = {}
-    for room in rooms:
-        rooms_dictionary[str(room.room_id)] = room
-    return rooms_dictionary
-
-
-def list_of_students_without_room(attributions, number_of_requests):  # assumes attributions is sorted according to attribution.request.student_id
-    results = []
-    last_seen = 0  # demands start at id 1
+def list_of_students_without_room(attributions, requests_dictionary):
+    requests_list = list(requests_dictionary.values())
+    id_to_idx = {request.demand_id: idx for idx, request in enumerate(requests_list)}
+    has_room = [False for _ in range(len(requests_list))]
     for attribution in attributions:
-        if attribution.request.student_id != last_seen + 1:
-            results += [i for i in range(last_seen+1, attribution.request.student_id)]
-        last_seen = attribution.request.student_id
-    results += [i for i in range(last_seen+1, number_of_requests+1)]
+        has_room[id_to_idx[attribution.request.demand_id]] = True
+    results = []
+    for i, request in enumerate(requests_list):
+        if not has_room[i]:
+            results.append(requests_list[i].demand_id)
     return results
 
 
@@ -50,7 +39,7 @@ def insert_attribution(attributions, attribution):
         m = (a + b) // 2
         if attributions[m] == attribution:
             return attributions
-        elif attributions[m].request.student_id < attribution.request.student_id:
+        elif attributions[m].request.demand_id < attribution.request.demand_id:
             a = m + 1
         else:
             b = m - 1
@@ -71,13 +60,33 @@ def compute_score(attributions, requests_dictionary):
             if not attribution.request.has_mate and attribution.request.gender != mate_request.gender:
                 if attribution.request.gender != 0 and mate_request.gender != 0:
                     score -= parameters["gender_mix_parameter"]/2  # every pair is seen twice
-            if attribution.request.has_mate and attribution.request.mate_id == mate_request.student_id:
+            if attribution.request.has_mate and attribution.request.mate_id == mate_request.demand_id:
                 score += parameters["buddy_preference_parameter"]/2  # every pair is seen twice
         if attribution.request.scholarship:
             score += parameters["grant_parameter"]
-        if attribution.request.distance > paris_threshold:
+        if attribution.request.distance > params.paris_threshold:
             score += parameters["distance_parameter"]
-        if attribution.request.distance > foreign_threshold:
+        if attribution.request.distance > params.foreign_threshold:
+            score += parameters["foreign_parameter"]
+        score -= parameters["shotgun_parameter"]*attribution.request.shotgun_rank
+    return score
+
+
+def compute_score_no_penalisation(attributions, requests_dictionary):
+    score = 0
+    for attribution in attributions:
+        score += 1
+        if attribution.request.prefered_room_type == attribution.room.room_type:
+            score += parameters["room_preference_bonus_parameter"]
+        if attribution.mate is not None:
+            mate_request = requests_dictionary[str(attribution.mate)]
+            if attribution.request.has_mate and attribution.request.mate_id == mate_request.demand_id:
+                score += parameters["buddy_preference_parameter"]/2  # every pair is seen twice
+        if attribution.request.scholarship:
+            score += parameters["grant_parameter"]
+        if attribution.request.distance > params.paris_threshold:
+            score += parameters["distance_parameter"]
+        if attribution.request.distance > params.foreign_threshold:
             score += parameters["foreign_parameter"]
         score -= parameters["shotgun_parameter"]*attribution.request.shotgun_rank
     return score
@@ -100,13 +109,14 @@ def switch_students_in_double_rooms(attributions):
     if attribution_2 is None:
         return attributions
 
-    for attribution in attributions:  # too complex
-        if attribution.request.student_id == attribution_1.mate:
-            attribution.mate = attribution_2.request.student_id
-        if attribution.request.student_id == attribution_2.mate:
-            attribution.mate = attribution_1.request.student_id
+    if attribution_1.mate != attribution_2.request.demand_id:
+        for attribution in attributions:  # too complex
+            if attribution.request.demand_id == attribution_1.mate:
+                attribution.mate = attribution_2.request.demand_id
+            if attribution.request.demand_id == attribution_2.mate:
+                attribution.mate = attribution_1.request.demand_id
+        attribution_1.room, attribution_1.mate, attribution_2.room, attribution_2.mate = attribution_2.room, attribution_2.mate, attribution_1.room, attribution_1.mate
 
-    attribution_1.room, attribution_1.mate, attribution_2.room, attribution_2.mate = attribution_2.room, attribution_2.mate, attribution_1.room, attribution_1.mate
     return attributions
 
 
@@ -131,8 +141,8 @@ def switch_student_in_simple_room_and_student_in_double_room(attributions):
         return attributions
 
     for attribution in attributions:  # too complex
-        if attribution.request.student_id == attribution_2.mate:
-            attribution.mate = attribution_1.request.student_id
+        if attribution.request.demand_id == attribution_2.mate:
+            attribution.mate = attribution_1.request.demand_id
 
     attribution_1.room, attribution_1.mate, attribution_2.room, attribution_2.mate = attribution_2.room, attribution_2.mate, attribution_1.room, None
     return attributions
@@ -150,7 +160,7 @@ def switch_student_not_chosen_and_student_chosen(attributions, requests_dictiona
     if attribution_1 is None:
         return attributions
 
-    students_without_room = list_of_students_without_room(attributions, len(requests_dictionary))
+    students_without_room = list_of_students_without_room(attributions, requests_dictionary)
     if len(students_without_room) == 0:
         return attributions
     student_to_add = random.choice(students_without_room)
@@ -160,7 +170,7 @@ def switch_student_not_chosen_and_student_chosen(attributions, requests_dictiona
 
     if attribution_1.mate is not None:
         for attribution in attributions:  # too complex, use a dictionary for attributions too
-            if attribution.request.student_id == attribution_1.mate:
+            if attribution.request.demand_id == attribution_1.mate:
                 attribution.mate = student_to_add
     attributions.remove(attribution_1)
 
@@ -173,7 +183,7 @@ def add_student_in_room_not_full(attributions, requests_dictionary, rooms_dictio
         return attributions
     room_not_full = random.choice(rooms_not_full)
 
-    students_without_room = list_of_students_without_room(attributions, len(requests_dictionary))
+    students_without_room = list_of_students_without_room(attributions, requests_dictionary)
     if len(students_without_room) == 0:
         return attributions
     student_to_add = random.choice(students_without_room)
@@ -181,7 +191,7 @@ def add_student_in_room_not_full(attributions, requests_dictionary, rooms_dictio
     mate = None
     for attribution in attributions:
         if attribution.room.room_id == room_not_full:
-            mate = attribution.request.student_id
+            mate = attribution.request.demand_id
             attribution.mate = student_to_add
 
     new_attribution = Attribution(requests_dictionary[str(student_to_add)], rooms_dictionary[str(room_not_full)], mate)
@@ -196,7 +206,7 @@ def remove_attribution(attributions):
     attribution_to_remove = random.choice(attributions)
     if attribution_to_remove.mate is not None:
         for attribution in attributions:
-            if attribution.request.student_id == attribution_to_remove.mate:
+            if attribution.request.demand_id == attribution_to_remove.mate:
                 attribution.mate = None
     attributions.remove(attribution_to_remove)
     return attributions
@@ -219,6 +229,7 @@ def local_changes(attributions, requests_dictionary, rooms_dictionary):
 def local_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01, alpha=0.9999):
     score = compute_score(attributions, requests_dictionary)
     best_score = score
+    best_attributions = deepcopy(attributions)
     iterations_without_increase = 0
     k = 0
     while k < n and T > 1e-5:
@@ -239,6 +250,11 @@ def local_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01,
                 iterations_without_increase = 0
         if score > best_score:
             best_score = score
+            best_attributions = deepcopy(attributions)
         if k % (n//100) == 0:
             print("LocalSolver score : ", score, " ------ Température : ", T)
-    return attributions
+    return best_attributions
+
+
+if __name__ == "__main__":
+    print("Done")
