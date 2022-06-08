@@ -37,7 +37,7 @@
             return "F";
         }
         elseif ($g == 2) {
-            return "M";
+            return "H";
         }
         else {
             return "Autre/Ne souhaite pas préciser";
