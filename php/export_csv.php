@@ -44,11 +44,23 @@
         }
     }
 
+    function fancy_typo($t) {
+        if ($t == 1) {
+            return "Simple";
+        }
+        elseif ($t == 2) {
+            return "Binômée";
+        }
+        else {
+            return "Double";
+        }
+    }
+
 
     echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Sexe"]);
     echo "\r\n";
     while ($row = $stmt->fetch()) {
-      echo implode(",", [$numero, $type, $nom, $prenom, fancy_gender($gender)]);
+      echo implode(",", [$numero, fancy_typo($type), $nom, $prenom, fancy_gender($gender)]);
       echo "\r\n";
     }
 ?>
