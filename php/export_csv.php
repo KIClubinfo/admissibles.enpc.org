@@ -32,10 +32,23 @@
     $stmt->bind_result($id_res, $numero, $type, $nom, $prenom, $gender);
 
     // DIRECT OUTPUT
+    function fancy_gender($g) {
+        if ($g == 1) {
+            return "F";
+        }
+        elseif ($g == 2) {
+            return "M";
+        }
+        else {
+            return "Autre/Ne souhaite pas préciser";
+        }
+    }
+
+
     echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Sexe"]);
     echo "\r\n";
     while ($row = $stmt->fetch()) {
-      echo implode(",", [$numero, $type, $nom, $prenom, $gender]);
+      echo implode(",", [$numero, $type, $nom, $prenom, fancy_gender($gender)]);
       echo "\r\n";
     }
 ?>
