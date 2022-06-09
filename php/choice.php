@@ -115,10 +115,10 @@
                                             arrival_data = arrival_dates[option_idx-1].split(",");
                                             departure_data = departure_dates[option_idx-1].split(",");
 
-                                            document.getElementById("arrival-date-display").textContent="Votre date d'arrivée est prévue le " + arrival_data[1] + ".";
+                                            document.getElementById("arrival-date-display").textContent= arrival_data[1];
                                             document.getElementById("arrival-date").value=arrival_data[0];
 
-                                            document.getElementById("departure-date-display").textContent="Votre date de départ est prévue le " + departure_data[1] + ".";
+                                            document.getElementById("departure-date-display").textContent= departure_data[1];
                                             document.getElementById("departure-date").value=departure_data[0];
                                         }
                                     }
@@ -126,35 +126,35 @@
 
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for="arrival-date">Date d'arrivée :</label>
+                                        <label for="arrival-date">Date d'arrivée prévue :</label>
                                         <input id="arrival-date" name="arrival-date" hidden/>
                                         <br>
-                                        <span id="arrival-date-display">  </span>
+                                        <span class="form-control" id="arrival-date-display">  </span>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
                                         <label for="arrival-date">Heure d'arrivée approximative (entre 11h00 et 18h30) :</label>
-                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="19:00" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une date d'arrivée." step="60"/>
+                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="18:30" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une heure d'arrivée correcte." step="60"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group" >
                                     <div class="form-group">
-                                        <label for="departure-date">Date de départ</label>
+                                        <label for="departure-date">Date de départ :</label>
                                         <input id="departure-date" name="departure-date" hidden/>
                                         <br>
-                                        <span id="departure-date-display">  </span>
+                                        <span class="form-control" id="departure-date-display">  </span>
                                         <br>
-                                        <div class="text-center"><p><strong>À noter : </strong> après validation, toute modification ultérieure de la demande entraînera une perte de la position dans la file d\'attente.</p></div>
+                                        <div class="text"><p><strong>À noter : </strong> Il vous est possible de quitter le logement avant cette date.</p></div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group" style="Display : None">
                                     <div class="form-group">
-                                        <label for="departure-time">Heure de départ</label>
-                                        <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="Heure de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="60"/>
+                                        <label for="departure-time">Heure de départ :</label>
+                                        <input class="form-control" id="departure-time" name="departure-time" type="time" placeholder="Heure de départ" required="required" data-validation-required-message="Veuillez entrer une date de départ." step="60" value="18:00"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
@@ -180,11 +180,11 @@
                                 <div id="success"></div>
                                 <div class="form-group text-center">
                                 <?php if($_SESSION['a_reserve']){echo '
-                                        <div class="text-center"><p><strong>Avertissement : </strong> en modifiant votre demande, vous perdrez votre position dans la file d\'attente !</p></div>
+                                        <div class="text-center" style="font-size: 1.2em"><p><strong style="color: red">Avertissement : </strong> en modifiant votre demande, vous perdrez votre position dans la file d\'attente !</p></div>
                                         <button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Modifier ma demande</button>'
                                     ;}
                                     else{echo'
-                                        <div class="text-center"><p><strong>À noter : </strong> après validation, toute modification ultérieure de la demande entraînera une perte de la position dans la file d\'attente.</p></div>
+                                        <div class="text-center" style="font-size: 1.2em"><p><strong style="color: red">Avertissement : </strong> après validation, toute modification ultérieure de la demande entraînera une perte de la position dans la file d\'attente.</p></div>
                                         <button class="btn btn-outline-light btn-xl" id="sendInscriptionButton" type="submit">Effectuer ma demande</button>'
                                     ;}?>
                                 </div>
