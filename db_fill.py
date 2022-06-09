@@ -11,7 +11,7 @@ def delete_and_restore_just_admin():
     # Pour savoir quoi renseigner dans "port", faire un "docker ps" et regarder dans "port" pour
     # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
     connection = mysql.connector.connect(host='localhost',
-                                         port=6033,
+                                         port=6036,
                                          database='admissibles',
                                          user='root',
                                          password='NotSecretPassword')
@@ -214,7 +214,7 @@ def generate_lines(nb_chambres, nb_eleves, nb_demandes_simples, nb_demandes_pair
         # Pour savoir quoi renseigner dans "port", faire un "docker ps" et regarder dans "port" pour
         # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
         connection = mysql.connector.connect(host='localhost',
-                                             port=6033,
+                                             port=6036,
                                              database='admissibles',
                                              user='root',
                                              password='NotSecretPassword')

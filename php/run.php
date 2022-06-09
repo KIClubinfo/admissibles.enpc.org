@@ -4,10 +4,6 @@
 	    header('Location: connexion.php?erreur=notconnected');
 	    exit();
     } 
-    if (!is_admin()){
-        header('Location: profil.php?erreur=interdit');
-        exit();
-    }
 
     exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
     if(empty($pids)) {
@@ -20,9 +16,19 @@
             else {
                 $command = 'python3 /var/www/html/solver/heuristic.py';
                 exec('bash -c "exec nohup setsid python3 /var/www/html/solver/heuristic.py > /dev/null 2>&1 &"');
-                header('Location: admin.php?table=run');
+                if(is_admin()){
+                	header('Location: admin.php?table=run');
+                }
+                else{
+    			header('Location: profile.php');
+    		}
             }
         }
     }
-    header('Location: admin.php?table=run');
+    if(is_admin()){
+    	header('Location: admin.php?table=run');
+    }
+    else{
+    	header('Location: profile.php');
+    }
 ?>

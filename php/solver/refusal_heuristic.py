@@ -1,8 +1,7 @@
 import operator
 import random
-from data_conversion import json_to_objects_rooms, json_to_objects_requests, dictionary_from_requests, dictionary_from_rooms
-from milp import milp_solve
-from local_solver import local_solver, compute_score
+from data_conversion import json_to_objects_rooms, json_to_objects_requests,json_to_objects_attributions, dictionary_from_requests, dictionary_from_rooms
+from local_solver import refusal_solver, compute_score
 from import_data import fetch_data
 from export_data import export
 from params import parameters
@@ -11,10 +10,12 @@ print("========================================= PREPARING HEURISTIC ===========
 
 print("Loading requests and rooms...")
 
-demandes_to_json, chambres_to_json,null = fetch_data()
+demandes_to_json, chambres_to_json, attributions_to_json = fetch_data()
 
 requests = json_to_objects_requests(demandes_to_json)
 rooms = json_to_objects_rooms(chambres_to_json)
+attributions = json_to_objects_attributions(attributions_to_json,requests,rooms)
+print("Loaded attributions...")
 requests.sort(key=operator.methodcaller('get_absolute_score', parameters), reverse=True)
 random.shuffle(rooms)
 requests_dictionary = dictionary_from_requests(requests)
@@ -55,15 +56,10 @@ while room_index < len(rooms) and group_index < number_of_groups:
         capacity = 0
         group_index += 1
 
-
-attributions = []
-for k in range(number_of_groups):
-    print("-------- SOLVING GROUP ", k+1, "--------")
-    attributions += milp_solve(requests_groups[k], room_groups[k], parameters)
-
+print("Solving attributions")
 
 attributions.sort(key=lambda attribution: attribution.request.demand_id)
-attributions = local_solver(attributions, requests_dictionary, rooms_dictionary, n)
+attributions = refusal_solver(attributions, requests_dictionary, rooms_dictionary, n)
 
 # save attributions in database
 export(attributions)

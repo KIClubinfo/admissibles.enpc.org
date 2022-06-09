@@ -255,6 +255,38 @@ def local_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01,
             print("LocalSolver score : ", score, " ------ Température : ", T)
     return best_attributions
 
+def refusal_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01, alpha=0.9999):
+    score = compute_score(attributions, requests_dictionary)
+    best_score = score
+    best_attributions = deepcopy(attributions)
+    fixed_attributions = deepcopy(attributions)
+    iterations_without_increase = 0
+    k = 0
+    while k < n and T > 1e-5:
+        k += 1
+        temp_attributions = add_student_in_room_not_full(deepcopy(fixed_attributions), requests_dictionary, rooms_dictionary)
+        temp_score = compute_score(temp_attributions, requests_dictionary)
+        if temp_score > score:
+            score = temp_score
+            attributions = temp_attributions
+            T *= alpha
+        else:
+            iterations_without_increase += 1
+            if random.random() < math.exp((temp_score-score)/T) and (best_score-temp_score)/best_score < T:
+                score = temp_score
+                attributions = temp_attributions
+            if iterations_without_increase == 10:
+                T /= alpha
+                iterations_without_increase = 0
+        if score > best_score:
+            best_score = score
+            best_attributions = deepcopy(attributions)
+        if k % (n//100) == 0:
+            print("LocalSolver score : ", score, " ------ Température : ", T)
+    return best_attributions
+
+
+
 
 if __name__ == "__main__":
     print("Done")

@@ -1,6 +1,8 @@
 FROM php:7.4-apache as base
-RUN apt-get update && apt-get upgrade -y
-RUN apt install zip unzip -y
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt install zip -y
+RUN apt install unzip -y
 RUN docker-php-ext-install mysqli
 EXPOSE 80
 

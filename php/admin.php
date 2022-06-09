@@ -64,7 +64,10 @@
                                     </a></div>';
                                 }
                                 else {
-                                    echo '<div style="text-align:center; font-size:2rem;">Le calcul de la répartition est terminé.</div>';
+                                    echo '<div style="text-align:center; font-size:2rem;">La répartition est terminée :</div>';
+                                    echo '<hr><div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php" style="margin:1rem">
+                                        Completer la répartition
+                                    </a></div>';
                                 }
                             }
                         } else {

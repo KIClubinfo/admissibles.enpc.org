@@ -261,11 +261,8 @@
                             </div>
                         </div>
                         <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" href="">
-                                Accepter la proposition
-                            </a>
-                            <a class="btn btn-xl btn-danger" href="" style="margin:1rem">
-                                Refuser la proposition
+                            <a class="btn btn-xl btn-danger" href="refused.php" style="margin:1rem">
+                                Désistement
                             </a>
                         </div>';
                     }

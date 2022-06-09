@@ -1,4 +1,4 @@
-from objects import Request, Room
+from objects import Request, Room, Attribution
 
 
 def dictionary_from_requests(requests):
@@ -76,3 +76,36 @@ def json_to_objects_rooms(rooms_raw):
     """
     rooms_list = [Room(int(room["numero"]), int(room["type"]) - 1) for room in rooms_raw]
     return rooms_list
+    
+def json_to_objects_attributions(attributions_raw,requests,rooms):
+    """
+    Converts a json database into a list of python "Attribution" objects. Conventions on encoding are converted from those
+    of the database to those of the python classes; see the classes documentation for details.
+    :param attributions_raw: a json containing content of the reservation database.
+    	   requests:the list of Request python returned by json_to_objects_requests
+    	   requests:the list of Rooms python returned by json_to_objects_rooms
+    :return: the list of Attribution python objects created from the json file.
+    """
+    attributions_list = []
+    nb_attributions = len(attributions_raw)
+    
+    for(attribution_i, attribution) in enumerate(attributions_raw):
+        request_id = int(attribution["id_demande"])
+        for request_temp in requests:
+            if request_temp.demand_id == request_id :
+                request = request_temp
+        room_number = int(attribution["numero_chambre"])
+        for room_temp in rooms:
+            if room_temp.room_id == room_number :
+                room = room_temp
+        
+        if attribution["mate_id"] == None:
+            mate_id = None
+        else:
+            print(attribution["mate_id"])
+            mate_id = int(attribution["mate_id"])
+
+        attribution_object = Attribution(request, room, mate_id)
+        attributions_list.append(attribution_object)
+
+    return attributions_list
