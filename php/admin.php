@@ -48,7 +48,7 @@
                     <a class="btn btn-xl btn-primary" href="admin.php?table=run" style="margin:1rem">
                         Répartition
                     </a>
-                    <a class="btn btn-xl btn-primary" href="export_csv.php" target="_blank" rel="noopener noreferrer">
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=export" style="margin:1rem">
                         Export CSV
                     </a>
                 </div>
@@ -81,6 +81,23 @@
                             echo '<div style="text-align:center; font-size:2rem;">La répartition est en cours de calcul...</div>';
                         }
                     }
+                    else if ($_GET['table']=="export"){
+                        echo '
+                        <hr>
+                        <div style="text-align: center"><a class="btn btn-xl btn-primary" href="export_csv.php?serie=1" style="margin:1rem">
+                            Exporter Série 1
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=2" style="margin:1rem">
+                            Exporter Série 2
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=3" style="margin:1rem">
+                            Exporter Série 3
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=4" style="margin:1rem">
+                            Exporter Série 4
+                        </a></div>
+                        ';
+                       }
                 else {
                     echo '<table class="table">';
                     echo '<h1 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h1>';
