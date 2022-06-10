@@ -17,7 +17,7 @@ Remplissez ensuite vos informations dans le fichier  [config.php](/php/config.ph
 
 *  `EMAIL_SENDER` : l'email d'envoie (qui doit être autorisé au préalable sur [SendGrid](https://sendgrid.com/) );
 
-*  `EMAIL_SENDER` : le nom de l'expediteur (qui apparaitra dans la boite mail) ;
+*  `NAME_SENDER` : le nom de l'expediteur (qui apparaitra dans la boite mail) ;
 
 *  `EMAIL_REPLY` : l'email de réception (qui doit être autorisé au préalable sur [SendGrid](https://sendgrid.com/) );
 
