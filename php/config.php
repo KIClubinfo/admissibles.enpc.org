@@ -1,6 +1,13 @@
 <?php
 session_start();
-$db_password = $_ENV["mysql_password"];
+
+$debug = $_ENV["DEBUG"];
+if ($debug) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'On');
+}
+
+$db_password = $_ENV["MYSQL_PASSWORD"];
 $con = new mysqli('db', 'admissibles_user', $db_password, 'admissibles');
 if ($con->connect_error) {
     header('Location: connexion.php?erreur=bdderror');
@@ -17,10 +24,10 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2021-06-16 20:00:00');//à modifier
-$debut_inscription=new DateTime('2021-06-13 23:00:15');//à modifier
-$debut_oraux=new DateTime('2021-06-21');//à modifier
-$fin_oraux=new DateTime('2021-07-16');//à modifier
+$debut_demande=new DateTime('2022-03-01 20:00:00');//à modifier
+$debut_inscription=new DateTime('2022-03-01 20:00:0');//à modifier
+$debut_oraux=new DateTime('2022-03-02');//à modifier
+$fin_oraux=new DateTime('2022-04-02');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));

@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`reservation` (
   `id_res` INT NOT NULL AUTO_INCREMENT ,
   `id_eleves` INT NOT NULL ,
   `numero_chambre` INT NOT NULL ,
-  `date_arrivee` DATETIME NOT NULL,
-  `date_depart` DATETIME NOT NULL, PRIMARY KEY (`id_res`))
+  `date_arrivee` VARCHAR(15),
+  `date_depart` VARCHAR(15), PRIMARY KEY (`id_res`))
   ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
@@ -44,4 +44,4 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`demande` (
   ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `distance`, `boursier`, `admin` , `a_reserve`, `change_password`, `activation_code`)
-VALUES ('1', 'admin', 'admin', '3', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');
+VALUES ('1', 'admin', 'admin', '3', '$2y$10$5prxR9BDJwZXM1WMikJBX.j/G/h1zMf2bZTUJEdzUlpokEMrMnYrO', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');
