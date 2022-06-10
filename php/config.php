@@ -22,9 +22,6 @@ define("NAME_SENDER", "tomodify");
 define("EMAIL_REPLY", "tomodify@tomodify.org");
 define("NAME_REPLY", "tomodify");
 
-// global website address (for confirmation email) TO MODIFY
-define("WEB_ADDRESS", "http://localhost:8123");
-
 
 function is_admin()
 { // renvoie true si l'user est un admin
