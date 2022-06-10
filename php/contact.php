@@ -48,7 +48,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify"><strong>Pour des problèmes concernant ce site internet :</strong></br>Vous pouvez contacter le Club Informatique de l'École des Ponts.</p>
-                        <p class="lead" style="text-align: center"><strong>admissibles.enpc@gmail.com</strong></p>
+                        <p class="lead" style="text-align: center"><strong>admissibles@enpc.org</strong></p>
                     </div>
                 </div>
         </section>
