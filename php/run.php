@@ -11,16 +11,16 @@
 
     exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
     if(empty($pids)) {
-        if ($stmt = $con->prepare('SELECT id_res FROM reservation')) {
+        $serie = $_GET['serie'];
+        if ($stmt = $con->prepare('SELECT id_res FROM reservation WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = '. $serie . ' )')) {
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {
                 header('Location: admin.php?table=run');
             }
             else {
-                $serie = $_GET['serie'];
                 $command = 'python3 /var/www/html/solver/heuristic.py';
-                exec('bash -c "exec nohup setsid python3 /var/www/html/solver/heuristic.py '. $serie .'> /dev/null 2>&1 &"');
+                exec('bash -c "exec nohup setsid python3 /var/www/html/solver/heuristic.py '. $serie .' > /dev/null 2>&1 &"');
                 header('Location: admin.php?table=run');
             }
         }
