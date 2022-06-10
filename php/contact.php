@@ -35,14 +35,14 @@
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Hilaire Voillat, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
-                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>Téléphone :   Pas à jour</strong></br>';}?><strong>piaulage.enpc@gmail.com</strong></p>
+                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>06 34 54 21 54</strong></br>';}?><strong>piaulage.enpc@gmail.com</strong></p>
                     </div>
                 </div>
                 <?php if (isset($_SESSION['loggedin'])){echo '
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify"><strong>Pour des questions ne concernant pas le logement ou si Hilaire Voillat est injoignable :</strong></br>Vous pouvez contacter Nicolas Corvol, président du Bureau Des Élèves.</p>
-                        <p class="lead" style="text-align: center"><strong>Téléphone :   Pas à jour</strong></p>
+                        <p class="lead" style="text-align: center"><strong>06 24 92 38 37</strong></p>
                     </div>
                 </div>';}?>
                 <div class="row justify-content-center">
