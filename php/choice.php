@@ -54,7 +54,7 @@
                                         <select class="form-control" id="Type-choice" name="Type-choice" required="required" data-validation-required-message="Veuillez choisir un type de Chambre.">
                                             <option value="" disabled>Choisir un type de chambre</option>
                                             <option value= "1">Simple</option>
-                                            <option value= "2">Binômée</option>
+                                            <!--<option value= "2">Binômée</option>-->
                                             <option value= "3">Double</option>
                                         </select>
                                         <p class="help-block text-danger"></p>

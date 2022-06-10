@@ -89,6 +89,7 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
+                    <!--
                     <div class="col-md-6 col-lg-4 mb-5">
                         <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Binômé</h2>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
@@ -98,6 +99,7 @@
                             <img class="img-fluid" src="assets/img/binome.png" alt="..." />
                         </div>
                     </div>
+                    -->
                     <!-- Portfolio Item 3-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <h2 class="text-center text-uppercase text-white mb-0" style="padding-bottom:2rem">Chambre Double</h2>
@@ -115,7 +117,7 @@
         <section class="page-section text-secondary mb-0" id="about">
             <div class="container">
                 <!-- Informations Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traitées les demandes ?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traitées les demandes ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
