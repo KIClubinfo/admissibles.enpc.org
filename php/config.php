@@ -24,10 +24,10 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2022-03-01 20:00:00');//à modifier
-$debut_inscription=new DateTime('2022-03-01 20:00:0');//à modifier
-$debut_oraux=new DateTime('2022-03-02');//à modifier
-$fin_oraux=new DateTime('2022-04-02');//à modifier
+$debut_demande=new DateTime('2022-06-11 08:00:00');//à modifier
+$debut_inscription=new DateTime('2022-06-11 08:00:0');//à modifier
+$debut_oraux=new DateTime('2022-06-20');//à modifier
+$fin_oraux=new DateTime('2022-07-16');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));

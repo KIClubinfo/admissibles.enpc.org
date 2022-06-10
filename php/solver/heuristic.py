@@ -1,5 +1,6 @@
 import operator
 import random
+import sys
 from data_conversion import json_to_objects_rooms, json_to_objects_requests, dictionary_from_requests, dictionary_from_rooms
 from milp import milp_solve
 from local_solver import local_solver, compute_score
@@ -11,7 +12,7 @@ print("========================================= PREPARING HEURISTIC ===========
 
 print("Loading requests and rooms...")
 
-demandes_to_json, chambres_to_json = fetch_data()
+demandes_to_json, chambres_to_json = fetch_data(1)
 
 requests = json_to_objects_requests(demandes_to_json)
 rooms = json_to_objects_rooms(chambres_to_json)

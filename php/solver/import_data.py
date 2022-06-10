@@ -2,7 +2,7 @@ import mysql.connector
 import os
 
 
-def fetch_data():
+def fetch_data(serie = 1):
     # getting environmnent variables
     MYSQL_DATABASE = os.getenv("MYSQL_DATABASE")
     MYSQL_USER = os.getenv("MYSQL_USER")
@@ -13,7 +13,7 @@ def fetch_data():
     cursor = cnx.cursor()
 
     # fetching demands
-    cursor.execute("SELECT * FROM demande INNER JOIN eleves ON demande.id_eleve = eleves.id")
+    cursor.execute("SELECT * FROM demande INNER JOIN eleves ON demande.id_eleve = eleves.id  WHERE demande.arrival_date IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie =  1 )")
     demandes=cursor.fetchall()
     demandes_to_json = []
     for demande in demandes:
