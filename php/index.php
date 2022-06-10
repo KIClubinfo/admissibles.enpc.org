@@ -156,10 +156,10 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> pour les <strong>séries 2, 3 et 4</strong> est disponible. <br/> Veuillez vous connecter pour y avoir accès.</p>
+                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> n\'est pas encore disponible. Elle le sera très prochainement. Penser à consulter le site régulièrement.</p>
                         <h4 style="text-decoration:underline;">Attention à deux points !</h4>
                         <ul class="lead">
-                            <li>Il reste des demandes à traiter, il est donc nécessaire de consulter ces listes régulièrement.</li>
+                            <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si vous n\'avez pas eu de chambre au premier tour, vous pouvez toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
                             <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est le samedi dans l\'idéal, et le dimanche si vous ne pouvez pas faire autrement.
                                 </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivantes :
                                 <ul class="lead">
