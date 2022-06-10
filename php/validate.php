@@ -1,11 +1,11 @@
 <?php
 include("config.php");
+include("mailer.php");
+
 if (isset($_SESSION['loggedin'])) {
     header('Location: profil.php');
     exit();
 }
-
-include("mailer.php");
 
 if (!isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['tel'], $_POST['distance'], $_POST['boursier'], $_POST['password'], $_POST['confpassword'])) {
 	header('Location: inscription.php?erreur=form');
