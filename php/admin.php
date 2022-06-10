@@ -59,15 +59,15 @@
                             echo '<hr>
                             <div style="text-align: center">';
                             for($i = 1; $i <= 4;$i++){
-                                if ($stmt = $con->prepare('SELECT id_res FROM reservation WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = '. $i . ' )')) {
+                                if ($stmt = $con->prepare("SELECT id_res FROM reservation WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = $i)")) {
                                     $stmt->execute();
                                     $stmt->store_result();
                                     if ($stmt->num_rows == 0) {
-                                        echo '
-                                        <a class="btn btn-xl btn-primary" href="run.php?serie='.$i.'" style="margin:1rem">
-                                        Lancer Série '.$i.'
+                                        echo "
+                                        <a class=\"btn btn-xl btn-primary\" href=\"run.php?serie=$i\" style=\"margin:1rem\">
+                                        Lancer Série $i
                                         </a>
-                                        ';
+                                        ";
                                     }
                                     else {
                                         $series_finies[] = (string) $i;
