@@ -87,14 +87,14 @@ def json_to_objects_attributions(attributions_raw,requests,rooms):
     :return: the list of Attribution python objects created from the json file.
     """
     attributions_list = []
-    nb_attributions = len(attributions_raw)
-    
+
     for(attribution_i, attribution) in enumerate(attributions_raw):
         request_id = int(attribution["id_demande"])
         for request_temp in requests:
             if request_temp.demand_id == request_id :
                 request = request_temp
         room_number = int(attribution["numero_chambre"])
+        
         for room_temp in rooms:
             if room_temp.room_id == room_number :
                 room = room_temp

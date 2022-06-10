@@ -1,5 +1,5 @@
 <?php
-    include("config.php");
+    include_once("config.php");
     if (!isset($_SESSION['loggedin'])) {
 	    header('Location: connexion.php?erreur=notconnected');
 	    exit();
@@ -11,7 +11,17 @@
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {
-                header('Location: admin.php?table=run');
+            	if(is_admin()){
+            		$command = 'python3 /var/www/html/solver/refusal_heuristic.py';
+                	exec('bash -c "exec nohup setsid python3 /var/www/html/solver/refusal_heuristic.py > /dev/null 2>&1 &"');
+            		header('Location: admin.php?table=run');
+            	}
+            	else{
+            		$command = 'python3 /var/www/html/solver/refusal_heuristic.py';
+                	exec('bash -c "exec nohup setsid python3 /var/www/html/solver/refusal_heuristic.py > /dev/null 2>&1 &"');
+            		header('Location: profile.php');    	
+            	}
+                
             }
             else {
                 $command = 'python3 /var/www/html/solver/heuristic.py';
