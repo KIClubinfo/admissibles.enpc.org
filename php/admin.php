@@ -48,6 +48,9 @@
                     <a class="btn btn-xl btn-primary" href="admin.php?table=run" style="margin:1rem">
                         Répartition
                     </a>
+                    <a class="btn btn-xl btn-primary" href="export_csv.php" target="_blank" rel="noopener noreferrer">
+                        Export CSV
+                    </a>
                 </div>
                 <?php if ($_GET['table']=="run"){
                         exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
