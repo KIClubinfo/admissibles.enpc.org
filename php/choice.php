@@ -129,6 +129,15 @@
                                         <p class="help-block text-danger"></p>
                                     </div>  
                                 </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <div>
+                                            <input type="checkbox" id="engagement" name="engagement" required="required">
+                                            <label for="scales"> &nbsp Je m'engage sur l'honneur à réserver ma chambre après réception de ma convocation </label>
+                                        </div>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
                                 <br />
                                 <div id="success"></div>
                                 <div class="form-group text-center">
