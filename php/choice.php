@@ -54,7 +54,7 @@
                                         <select class="form-control" id="Type-choice" name="Type-choice" required="required" data-validation-required-message="Veuillez choisir un type de Chambre.">
                                             <option value="" disabled>Choisir un type de chambre</option>
                                             <option value= "1">Simple</option>
-                                            <option value= "2">Binômée</option>
+                                            <!--<option value= "2">Binômée</option>-->
                                             <option value= "3">Double</option>
                                         </select>
                                         <p class="help-block text-danger"></p>
@@ -157,10 +157,12 @@
 
             document.getElementById("Type-choice").addEventListener("change", (event) => {
                 if (event.target.value === "2" || event.target.value === "3") {
+                    // Binomée or double
                     document.getElementById("mate-choice-block").style.display = "block";
                     document.getElementById("mate-choice-block").setAttribute(required, "required");
                 }
                 else {
+                    // Simple
                     document.getElementById("mate-choice-block").style.display = "none";
                     document.getElementById("mate-choice-block").removeAttribute(required);
                 }
