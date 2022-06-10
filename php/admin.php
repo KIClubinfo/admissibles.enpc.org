@@ -52,30 +52,28 @@
                 <?php if ($_GET['table']=="run"){
                         exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
                         if(empty($pids)) {
-                            if ($stmt = $con->prepare('SELECT id_res FROM reservation')) {
-                                $stmt->execute();
-                                $stmt->store_result();
-                                if ($stmt->num_rows == 0) {
-                                    echo '
-                                    <hr>
-                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=1" style="margin:1rem">
-                                        Lancer Série 1
-                                    </a></div>
-                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=2" style="margin:1rem">
-                                        Lancer Série 2
-                                    </a></div>
-                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=3" style="margin:1rem">
-                                        Lancer Série 3
-                                    </a></div>
-                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=4" style="margin:1rem">
-                                        Lancer Série 4
-                                    </a></div>
-                                    ';
-                                }
-                                else {
-                                    echo '<div style="text-align:center; font-size:2rem;">Le calcul de la répartition est terminé.</div>';
+                            $series_finies = [];
+                            echo '<hr>
+                            <div style="text-align: center">';
+                            for($i = 1; $i <= 4;$i++){
+                                if ($stmt = $con->prepare('SELECT id_res FROM reservation WHERE reservation.arrival_date IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = '. $i . ' )') {
+                                    $stmt->execute();
+                                    $stmt->store_result();
+                                    if ($stmt->num_rows == 0) {
+                                        echo '
+                                        <a class="btn btn-xl btn-primary" href="run.php?serie='.$i.'" style="margin:1rem">
+                                        Lancer Série'.$i.'
+                                        </a>
+                                        ';
+                                    }
+                                    else {
+                                        $series_finies[] = (string) $i;
+                                    }
                                 }
                             }
+                            echo '</div>
+                            <div style="text-align:center; font-size:2rem;"> Le calcul des séries'. implode(", ",$series_finies) .'a déjà été effectué.</div>
+                            ';
                         } else {
                             echo '<div style="text-align:center; font-size:2rem;">La répartition est en cours de calcul...</div>';
                         }
