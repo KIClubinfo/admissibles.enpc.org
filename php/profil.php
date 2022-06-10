@@ -59,6 +59,13 @@
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Les candidats sont invités à prendre connaissance des consignes suivantes :</h4>
                             <a href="assets/Consignes_Oraux_ENPC.pdf"
     download="Consignes_Oraux_ENPC.pdf" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les consignes</strong></h6></a>
+                            <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Les résultats (datés du <strong>30/06/2021</strong>) sont diponibles ici :</h4>
+                            <a href="assets/Resultats/Admissibles_Meunier_Serie_1.xlsx"
+   download="Admissibles_Meunier_Serie_1.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats de la série 1</strong></h6></a>
+                            <a href="assets/Resultats/Admissibles_Ponts_séries_2_3_4.xlsx"
+   download="Admissibles_Ponts_séries_2_3_4.xlsx" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les résultats des séries 2, 3 et 4 (pensez à changer de feuille dans le classeur pour votre série)</strong></h6></a>
+                            <h6 class="text-secondary text-center">Il reste des demandes à traiter. Pensez à consulter ces listes régulièrement !</h6>
+                            <h6 class="text-secondary text-center">Pensez aussi à consulter les horaires d\'arrivée, tout en bas de la page d\'accueil.</h6>
                             <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
                                 <li><h6>Nom : <strong>';echo htmlspecialchars($nom); echo '</strong></h6></li>
@@ -160,7 +167,13 @@
                                 else{
                                     echo '<li><h6>Ne souhaite pas être avec : <strong>Indifférent</strong></h6></li>';
                                 }
-                                               
+
+                                if($validee){
+                                    echo '<li><h6>État de la demande : <strong>Demande acceptée</strong></h6></li>';                                                 
+                                }
+                                else{
+                                    echo '<li><h6>État de la demande : <strong>Demande en attente (il est normal qu\'il apparaisse ceci même si la demande a été acceptée, il faut télécharger les résultats si dessus)</strong></h6></li>';    
+                                }                                                 
                             echo '</ul>
                         </div>
                     </div>';
@@ -177,97 +190,31 @@
                 </div>
                 <!-- Profil Section Button-->
                 <?php
-
-                if ($stmt = $con->prepare('SELECT * FROM reservation WHERE id_eleves = ?')) {
-                    $stmt->bind_param('i', $_SESSION['id']);
-                    $stmt->execute();
-                    $stmt->store_result();
+                if($_SESSION['a_reserve']){echo'
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-primary" href="choice.php">
+                        Modifier ma demande
+                    </a>
+                    <a class="btn btn-xl btn-danger" href="cancel.php" style="margin:1rem">
+                        Annuler ma demande
+                    </a>
+                </div>';
                 }
-                else {
-                    header('Location: profil.php?erreur=querry_error');
-                    exit();
-                }
-                if ($stmt->num_rows == 0) {
-                    if($_SESSION['a_reserve']){echo'
-                    <div class="text-center mt-4">
-                        <a class="btn btn-xl btn-primary" href="choice.php">
-                            Modifier ma demande
-                        </a>
-                        <a class="btn btn-xl btn-danger" href="cancel.php" style="margin:1rem">
-                            Annuler ma demande
-                        </a>
-                    </div>';
+                else{
+                    if(protect($debut_demande)){
+                        echo '<div class="row justify-content-center" style="margin-top:3em">
+                        <div class="col-lg-8">
+                            <h6 style="text-align: center"></br><strong>Vous pourrez effectuer une demande à partir du ';echo $debut_demande->format('d-m-Y H:i:s');echo'</strong></h6>
+                        </div>
+                        </div>';
                     }
                     else{
-                        if(protect($debut_demande)){
-                            echo '<div class="row justify-content-center" style="margin-top:3em">
-                            <div class="col-lg-8">
-                                <h6 style="text-align: center"></br><strong>Vous pourrez effectuer une demande à partir du ';echo $debut_demande->format('d-m-Y H:i:s');echo'</strong></h6>
-                            </div>
-                            </div>';
-                        }
-                        else{
-                            echo'
-                            <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" href="choice.php">
-                            Faire ma demande
-                            </a>
-                            </div>';   
-                        }
-                    }
-                }
-
-                if ($stmt->num_rows > 0) {
-                    $stmt->bind_result($id_res, $id_eleves, $numero_chambre, $date_arrivee, $date_depart);
-                    $stmt->fetch();
-                    $stmt->close();
-
-                    if ($stmt = $con->prepare('SELECT * FROM chambre WHERE numero = ?')) {
-                        $stmt->bind_param('i', $numero_chambre);
-                        $stmt->execute();
-                        $stmt->store_result();
-                    }
-                    else {
-                        header('Location: profil.php?erreur=querry_error');
-                        exit();
-                    } 
-                    if ($stmt->num_rows > 0) {
-                        $stmt->bind_result($numero_chambre, $type);
-                        $stmt->fetch();
-                        $stmt->close();
-
-                        if($type==1){
-                            $type_chambre="Simple";
-                        }
-                        else if($type==2){
-                            $type_chambre="Binômée";
-                        }
-                        else if($type==3){
-                            $type_chambre="Double";
-                        }
-                        else {
-                            header('Location: connexion.php?erreur=unknown_error');
-                            exit();
-                        } 
-
-                        echo '
-                        <div class="row justify-content-center" style="margin-top:3em">
-                            <div class="col-lg-8">
-                                <h4 class="text-secondary text-center" style="text-decoration:underline;">Chambre attribuée :</h4>
-                                <ul style="margin-top:1em">
-                                    <li><h6>Type de chambre : <strong>'; echo $type_chambre; echo '</strong></h6></li>
-                                    <li><h6>Numéro de chambre : <strong>'; echo $numero_chambre; echo '</strong></h6></li>
-                                </ul>
-                            </div>
-                        </div>
+                        echo'
                         <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" href="">
-                                Accepter la proposition
-                            </a>
-                            <a class="btn btn-xl btn-danger" href="" style="margin:1rem">
-                                Refuser la proposition
-                            </a>
-                        </div>';
+                        <a class="btn btn-xl btn-primary" href="choice.php">
+                        Faire ma demande
+                        </a>
+                        </div>';   
                     }
                 }
                 ?>
