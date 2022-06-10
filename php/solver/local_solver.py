@@ -284,7 +284,7 @@ def local_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01,
 
 def refusal_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01, alpha=0.9999):
     score = compute_score(attributions, requests_dictionary)
-    
+    print("Previous score : ", score)
     best_attribution = None
     best_attributions = attributions
     iterations_without_increase = 0
@@ -295,6 +295,7 @@ def refusal_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.0
         	return best_attribution, best_attributions
     
     rooms_not_full = list_of_rooms_not_full(attributions, rooms_dictionary)
+    print(rooms_not_full)
     if len(rooms_not_full) == 0:
         return None,attributions
 
@@ -304,23 +305,25 @@ def refusal_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.0
 
     i=0
     for student in students_without_room:
-    print(i)
+        
         for room in rooms_not_full:
+                    #print(room)
                     test_attributions = deepcopy(attributions)
                     mate = None
                     for attribution in test_attributions:
-                        if attribution.room.room_id == rooms_not_full:
-                                mate = test_attribution.request.demand_id
-                                test_attribution.mate = student
+                        if attribution.room.room_id == room:
+                                mate = attribution.request.demand_id
+                                attribution.mate = student
                     
                     tested_attribution = Attribution(requests_dictionary[str(student)], rooms_dictionary[str(room)], mate)
                     insert_attribution(test_attributions, tested_attribution)
                     temp_score = compute_score(test_attributions, requests_dictionary)
-                    if temp_score > score:
+                    if temp_score >= score:
                         best_attribution = deepcopy(tested_attribution)
-                        best_attribution = deepcopy(test_attributions)
+                        best_attributions = deepcopy(test_attributions)
                         score = temp_score
         i+=1
+    print("Final score : ",score)
     return best_attribution, best_attributions
 
 

@@ -35,7 +35,7 @@ new_attribution, attributions = refusal_solver(attributions, requests_dictionary
 while(new_attribution != None):
 	added_attributions.append(new_attribution)
 	new_attribution, attributions = refusal_solver(attributions, requests_dictionary, rooms_dictionary, n)
-print("Attributions : ", attributions)
+
 print(added_attributions)
 
 
