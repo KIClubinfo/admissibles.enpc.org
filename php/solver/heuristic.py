@@ -12,7 +12,7 @@ print("========================================= PREPARING HEURISTIC ===========
 
 print("Loading requests and rooms...")
 
-demandes_to_json, chambres_to_json = fetch_data(1)
+demandes_to_json, chambres_to_json = fetch_data(sys.argv[1])
 
 requests = json_to_objects_requests(demandes_to_json)
 rooms = json_to_objects_rooms(chambres_to_json)

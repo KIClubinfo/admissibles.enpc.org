@@ -13,7 +13,7 @@ def fetch_data(serie = 1):
     cursor = cnx.cursor()
 
     # fetching demands
-    cursor.execute("SELECT * FROM demande INNER JOIN eleves ON demande.id_eleve = eleves.id  WHERE demande.arrival_date IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie =  1 )")
+    cursor.execute("SELECT * FROM demande INNER JOIN eleves ON demande.id_eleve = eleves.id  WHERE demande.arrival_date IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie =  " + str(serie) + " )")
     demandes=cursor.fetchall()
     demandes_to_json = []
     for demande in demandes:

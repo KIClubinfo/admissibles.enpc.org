@@ -18,9 +18,9 @@
                 header('Location: admin.php?table=run');
             }
             else {
-                
+                $serie = $_GET['serie'];
                 $command = 'python3 /var/www/html/solver/heuristic.py';
-                exec('bash -c "exec nohup setsid python3 /var/www/html/solver/heuristic.py > /dev/null 2>&1 &"');
+                exec('bash -c "exec nohup setsid python3 /var/www/html/solver/heuristic.py >'. $serie .' /dev/null 2>&1 &"');
                 header('Location: admin.php?table=run');
             }
         }

@@ -56,9 +56,21 @@
                                 $stmt->execute();
                                 $stmt->store_result();
                                 if ($stmt->num_rows == 0) {
-                                    echo '<hr><div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php" style="margin:1rem">
-                                        Lancer la répartition
-                                    </a></div>';
+                                    echo '
+                                    <hr>
+                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=1" style="margin:1rem">
+                                        Lancer Série 1
+                                    </a></div>
+                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=2" style="margin:1rem">
+                                        Lancer Série 2
+                                    </a></div>
+                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=3" style="margin:1rem">
+                                        Lancer Série 3
+                                    </a></div>
+                                    <div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php?serie=4" style="margin:1rem">
+                                        Lancer Série 4
+                                    </a></div>
+                                    ';
                                 }
                                 else {
                                     echo '<div style="text-align:center; font-size:2rem;">Le calcul de la répartition est terminé.</div>';
