@@ -33,6 +33,9 @@
                             else if($_GET['info'] == "changepassword"){
                                 echo '<h4 class="mb-5" style="color:grey;">Un lien de réinitialisation vous a été envoyé par mail. </br> </br> Merci de vérifier votre boîte mail.</h4>';
                             }
+                            else if($_GET['info'] == "asrefused"){
+                                echo '<h4 class="mb-5" style="color:grey;">Votre réservation à bien été annulée. </br> </br> Vous allez recevoir un mail en attestant.</h4>';
+                            }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue.</h4>';
                             }

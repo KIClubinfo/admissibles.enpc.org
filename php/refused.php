@@ -10,6 +10,8 @@
     }
 
 if(isset($_SESSION['refused'])){
+    if(isset($_GET['refused'])){
+        $_SESSION['refused'] = $_GET['refused'];
     if($_SESSION['refused']!=0 && $_SESSION['refused']!=1){
         header('Location: profil.php');
 	    exit();
@@ -90,11 +92,12 @@ if(isset($_SESSION['refused'])){
         } 
         $con->close();
         $_SESSION['refused']=0;
-        header('Location: profil.php');
-	    exit();
+        header('Location: profil.php?info=asrefused');
+	exit();
     }
 }
-$_SESSION['refused']=1;
+}
+$_SESSION['refused']=0;
 ?>
 
 <!DOCTYPE html>
@@ -140,12 +143,16 @@ $_SESSION['refused']=1;
                 <div class="">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <h3 style="text-align: center">Voulez-vous vraiment annuler votre reservation ? </br> Cette action sera irréversible.</h3>
+                            <h3 style="text-align: center">Voulez-vous vraiment annuler votre reservation ? </br> Cette action sera irréversible.</h3>
                             <h4 style="text-align: center">En particulier, si vous refaites une demande, vous perdrez votre place dans la file d'attente.</h4>
                         </div>
                     </div>
                 </div>
                 <div class="text-center mt-4">
+	            <a class="btn btn-xl btn-primary" href="profil.php?refused=0">
+                        Retour en arriere
+                    </a>
+
                     <a class="btn btn-xl btn-danger" href="refused.php?refused=1">
                         Annuler ma reservation
                     </a>
