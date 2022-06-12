@@ -1,5 +1,5 @@
 <?php
-    include("config.php");
+    include_once("config.php");
     if (!isset($_SESSION['loggedin'])) {
 	    header('Location: connexion.php?erreur=notconnected');
 	    exit();
@@ -48,26 +48,61 @@
                     <a class="btn btn-xl btn-primary" href="admin.php?table=run" style="margin:1rem">
                         Répartition
                     </a>
+                    <a class="btn btn-xl btn-primary" href="admin.php?table=export" style="margin:1rem">
+                        Export CSV
+                    </a>
                 </div>
                 <?php if ($_GET['table']=="run"){
                         exec("ps aux | grep -i 'python3' | grep -v grep", $pids);
                         if(empty($pids)) {
-                            if ($stmt = $con->prepare('SELECT id_res FROM reservation')) {
-                                $stmt->execute();
-                                $stmt->store_result();
-                                if ($stmt->num_rows == 0) {
-                                    echo '<hr><div style="text-align: center"><a class="btn btn-xl btn-primary" href="run.php" style="margin:1rem">
-                                        Lancer la répartition
-                                    </a></div>';
-                                }
-                                else {
-                                    echo '<div style="text-align:center; font-size:2rem;">Le calcul de la répartition est terminé.</div>';
+                            $series_finies = [];
+                            echo '<hr>
+                            <div style="text-align: center">';
+                            for($i = 1; $i <= 4;$i++){
+                                if ($stmt = $con->prepare("SELECT id_res FROM reservation WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = $i)")) {
+                                    $stmt->execute();
+                                    $stmt->store_result();
+                                    if ($stmt->num_rows == 0) {
+                                        echo "
+                                        <a class=\"btn btn-xl btn-primary\" href=\"run.php?serie=$i\" style=\"margin:1rem\">
+                                        Lancer Série $i
+                                        </a>
+                                        ";
+                                    }
+                                    else {
+                                        $series_finies[] = (string) $i;
+                                        echo "<div style='text-align:center; font-size:2rem;'>La répartition de la serie $i est terminée :</div>";
+                                    	echo "<hr><div style='text-align: center'>
+                                    	<a class=\"btn btn-xl btn-primary\" href=\"run.php?serie=$i\" style=\"margin:1rem\">
+                                        Completer la série $i
+                                    	</a></div>";
+                                    }
                                 }
                             }
+                            echo '</div>
+                            <div style="text-align:center; font-size:2rem;"> Le calcul des séries '. implode(", ",$series_finies) .' a déjà été effectué.</div>
+                            ';
                         } else {
                             echo '<div style="text-align:center; font-size:2rem;">La répartition est en cours de calcul...</div>';
                         }
                     }
+                    else if ($_GET['table']=="export"){
+                        echo '
+                        <hr>
+                        <div style="text-align: center"><a class="btn btn-xl btn-primary" href="export_csv.php?serie=1" style="margin:1rem">
+                            Exporter Série 1
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=2" style="margin:1rem">
+                            Exporter Série 2
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=3" style="margin:1rem">
+                            Exporter Série 3
+                        </a>
+                        <a class="btn btn-xl btn-primary" href="export_csv.php?serie=4" style="margin:1rem">
+                            Exporter Série 4
+                        </a></div>
+                        ';
+                       }
                 else {
                     echo '<table class="table">';
                     echo '<h1 class="text-center text-secondary" style="margin-bottom:2rem">';echo $_GET['table'];echo ' :</h1>';

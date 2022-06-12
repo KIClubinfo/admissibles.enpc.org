@@ -199,6 +199,31 @@ def add_student_in_room_not_full(attributions, requests_dictionary, rooms_dictio
 
     return attributions
 
+def get_student_for_room_not_full(attributions, requests_dictionary, rooms_dictionary):
+    rooms_not_full = list_of_rooms_not_full(attributions, rooms_dictionary)
+    if len(rooms_not_full) == 0:
+        print("Pas de chambre")
+        return None
+    room_not_full = random.choice(rooms_not_full)
+
+    students_without_room = list_of_students_without_room(attributions, requests_dictionary)
+    if len(students_without_room) == 0:
+        print("Pas d'étudiant")
+        return None
+    student_to_add = random.choice(students_without_room)
+
+    mate = None
+    for attribution in attributions:
+        if attribution.room.room_id == room_not_full:
+            mate = attribution.request.demand_id
+            attribution.mate = student_to_add
+
+    new_attribution = Attribution(requests_dictionary[str(student_to_add)], rooms_dictionary[str(room_not_full)], mate)
+    
+    return new_attribution
+
+
+
 
 def remove_attribution(attributions):
     if len(attributions) == 0:
@@ -254,6 +279,54 @@ def local_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01,
         if k % (n//100) == 0:
             print("LocalSolver score : ", score, " ------ Température : ", T)
     return best_attributions
+
+
+
+def refusal_solver(attributions, requests_dictionary, rooms_dictionary, n, T=0.01, alpha=0.9999):
+    score = compute_score(attributions, requests_dictionary)
+    print("Previous score : ", score)
+    best_attribution = None
+    best_attributions = attributions
+    iterations_without_increase = 0
+    k = 0
+    
+    tested_attribution = get_student_for_room_not_full(attributions, requests_dictionary, rooms_dictionary)
+    if tested_attribution==None:
+        	return best_attribution, best_attributions
+    
+    rooms_not_full = list_of_rooms_not_full(attributions, rooms_dictionary)
+    print(rooms_not_full)
+    if len(rooms_not_full) == 0:
+        return None,attributions
+
+    students_without_room = list_of_students_without_room(attributions, requests_dictionary)
+    if len(students_without_room) == 0:
+        return None,attributions
+
+    i=0
+    for student in students_without_room:
+        
+        for room in rooms_not_full:
+                    #print(room)
+                    test_attributions = deepcopy(attributions)
+                    mate = None
+                    for attribution in test_attributions:
+                        if attribution.room.room_id == room:
+                                mate = attribution.request.demand_id
+                                attribution.mate = student
+                    
+                    tested_attribution = Attribution(requests_dictionary[str(student)], rooms_dictionary[str(room)], mate)
+                    insert_attribution(test_attributions, tested_attribution)
+                    temp_score = compute_score(test_attributions, requests_dictionary)
+                    if temp_score >= score:
+                        best_attribution = deepcopy(tested_attribution)
+                        best_attributions = deepcopy(test_attributions)
+                        score = temp_score
+        i+=1
+    print("Final score : ",score)
+    return best_attribution, best_attributions
+
+
 
 
 if __name__ == "__main__":

@@ -5,13 +5,19 @@ import prenoms
 import string
 from datetime import datetime, date, timedelta
 
+
+
+
+debut_series = [date(2022,6,19),date(2022,6,26),date(2022,7,3),date(2022,7,10)]
+fin_series = [date(2022,6,25),date(2022,7,2),date(2022,7,9),date(2022,7,16)]
+
 def delete_and_restore_just_admin():
     # Supprime toutes les lignes et remet uniquement la ligne de l'admin dans eleves.
 
     # Pour savoir quoi renseigner dans "port", faire un "docker ps" et regarder dans "port" pour
     # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
     connection = mysql.connector.connect(host='localhost',
-                                         port=6033,
+                                         port=6036,
                                          database='admissibles',
                                          user='root',
                                          password='NotSecretPassword')
@@ -41,36 +47,29 @@ def random_dates():
     # Genere de facon "coherente" des dates et heures d'arrivee et de depart et une date de realisation de demande,
     # dans le bon format
 
-    # Initializing start date
-    beginning_of_inscriptions = date(2021, 6, 14)
-
+    serie = rand.randint(1,4)
     # Arrival date
-    arr_date = beginning_of_inscriptions + timedelta(days=rand.randint(0, 30))
+    arr_date = debut_series[serie - 1]
     res_arr_date = arr_date.strftime("%Y-%m-%d")
 
     # Departure date
-    dep_date = arr_date + timedelta(days=rand.randint(0, 2))
+    dep_date = fin_series[serie - 1]
     res_dep_date = dep_date.strftime("%Y-%m-%d")
 
-    # Heures
-    if (dep_date == arr_date):
-        arr_hour = rand.randint(0, 22)
-        dep_hour = rand.randint(arr_hour, 23)
-    else:
-        arr_hour = rand.randint(0, 23)
-        dep_hour = rand.randint(0, 23)
+    arr_hour = 11
+    dep_hour = 14
 
     # Minutes
-    arr_min = rand.randint(0, 59)
-    dep_min = rand.randint(0, 59)
+    arr_min = 0
+    dep_min = 0
 
     arr_hour_min = str(arr_hour).rjust(2, "0") + ":" + str(arr_min).rjust(2, "0")
     dep_hour_min = str(dep_hour).rjust(2, "0") + ":" + str(dep_min).rjust(2, "0")
 
     # Date de demande
     # On doit mettre une date de demande anterieure a la date d'arrivee
-    nb_jours_entre_demande_arrivee = rand.randint(0, 15)
-    demand_date = max(arr_date - timedelta(days=nb_jours_entre_demande_arrivee), beginning_of_inscriptions)
+    nb_jours_entre_demande_arrivee = rand.randint(0, 6)
+    demand_date = arr_date - timedelta(days=nb_jours_entre_demande_arrivee)
     if (demand_date == arr_date) :
         demand_hour = rand.randint(0, arr_hour)
         if (demand_hour == arr_hour) :
@@ -122,11 +121,11 @@ def requetes_eleves_demandes(nb_eleves, nb_demandes_simples, nb_demandes_paires)
         gender = rand.randint(1, 3)
         password = "password"
         # === mail ===
-        mail = prenom + "." + nom + "@gmail.com"
+        mail = prenom + "." + nom + "@test.fr"
         num_mail=1
         while (mail in liste_mails) :
             num_mail +=1
-            mail = prenom + "." + nom + str(num_mail) + "@gmail.com"
+            mail = prenom + "." + nom + str(num_mail) + "@test.fr"
         # ======
         tel = "06"
         for k in range(8) :
@@ -154,6 +153,7 @@ def requetes_eleves_demandes(nb_eleves, nb_demandes_simples, nb_demandes_paires)
         remplace = rand.randint(0, 1)  # Peut-etre plus realiste de mettre une loi binomiale avec p=0.9...
         gender_choice = rand.randint(0, 1)
         arrival_date, arrival_time, departure_date, departure_time, demand_time = random_dates()
+ 
         mate = 0
         mate_email = "NULL"
         validee = 0
@@ -204,6 +204,8 @@ def requetes_eleves_demandes(nb_eleves, nb_demandes_simples, nb_demandes_paires)
 
     return liste_queries_eleve, liste_queries_demande
 
+
+
 def generate_lines(nb_chambres, nb_eleves, nb_demandes_simples, nb_demandes_paires):
     # On indique le nombre de chambres, d'eleves et de demandes simples pour par paires d'eleves vouant etre ensemble
     # La fonction genere alors le bon nombre de lignes, de facon a peu pres coherente avec qq simplifications.
@@ -214,7 +216,7 @@ def generate_lines(nb_chambres, nb_eleves, nb_demandes_simples, nb_demandes_pair
         # Pour savoir quoi renseigner dans "port", faire un "docker ps" et regarder dans "port" pour
         # l'image "mysql:8.0.20". Prendre celui qui precede "O.O.O.O:"
         connection = mysql.connector.connect(host='localhost',
-                                             port=6033,
+                                             port=6036,
                                              database='admissibles',
                                              user='root',
                                              password='NotSecretPassword')
