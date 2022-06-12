@@ -121,11 +121,11 @@ def requetes_eleves_demandes(nb_eleves, nb_demandes_simples, nb_demandes_paires)
         gender = rand.randint(1, 3)
         password = "password"
         # === mail ===
-        mail = prenom + "." + nom + "@gmail.com"
+        mail = prenom + "." + nom + "@test.fr"
         num_mail=1
         while (mail in liste_mails) :
             num_mail +=1
-            mail = prenom + "." + nom + str(num_mail) + "@gmail.com"
+            mail = prenom + "." + nom + str(num_mail) + "@test.fr"
         # ======
         tel = "06"
         for k in range(8) :
