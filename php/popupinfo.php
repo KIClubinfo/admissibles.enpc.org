@@ -19,22 +19,22 @@
                             <!-- Portfolio Modal - Text-->
                             <?php
                             if($_GET['info'] == "activation"){
-                                echo '<h4 class="mb-5" style="color:grey;">Votre compte a bien été activé.<br/> <br/> Vous pouvez à présent vous connecter.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Ton compte a bien été activé.<br/> <br/> Tu peux à présent te connecter.</h4>';
                             }
                             else if($_GET['info'] == "alreadyactive"){
-                                echo '<h4 class="mb-5" style="color:grey;">Votre compte a déjà été activé.<br/> <br/> Vous pouvez vous connecter.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Ton compte a déjà été activé.<br/> <br/> Tu peux te connecter.</h4>';
                             }
                             else if($_GET['info'] == "mdpchanged"){
-                                echo '<h4 class="mb-5" style="color:grey;">Votre mot de passe a bien été changé. </br> </br> Vous pouvez vous connecter.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Ton mot de passe a bien été changé. </br> </br> Tu peux te connecter.</h4>';
                             }
                             else if($_GET['info'] == "mailinscription"){
-                                echo '<h4 class="mb-5" style="color:grey;">Un lien d\'activation vous a été envoyé par mail. </br> </br> Merci de vérifier votre boîte mail.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Un lien d\'activation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail et penses à vérifier tes spams.</h4>';
                             }
                             else if($_GET['info'] == "changepassword"){
-                                echo '<h4 class="mb-5" style="color:grey;">Un lien de réinitialisation vous a été envoyé par mail. </br> </br> Merci de vérifier votre boîte mail.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Un lien de réinitialisation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail.</h4>';
                             }
                             else if($_GET['info'] == "asrefused"){
-                                echo '<h4 class="mb-5" style="color:grey;">Votre réservation à bien été annulée. </br> </br> Vous allez recevoir un mail en attestant.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Ta réservation à bien été annulée. </br> </br> Tu vas recevoir un mail l\'attestant.</h4>';
                             }
                             else{
                                 echo '<h4 class="mb-5" style="color:grey;">Une erreur est survenue.</h4>';

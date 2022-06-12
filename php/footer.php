@@ -6,7 +6,7 @@
             <script>
                 document.write(new Date().getFullYear());
             </script>
-            KI ClubInfo des Ponts | École des Ponts Paristech
+            KI ClubInfo des Ponts | École des Ponts ParisTech
             <!-- This script automatically adds the current year to your website footer-->
             <!-- (credit: https://updateyourfooter.com/)-->
         </small>
