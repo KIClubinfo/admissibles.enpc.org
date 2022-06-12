@@ -1,5 +1,6 @@
 import operator
 import random
+import sys
 from data_conversion import json_to_objects_rooms, json_to_objects_requests,json_to_objects_attributions, dictionary_from_requests, dictionary_from_rooms
 from local_solver import refusal_solver, compute_score,list_of_rooms_not_full
 from import_data import fetch_data
@@ -10,7 +11,7 @@ print("========================================= PREPARING HEURISTIC ===========
 
 print("Loading requests and rooms...")
 
-demandes_to_json, chambres_to_json, attributions_to_json = fetch_data()
+demandes_to_json, chambres_to_json,attributions_to_json = fetch_data(sys.argv[1])
 
 requests = json_to_objects_requests(demandes_to_json)
 rooms = json_to_objects_rooms(chambres_to_json)

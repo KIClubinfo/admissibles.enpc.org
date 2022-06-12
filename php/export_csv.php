@@ -12,16 +12,19 @@
         exit();
     }
 
+    $serie = sanitize_string($_GET['serie']);
+
     // HTTP CSV HEADERS
     header("Content-Type: application/octet-stream");
     header("Content-Transfer-Encoding: Binary");
-    header("Content-disposition: attachment; filename=\"export.csv\"");
- 
+    header("Content-disposition: attachment; filename=\"serie_$serie.csv\"");
+
     // GET DATA FROM DATABASE
-    if ($stmt = $con->prepare('SELECT id_res, numero_chambre, type, nom, prenom, gender  
+    if ($stmt = $con->prepare("SELECT id_res, numero_chambre, type, nom, prenom, gender
                                FROM `reservation` 
-                               JOIN eleves ON reservation.id_res=eleves.id
-                               JOIN chambre ON reservation.numero_chambre=chambre.numero;')) {
+                               JOIN eleves ON reservation.id_eleves=eleves.id
+                               JOIN chambre ON reservation.numero_chambre=chambre.numero
+                               JOIN serie ON reservation.date_arrivee=serie.arrival_date WHERE serie.id_serie = $serie;")) {
         $stmt->execute();
     }
     else {

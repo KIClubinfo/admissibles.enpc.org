@@ -47,6 +47,16 @@ if(isset($_SESSION['refused'])){
             $stmt->execute();
             $stmt->store_result();
             if ($stmt->num_rows > 0) {
+            	if ($stmt = $con->prepare('SELECT id_serie FROM demande JOIN serie ON demande.arrival_date = serie.arrival_date WHERE id_eleve=?')) {
+            	    $stmt->bind_param('i', $_SESSION['id']);
+                    $stmt->execute();
+                    $stmt->store_result();
+                    $stmt->bind_result($serie);
+                    $stmt->fetch();
+                    //$stmt->store_result();
+                    //$id_serie = $stmt->fetch_row()[0];
+                    $stmt->close();
+                }
                 if ($stmt = $con->prepare('DELETE FROM demande WHERE id_eleve=?')) {
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
@@ -74,7 +84,8 @@ if(isset($_SESSION['refused'])){
                 if ($stmt = $con->prepare('DELETE FROM reservation WHERE id_eleves=?')) {
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
-                    include("run.php");
+                    $command = 'python3 /var/www/html/solver/refusal_heuristic.py';
+               	    exec('bash -c "exec nohup setsid python3 /var/www/html/solver/refusal_heuristic.py '.$serie.' > /dev/null 2>&1 &"');
                 }
                 else {
                     header('Location: connexion.php?erreur=querry_error');
