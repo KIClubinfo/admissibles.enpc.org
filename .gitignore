@@ -132,3 +132,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# gurobi lic
+php/solver/gurobi.lic
+
+# Emails
+php/composer.phar
+php/composer.lock
+php/vendor/
