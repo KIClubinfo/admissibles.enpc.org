@@ -37,3 +37,16 @@ Pour installer SendGrid, nous allons utiliser [Composer](https://getcomposer.org
 Pour tester si tout fonctionne bien, modifiez tout d'abord les variables `$receiver_email` et `$receiver_name` du fichier  [send_first_email.php](/php/send_first_email.php). Il vous suffit finalement de l’exécuter dans un navigateur en accédant à l'URL [http://localhost:8123/send_first_email.php](http://localhost:8123/send_first_email.php).
 
 Si vous avez reçu un e-mail de la part de `EMAIL_SENDER` à l'adresse `$receiver_email`, c'est que tout fonctionne ;) !
+
+# Lancer la base de donnée. 
+Lancer dans phpmyadmin les lignes de commandes suivantes pour créer la base de données contenant les dates des séries. 
+
+``` 
+CREATE TABLE IF NOT EXISTS `admissibles`.`serie`(
+  `id_serie` INT NOT NULL ,
+  `arrival_date` VARCHAR(15) , PRIMARY KEY (`id_serie`))
+ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `admissibles`.`serie` (`id_serie`, `arrival_date`)
+VALUES ('1', '2022-06-19');
+```
