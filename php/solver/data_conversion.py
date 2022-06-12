@@ -24,6 +24,7 @@ def json_to_objects_requests(requests_raw):
     """
     requests_list = []
     nb_requests = len(requests_raw)
+    print("Nombre de demandes :", nb_requests )
 
     # Work out shotgun ranks
     demand_times = [(demand_id, int(requests_raw[demand_id]["demand_time"])) for demand_id in range(nb_requests)]
