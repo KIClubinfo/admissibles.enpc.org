@@ -168,8 +168,6 @@ else {
     exit();
 } 
 $_SESSION['a_reserve']=1;
-$uniqid = bin2hex(random_bytes(16));
-send_mail($_SESSION['email'], $uniqid,3);
 $stmt->close();
 
 }
@@ -192,6 +190,8 @@ else {
 
 }
 $con->close();
+$uniqid = bin2hex(random_bytes(16));
+send_mail($_SESSION['email'], $uniqid,3);
 header('Location: profil.php');
 exit();
 ?>

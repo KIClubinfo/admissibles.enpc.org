@@ -16,12 +16,11 @@ if ($con->connect_error) {
 
 // email configuration TO MODIFY
 define("SENDGRID_API_KEY", "YOUR_API_KEY");
-
 define("EMAIL_SENDER", "tomodify@tomodify.org");
 define("NAME_SENDER", "tomodify");
 define("EMAIL_REPLY", "tomodify@tomodify.org");
 define("NAME_REPLY", "tomodify");
-
+define("URL_WEBSITE", "http://localhost:8123");
 
 function is_admin()
 { // renvoie true si l'user est un admin

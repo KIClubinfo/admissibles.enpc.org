@@ -43,7 +43,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                         <tr>
                                             <td style="text-align:center; font-family: Arial, sans-serif;">
                                                 
-                                                <a href="https://admissibles.enpc.org/activate.php?email='.$email_address.'&code='.$activation_code.'"
+                                                <a href="'.URL_WEBSITE.'/activate.php?email='.$email_address.'&code='.$activation_code.'"
                                                 style="display: inline-block;
                                                 font-weight: 400;
                                                 color: #5fa8d3;
@@ -127,7 +127,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                         <tr>
                                             <td style="text-align:center; font-family: Arial, sans-serif;">
                                                 
-                                                <a href="https://admissibles.enpc.org/changepassword2.php?email='.$email_address.'&code='.$activation_code.'"
+                                                <a href="'.URL_WEBSITE.'/changepassword2.php?email='.$email_address.'&code='.$activation_code.'"
                                                 style="display: inline-block;
                                                 font-weight: 400;
                                                 color: #5fa8d3;
@@ -198,7 +198,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
                                             <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
-                                                <b>Votre demande de logement a été acceptée</b>
+                                                <b>Ta demande de logement a été acceptée</b>
                                             </td>
                                         </tr>
                                         <tr>
@@ -211,7 +211,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                         </tr>
                                         <tr>
                                             <td style="text-align:center; font-family: Arial, sans-serif;">
-                                                <a href="https://admissibles.enpc.org/profil.php" 
+                                                <a href="'.URL_WEBSITE.'/profil.php" 
                                                 style="display: inline-block;
                                                 font-weight: 400;
                                                 color: #5fa8d3;
@@ -258,7 +258,6 @@ function send_mail($email_address, $activation_code, $typemessage) {
 
     if($typemessage==3){
         $subject = 'Demande de logement prise en compte';
-
         $message= '
         <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
@@ -281,7 +280,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
                                                 <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
-                                                    <b>Votre demande de logement a été prise en compte</b>
+                                                    <b>Ta demande de logement a été prise en compte</b>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -294,7 +293,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                             </tr>
                                             <tr>
                                                 <td style="text-align:center; font-family: Arial, sans-serif;">
-                                                    <a href="https://admissibles.enpc.org/profil.php" 
+                                                    <a href="'.URL_WEBSITE.'/profil.php" 
                                                     style="display: inline-block;
                                                     font-weight: 400;
                                                     color: #5fa8d3;
