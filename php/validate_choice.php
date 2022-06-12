@@ -1,6 +1,8 @@
 <?php
 
 include("config.php");
+include("mailer.php");
+
 if (!isset($_SESSION['loggedin'])) {
     header('Location: connexion.php');
     exit();
@@ -188,6 +190,8 @@ else {
 
 }
 $con->close();
+$uniqid = bin2hex(random_bytes(16));
+send_mail($_SESSION['email'], $uniqid,3);
 header('Location: profil.php');
 exit();
 ?>

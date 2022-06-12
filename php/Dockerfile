@@ -18,10 +18,6 @@ RUN pip install -r ./solver/requirements.txt
 
 COPY composer_install.sh .
 COPY composer.json .
-COPY composer.lock .
-RUN chmod +x composer_install.sh
-RUN ./composer_install.sh
-RUN php composer.phar install
 
 WORKDIR /opt
 
