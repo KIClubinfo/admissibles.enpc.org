@@ -74,7 +74,7 @@
                                     <div class="form-group">
                                         <label>Je suis</label>
                                         <select class="form-control" id="gender" name="gender" required="required" data-validation-required-message="Veuillez choisir une option.">
-                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="" selected="selected" disabled>Choisir une option</option>
                                             <option value="1">Une femme</option>
                                             <option value="2">Un homme</option>
                                             <option value="3">Autre ou ne souhaite pas préciser</option>
@@ -106,7 +106,7 @@
                                 <div class="form-group">
                                     <label>Êtes-vous boursier? (il pourra t\'être demandé de le justifier)</label>
                                     <select class="form-control" id="boursier" name="boursier" data-validation-required-message="Veuillez indiquer si vous êtes boursier.">
-                                        <option value="" disabled>Choisir une option</option>
+                                        <option value="" selected="selected" disabled>Choisir une option</option>
                                         <option value="0">Non</option>
                                         <option value="1">Oui</option>
                                     </select>
