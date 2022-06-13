@@ -44,7 +44,7 @@
                     echo '<div class="container text-left">
                     <div class="row justify-content-center" style="margin-top:3em">
                     <div class="col-lg-8">
-                        <h6 style="text-align: center"></br><strong>Vous pourrez vous inscrire à partir du ';echo $debut_inscription->format('d-m-Y H:i:s');echo'</strong></h6>
+                        <h6 style="text-align: center"></br><strong>Tu pourras t\'inscrire à partir du ';echo $debut_inscription->format('d-m-Y H:i:s');echo'</strong></h6>
                     </div>
                     </div>
                     </div>';
@@ -74,7 +74,7 @@
                                     <div class="form-group">
                                         <label>Je suis</label>
                                         <select class="form-control" id="gender" name="gender" required="required" data-validation-required-message="Veuillez choisir une option.">
-                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="" selected="selected" disabled>Choisir une option</option>
                                             <option value="1">Une femme</option>
                                             <option value="2">Un homme</option>
                                             <option value="3">Autre ou ne souhaite pas préciser</option>
@@ -98,15 +98,15 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label>Distance avec Champs-sur-Marne (il pourra vous être demandé de le justifier)</label>
+                                        <label>Distance avec Champs-sur-Marne (il pourra t\'être demandé de le justifier)</label>
                                         <input class="form-control" id="distance" name="distance" type="number" min="0" placeholder="Distance (en km)" required="required" data-validation-required-message="Veuillez entrer la distance entre votre domicile et Champs-sur-Marne." />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Êtes-vous boursier? (il pourra vous être demandé de le justifier)</label>
+                                    <label>Êtes-vous boursier? (il pourra t\'être demandé de le justifier)</label>
                                     <select class="form-control" id="boursier" name="boursier" data-validation-required-message="Veuillez indiquer si vous êtes boursier.">
-                                        <option value="" disabled>Choisir une option</option>
+                                        <option value="" selected="selected" disabled>Choisir une option</option>
                                         <option value="0">Non</option>
                                         <option value="1">Oui</option>
                                     </select>
@@ -123,6 +123,14 @@
                                     <div class="form-group">
                                         <label>Confirmer le mot de passe</label>
                                         <input class="form-control" id="confpassword" name="confpassword" type="password" placeholder="Confirmer le mot de passe" required="required" data-validation-required-message="Veuillez confirmer votre mot de passe." />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group">
+                                        <div>
+                                            <input type="checkbox" id="engagement" name="engagement" required="required"> &nbsp Je certifie l\'exactitude des informations renseignées et suis conscient que tout abus peut entraîner des poursuites. </input>
+                                        </div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>

@@ -45,17 +45,14 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <?php if(isset($_SESSION['loggedin'])){echo '
+                <?php echo '
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ml-auto"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead" style="text-align: justify">Tu peux découvrir dans la section suivante les différentes possibilités de logement qui te sont proposées.</p></div>
-                </div>';}
-                else{
-                    echo '<!-- About Section Content-->
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8"><p class="lead" style="text-align: justify">Si tu es sur ce site, c\'est que tu es admissible au <strong>concours Mines-Ponts</strong> et que tu vas passer les oraux à <strong>l\'École des Ponts</strong>. <br/>Grâce à ce site, tu vas pouvoir demander un logement pour ton séjour à <strong>Champs-sur-Marne</strong>.</p></div>
-                        <div class="text-center mt-4">
+                    <div class="col-lg-4 mr-auto"><p class="lead" style="text-align: justify">Tu peux découvrir dans la section suivante les différentes possibilités de logement qui te sont proposées. <br/> Ces logements se trouvent dans la <strong> Résidence Meunier </strong> située au <strong> 9 bis Boulevard Copernic, 77420 Champs-sur-Marne</strong>. </p></div>
+                </div>';
+                if(!isset($_SESSION['loggedin'])){
+                        echo '<div class="text-center mt-4">
                             <a class="btn btn-xl btn-primary" style="margin:1rem" href="inscription.php">
                             Inscris-toi dès maintenant pour demander un logement.
                             </a>
@@ -64,9 +61,9 @@
             </div>
         </section>
 
-        <?php if(isset($_SESSION['loggedin'])){echo '
+        <?php echo '
         <!-- Portfolio Section-->
-        <section class="page-section bg-primary text-white portfolio" id="portfolio">
+        <section class="page-section bg-secondary text-white portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Les chambres de la résidence</h2>
@@ -113,13 +110,40 @@
                 </div>
             </div>
         </section>
-        <!-- Informations Section-->
-        <section class="page-section text-secondary mb-0" id="about">
+        <!-- Localisation Section-->
+        <section class="page-section text-secondary mb-0" id="localisation">
             <div class="container">
                 <!-- Informations Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">Comment sont traitées les demandes ?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Localisation et accès</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+            </div>
+            <div class = "container rows">
+            <div class="row-cols-2"><p class="lead" style="text-align: justify">La résidence est idéalement située à <strong> 100m </strong>de l\'entrée de l\'école. <br/>Elle est située à <strong>7min</strong> du <strong>RER A</strong> (arrêt <strong>Noisy-Champs</strong>).
+            <br/> Elle est accessible par l\'Autoroute A4, sortie 10 - Cité Descartes
+            <br/> Elle est aussi accessible par le bus:     
+                    <ul> 
+                        <li>Bus RATP 213 : ligne Gare SNCF Chelles-Gournay / Lognes-le-village</li>
+                        <li>Bus RATP 212 : ligne Pointe-de-Champs / Gare SNCF Emerainville </li>
+                        <li>Bus CIF/VAS 100 : ligne Créteil l\'Echat métro / Torcy RER - arrêt CROUS </li>
+                    </ul>
+                    </p></div>
+            <div class = "row-cols-2 map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5251.69477694093!2d2.584025678325062!3d48.84204961041292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e2de58a43d9%3A0x863c17111ec90ee1!2sResidence%20ARPEJ%20Univercity%20%22Meunier%22!5e0!3m2!1sen!2sfr!4v1655057743213!5m2!1sen!2sfr"  width="50%" height="400px" style="border:0;" allowfullscreen></iframe>
+            </div>
+            </div>
+        </section>
+        <!-- Informations Section-->
+        <section class="page-section bg-primary text-white portfolio" id="about">
+            <div class="container">
+                <!-- Informations Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Comment sont traitées les demandes ?</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
@@ -132,8 +156,8 @@
                             <li><h5>Le statut de boursier<h5></li>
                             <li><h5>La distance entre le domicile et l\'École des Ponts</h5></li>
                         </ul>
-                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
-                        <p class="lead" style="text-align: center"><strong>Vous pouvez faire votre demande dans l\'onglet profil</strong></p>
+                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>';
+                        if(isset($_SESSION['loggedin'])){echo '<p class="lead" style="text-align: center"><strong>Tu peux faire ta demande dans l\'onglet profil</strong></p>
                     </div>
                 </div>
                 <div class="text-center mt-4">
@@ -141,15 +165,29 @@
                         Voir mon profil
                     </a>
                 </div>
+                ';}
+            else{
+                echo '
+                <p class="lead" style="text-align: center"><strong>Connecte toi pour faire ta demande!</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-secondary" href="connexion.php">
+                        Connexion
+                    </a>
+                </div>
+                ';
+            }
+            echo'
             </div>
-        </section>';}
+        </section>';
 
         echo '
         <!-- Message Section-->
-        <section class="page-section bg-primary text-white portfolio" id="message">
+        <section class="page-section text-secondary mb-0" id="message">
             <div class="container">
                 <!-- Informations Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Résultat des attributions</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Résultat des attributions</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -158,19 +196,30 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> n\'est pas encore disponible. Elle le sera très prochainement. Penser à consulter le site régulièrement.</p>
-                        <h4 style="text-decoration:underline;">Attention à deux points !</h4>
+                        <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> s\'effectue selon le calendrier suivant :</p>
+                        <ul class = "lead">
+                            <li> Les inscriptions pour les 4 séries ouvrent le <strong>mardi 14 juin à 20h</strong>. </li>
+                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong> jeudi 16 juin à 12h</strong>. </li>
+                            <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> mercredi 22 juin </strong> à <strong> 12h </strong> </li>
+                        </ul>
+                        <h4 style="text-decoration:underline;">Attention à trois points !</h4>
                         <ul class="lead">
-                            <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si vous n\'avez pas eu de chambre au premier tour, vous pouvez toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
-                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est le samedi dans l\'idéal, et le dimanche si vous ne pouvez pas faire autrement.
-                                </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivantes :
+                            <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
+                            <li>Une fois le premier tour passé, il ne sera plus possible de s\'inscrire pour la série en question.</li>
+                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est avant le samedi.
+                                </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
                                 <ul class="lead">
                                     <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>
                                     <li>Le <strong>samedi</strong>, 9h30-13h puis 14h-17h;</li>
-                                    <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-19h.</li>
+                                    <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-18h30.</li>
                                 </ul></li>
                         </ul>
-                        <p class="lead" style="text-align: justify">Si vous avez des questions, des remarques, des demandes, n’hésitez pas à nous contacter par mail ou téléphone !</p>
+                        <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
+                        <br/> Rejoins-nous aussi sur le <strong>groupe Facebook</strong> dédié aux admissibles passant leurs oraux aux Ponts!</p>
+                        
+                        <div class="text-center mt-4">
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="https://www.facebook.com/groups/3152829064967963/"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
+                        </div>
                     </div>
                 </div>
             </div>

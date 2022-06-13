@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='gender-choice'>Si vous étiez dans une chambre à deux places, cela vous dérangerait-il d'être avec :</label>
+                                        <label for='gender-choice'>Si tu te retrouvait dans une chambre à deux places, cela te dérangerait d'être avec :</label>
                                         <select class="form-control" id="gender-choice" name="gender-choice" required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled selected="selected">Choisir une option</option>
                                             <option value="3">indifférent</option>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for='gender-choice'>Votre série d'épreuves orales :</label>
+                                        <label for='gender-choice'>Ta série d'épreuves orales :</label>
                                         <select class="form-control" id="serie-choice" name="serie-choice" onchange="dateSelector(this.selectedIndex);" required="required" data-validation-required-message="Veuillez choisir une option.">
                                             <option value="" disabled selected="selected">Choisir une série</option>
                                             <option value="1">série n°1</option>
@@ -126,28 +126,30 @@
 
                                 <div class="control-group">
                                     <div class="form-group">
-                                        <label for="arrival-date">Date d'arrivée prévue :</label>
+                                        <label for="arrival-date">Date de début de réservation :</label>
                                         <input id="arrival-date" name="arrival-date" hidden/>
                                         <br>
                                         <span class="form-control" id="arrival-date-display">  </span>
+                                        <br>                                  
+                                        <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date.</p></div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group" style="Display : None">
                                     <div class="form-group">
                                         <label for="arrival-date">Heure d'arrivée approximative (entre 11h00 et 18h30) :</label>
-                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="18:30" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une heure d'arrivée correcte." step="60"/>
+                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="18:30" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une heure d'arrivée correcte." step="60" value="11:00"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="control-group" >
                                     <div class="form-group">
-                                        <label for="departure-date">Date de départ :</label>
+                                        <label for="departure-date">Date de fin de réservation :</label>
                                         <input id="departure-date" name="departure-date" hidden/>
                                         <br>
                                         <span class="form-control" id="departure-date-display">  </span>
                                         <br>
-                                        <div class="text"><p><strong>À noter : </strong> Il vous est possible de quitter le logement avant cette date.</p></div>
+                                        <div class="text"><p><strong>À noter : </strong> Il est possible de quitter le logement avant cette date.</p></div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
@@ -160,16 +162,16 @@
                                 </div>
                                 <div class="control-group"  style="Display : None" id="mate-choice-block">
                                     <div class="form-group">
-                                        <label for="mate-choice">Souhaitez-vous être avec une personne en particulier ?</label>
+                                        <label for="mate-choice">Souhaites-tu être avec une personne en particulier ?</label>
                                         <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
-                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="" selected="selected" disabled>Choisir une option</option>
                                             <option value="0">Non</option>
                                             <option value="1">Oui</option>
                                         </select>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group" style="Display : None" id="mate-email-block">
+                                <div class="control-group hidden" style="Display : None" id="mate-email-block">
                                     <div class="form-group">
                                         <label for="mate-email">Adresse mail de la personne souhaitée (ATTENTION : celle utilisée pour l'inscription)</label>
                                         <input class="form-control" id="mate-email" name="mate-email" type="email" placeholder="email" data-validation-required-message="Veuillez entrer l'email de la personne avec qui vous souhaitez être." />
@@ -179,8 +181,7 @@
                                 <div class="control-group">
                                     <div class="form-group">
                                         <div>
-                                            <input type="checkbox" id="engagement" name="engagement" required="required">
-                                            <label for="scales"> &nbsp Je m'engage sur l'honneur à réserver ma chambre après réception de ma convocation </label>
+                                            <input type="checkbox" id="engagement" name="engagement" required="required"> &nbsp J'atteste sur l'honeur que ma réservation est en accord avec la série qui m'a été attribuée par le CCMP. </input>
                                         </div>
                                         <p class="help-block text-danger"></p>
                                     </div>
@@ -219,11 +220,14 @@
                 }
                 else {
                     // Simple
+                    document.getElementById("mate-choice").selectedIndex = 1;
+                    document.getElementById("mate-email-block").style.display = "none";
                     document.getElementById("mate-choice-block").style.display = "none";
                     document.getElementById("mate-choice-block").removeAttribute(required);
+                    document.getElementById("mate-email-block").removeAttribute(required);
+
                 }
             });
-            
             document.getElementById("mate-choice").addEventListener("change", (event) => {
                 if (event.target.value === "1") {
                     document.getElementById("mate-email-block").style.display = "block";
@@ -233,7 +237,8 @@
                     document.getElementById("mate-email-block").style.display = "none";
                     document.getElementById("mate-email-block").removeAttribute(required);
                 }
-            });
+            });            
+
         </script>
         <script src="js/demo.js"></script>
     </body>

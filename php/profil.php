@@ -109,12 +109,14 @@
                         }
                         if($type_chambre==1){
                             $type_chambre="Simple";
+                            $prix_chambre = "210€ TTC";
                         }
                         else if($type_chambre==2){
                             $type_chambre="Binômée";
                         }
                         else if($type_chambre==3){
                             $type_chambre="Double";
+                            $prix_chambre = "170€ TTC";
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');
@@ -130,6 +132,7 @@
                             <h4 class="text-secondary text-center" style="text-decoration:underline;">Demande de logement :</h4>
                             <ul style="margin-top:1em">
                                 <li><h6>Type de chambre : <strong>'; echo $type_chambre; echo '</strong></h6></li>
+                                <li><h6>Prix de la chambre : <strong>'; echo $prix_chambre; echo '</strong></h6></li>
                                 <li><h6>Si pas de chambre '; echo $type_chambre; if($remplace){
                                                                                     echo ' : <strong>Accepte un autre type de chambre</strong>';
                                                                                 }
@@ -238,12 +241,14 @@
 
                         if($type==1){
                             $type_chambre="Simple";
+                            $prix_chambre = "210€ TTC";
                         }
                         else if($type==2){
                             $type_chambre="Binômée";
                         }
                         else if($type==3){
                             $type_chambre="Double";
+                            $prix_chambre = "170€ TTC";
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');
@@ -256,6 +261,7 @@
                                 <h4 class="text-secondary text-center" style="text-decoration:underline;">Chambre attribuée :</h4>
                                 <ul style="margin-top:1em">
                                     <li><h6>Type de chambre : <strong>'; echo $type_chambre; echo '</strong></h6></li>
+                                    <li><h6>Prix à régler à l\'arrivée (Chèque ou CB) : <strong>';echo $prix_chambre; echo '</strong></h6></li>
                                     <li><h6>Numéro de chambre : <strong>'; echo $numero_chambre; echo '</strong></h6></li>
                                 </ul>
                             </div>
