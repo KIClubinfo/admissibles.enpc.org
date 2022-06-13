@@ -10292,6 +10292,19 @@ form .row:first-child .floating-label-form-group {
   margin-left: auto;
 }
 
+.iframe-rwd  {
+position: relative;
+padding: 20.25%;
+overflow: hidden;
+}
+.iframe-rwd iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 80%;
+height: 100%;
+}
+
 .map-responsive iframe {
   left: 0;
   top: 0;
