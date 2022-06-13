@@ -75,7 +75,11 @@
                                     	echo "<hr><div style='text-align: center'>
                                     	<a class=\"btn btn-xl btn-primary\" href=\"run.php?serie=$i\" style=\"margin:1rem\">
                                         Completer la série $i
-                                    	</a></div>";
+                                    	</a>
+                                        <a class=\"btn btn-xl btn-primary\" href=\"mail_confirmation.php?serie=$i\" style=\"margin:1rem\">
+                                        Envoyer mails série $i
+                                    	</a>
+                                        </div><hr>";
                                     }
                                 }
                             }

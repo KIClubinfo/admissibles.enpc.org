@@ -5,6 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 use SendGrid\Mail\Mail;
 
 function send_mail($email_address, $activation_code, $typemessage) {
+    // email for account validation
     if($typemessage==0){
         $subject = 'Validation de ton compte Admissibles';
         $message= '
@@ -36,8 +37,8 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                             <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                 Bonjour,<br/>
                                                 <br/>
-                                                Le Club Informatique de l\'École des Ponts te confirme que ton inscription a bien été prise en compte.<br/><br/>
-                                                Vérifie ton inscription en cliquant sur le lien ci-dessous :
+                                                Le Club Informatique de l\'École des Ponts confirme que ton inscription a bien été prise en compte.<br/><br/>
+                                                Finalise là en cliquant sur le lien ci-dessous :
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,7 +89,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
         </body>
         </html>
     ';}
-
+    // password reset
     if($typemessage==1){
         $subject = 'Réinitialisation de mot de passe';
         $message= '
@@ -121,7 +122,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                                 Bonjour,<br/>
                                                 <br/>
                                                 Tu as demandé une réinitialisation de ton mot de passe<br/><br/>
-                                                Tu peux réinitialiser ton mot de passe en cliquant sur le lien ci-dessous :
+                                                Tu peux le réinitialiser en cliquant sur le lien ci-dessous :
                                             </td>
                                         </tr>
                                         <tr>
@@ -172,10 +173,9 @@ function send_mail($email_address, $activation_code, $typemessage) {
         </body>
         </html>
     ';}
-
+    // Request accepted
     if($typemessage==2){
         $subject = 'Demande de logement acceptée';
-
         $message= '
         <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
@@ -228,7 +228,13 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
+                                                <br/>Tu pourras y trouver des informations telles que ton numéro de chambre, son type (simple ou double) ainsi que le prix à régler.<br/><br/>
+                                                <strong>Le paiment se fera par chèque ou CB à l\'arrivée sur place.</strong><br/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                 Cordialement,<br/>
                                                 <br/>
                                                 Le Club Informatique des Ponts.
@@ -255,7 +261,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
         </body>
         </html>
     ';}
-
+    // Request saved
     if($typemessage==3){
         $subject = 'Demande de logement prise en compte';
         $message= '
@@ -287,13 +293,13 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                                 <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                     Bonjour,<br/>
                                                     <br/>
-                                                    Nous te confirmons que ta demande de logement a été prise en compte. <strong>Attention, cela ne signifie pas que ta réservation est confirmée.</strong><br/><br/>
-                                                    <strong>Nous t\'invitons à consulter ton profil pour plus d\'informations :</strong><br/>
+                                                    Ta demande de logement a été prise en compte. <strong>Tu recevras un mail de confirmation si ta réservation est validée et cela sera mentionné sur ta page profil.</strong> Si tu ne reçois rien et que ta demande reste en attente sur le site, c\'est que nous n\'avons malheuresement pas réussi à te trouver une place. Tu dépends alors du désistement des autres candidats et nous te contacterons si jamais une place se libère.<br/><br/>
+                                                    Nous t\'invitons à suivre ce lien pour plus d\'information sur les dates d\'attributions de logements par série :<br/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align:center; font-family: Arial, sans-serif;">
-                                                    <a href="'.URL_WEBSITE.'/profil.php" 
+                                                    <a href="'.URL_WEBSITE.'/" 
                                                     style="display: inline-block;
                                                     font-weight: 400;
                                                     color: #5fa8d3;
@@ -305,12 +311,12 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                                     line-height: 1.5;
                                                     border-radius: 0.5rem;
                                                     text-decoration: none;">
-                                                    Consulter mon profil
+                                                    Consulter les dates
                                                     </a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                     Cordialement,<br/>
                                                     <br/>
                                                     Le Club Informatique des Ponts.

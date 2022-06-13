@@ -15,14 +15,12 @@ if ($con->connect_error) {
 }
 
 // email configuration TO MODIFY
-define("SENDGRID_API_KEY", "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");
-
-define("EMAIL_SENDER", "admissibles@enpc.org");
-define("NAME_SENDER", "Logements ENPC admissibles");
-define("EMAIL_REPLY", "noreply@enpc.org");
-define("NAME_REPLY", "no reply");
-
-define("URL_WEBSITE", "http://localhost:8123");
+define("SENDGRID_API_KEY", "YOUR_API_KEY");
+define("EMAIL_SENDER", "tomodify@tomodify.org");
+define("NAME_SENDER", "tomodify");
+define("EMAIL_REPLY", "tomodify@tomodify.org");
+define("NAME_REPLY", "tomodify");
+define("URL_WEBSITE", "https://admissibles.enpc.org/");
 
 function is_admin()
 { // renvoie true si l'user est un admin
@@ -34,10 +32,10 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2022-06-01 20:00:00');//à modifier
-$debut_inscription=new DateTime('2022-05-01 20:00:0');//à modifier
-$debut_oraux=new DateTime('2022-06-05');//à modifier
-$fin_oraux=new DateTime('2022-07-29');//à modifier
+$debut_demande=new DateTime('2022-06-14 20:00:00');//à modifier
+$debut_inscription=new DateTime('2022-06-13 20:00:0');//à modifier
+$debut_oraux=new DateTime('2022-06-18');//à modifier
+$fin_oraux=new DateTime('2022-07-18');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));

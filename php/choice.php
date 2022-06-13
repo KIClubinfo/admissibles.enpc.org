@@ -164,7 +164,7 @@
                                     <div class="form-group">
                                         <label for="mate-choice">Souhaites-tu être avec une personne en particulier ?</label>
                                         <select class="form-control" id="mate-choice" name="mate-choice" data-validation-required-message="Veuillez choisir une option.">
-                                            <option value="" disabled>Choisir une option</option>
+                                            <option value="" selected="selected" disabled>Choisir une option</option>
                                             <option value="0">Non</option>
                                             <option value="1">Oui</option>
                                         </select>
