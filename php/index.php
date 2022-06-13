@@ -125,7 +125,7 @@
             <div class="row justify-content-center">
             <div class="col-sm-4">
                         <p class="lead" style="text-align: justify">La résidence est idéalement située à <strong> 100m </strong>de l\'entrée de l\'école. <br/>Elle est située à <strong>7min</strong> du <strong>RER A</strong> (arrêt <strong>Noisy-Champs</strong>).
-            <br/> Elle est accessible par l\'Autoroute A4, sortie 10 - Marne la Vallée.
+            <br/> Elle est accessible par l\'Autoroute A4, sortie 10 - Cité Descartes.
             <br/> Elle est aussi accessible par le bus:     
                     <ul> 
                         <li>Bus RATP 213 : ligne Gare SNCF Chelles-Gournay / Lognes-le-village</li>
