@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `admissibles`.`reservation` (
   `id_res` INT NOT NULL AUTO_INCREMENT ,
   `id_eleves` INT NOT NULL ,
   `numero_chambre` INT NOT NULL ,
+  `email_send` BOOLEAN NOT NULL DEFAULT FALSE,
   `date_arrivee` VARCHAR(15),
   `date_depart` VARCHAR(15), PRIMARY KEY (`id_res`))
   ENGINE = InnoDB;

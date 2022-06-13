@@ -178,7 +178,7 @@
                 <!-- Profil Section Button-->
                 <?php
 
-                if ($stmt = $con->prepare('SELECT * FROM reservation WHERE id_eleves = ?')) {
+                if ($stmt = $con->prepare('SELECT id_res, id_eleves, numero_chambre, date_arrivee, date_depart FROM reservation WHERE id_eleves = ?')) {
                     $stmt->bind_param('i', $_SESSION['id']);
                     $stmt->execute();
                     $stmt->store_result();
