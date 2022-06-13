@@ -293,7 +293,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                                 <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                     Bonjour,<br/>
                                                     <br/>
-                                                    Ta demande de logement a été prise en compte. <strong>Tu recevras un mail de confirmation si ta réservation est validée.</strong><br/><br/>
+                                                    Ta demande de logement a été prise en compte. <strong>Tu recevras un mail de confirmation si ta réservation est validée et cela sera mentionné sur ta page profil.</strong> Si tu ne reçois rien et que ta demande reste en attente sur le site, c\'est que nous n\'avons malheuresement pas réussi à te trouver une place. Tu dépends alors du désistement des autres candidats et nous te contacterons si jamais une place se libère.<br/><br/>
                                                     Nous t\'invitons à suivre ce lien pour plus d\'information sur les dates d\'attributions de logements par série :<br/>
                                                 </td>
                                             </tr>
