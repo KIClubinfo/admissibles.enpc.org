@@ -204,9 +204,9 @@
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> s\'effectue selon le calendrier suivant :</p>
                         <ul class = "lead">
-                            <li> Les inscriptions pour les 4 séries ouvrent le <strong>jeudi 16 juin à 12h</strong>. </li>
-                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong> vendredi 17 juin à 12h</strong>. </li>
-                            <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> jeudi de la semaine précédente </strong> à <strong> 12h </strong> (à savoir le <strong> 24/06, 01/07 et 08/07</strong>). </li>
+                            <li> Les inscriptions pour les 4 séries ouvrent le <strong>mardi 14 juin à 20h</strong>. </li>
+                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>jeudi 16 juin à 12h</strong>. </li>
+                            <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> mercerdi 22 juin </strong> à <strong> 12h </strong> </li>
                         </ul>
                         <h4 style="text-decoration:underline;">Attention à trois points !</h4>
                         <ul class="lead">
@@ -221,7 +221,11 @@
                                 </ul></li>
                         </ul>
                         <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
-                        <br/> Rejoins-nous aussi sur le <a class = "text-secondary" href = "https://www.facebook.com/groups/3152829064967963/"><u>groupe Facebook</u></a> dédié aux admissibles passant leurs oraux aux Ponts!</p>
+                        <br/> Rejoins-nous aussi sur le <strong>groupe Facebook</strong> dédié aux admissibles passant leurs oraux aux Ponts!</p>
+                        
+                        <div class="text-center mt-4">
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="https://www.facebook.com/groups/3152829064967963/" target="_blank" rel="noopener noreferrer"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
+                        </div>
                     </div>
                 </div>
             </div>
