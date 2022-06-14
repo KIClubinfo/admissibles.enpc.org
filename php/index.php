@@ -224,7 +224,7 @@
                         <br/> Rejoins-nous aussi sur le <strong>groupe Facebook</strong> dédié aux admissibles passant leurs oraux aux Ponts!</p>
                         
                         <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="https://www.facebook.com/groups/3152829064967963/" target="_blank" rel="noopener noreferrer"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="https://www.facebook.com/groups/1952760251580355/?ref=share" target="_blank" rel="noopener noreferrer"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
                         </div>
                     </div>
                 </div>
