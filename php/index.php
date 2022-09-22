@@ -107,6 +107,8 @@
                             <img class="img-fluid" src="assets/img/double.jpg" alt="..." />
                         </div>
                     </div>
+		    <p class="lead" style="text-align: justify">Pour toutes les chambres: les equipements de couchage et des ustensiles de cuisine sont fournis, il faudra cependant ramener vos propres affaires de toillette.<br><br>
+		Il est possible de partager une chambre double avec une personne de votre choix. Il faudra, lors de la demande, renseigner le mail que votre colocataire a utilisé pour l\'inscription sur ce site.</p>
                 </div>
             </div>
         </section>
@@ -212,7 +214,7 @@
                         <ul class="lead">
                             <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
                             <li>Une fois le premier tour passé, il ne sera plus possible de s\'inscrire pour la série en question.</li>
-                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. Pour les <strong>dates de sortie</strong>, c\'est avant le samedi.
+                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
                                 </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
                                 <ul class="lead">
                                     <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>

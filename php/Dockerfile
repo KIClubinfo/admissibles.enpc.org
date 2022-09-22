@@ -12,9 +12,11 @@ COPY conf_server/apache.conf /usr/local/apache2/conf/httpd.conf
 WORKDIR /var/www/html/
 
 RUN apt update && apt upgrade -y
-RUN apt install python3 python3-pip -y
+RUN apt install python3 -y
+RUN apt install python3-pip -y
+RUN apt install pipenv -y
 COPY ./solver/requirements.txt ./solver/requirements.txt
-RUN pip install -r ./solver/requirements.txt
+RUN pip3 install -r ./solver/requirements.txt
 
 COPY composer_install.sh .
 COPY composer.json .

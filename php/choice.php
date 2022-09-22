@@ -135,10 +135,10 @@
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group" style="Display : None">
+                                <div class="control-group">
                                     <div class="form-group">
                                         <label for="arrival-date">Heure d'arrivée approximative (entre 11h00 et 18h30) :</label>
-                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="18:30" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une heure d'arrivée correcte." step="60" value="11:00"/>
+                                        <input class="form-control" id="arrival-time" name="arrival-time" min="11:00" max="18:30" type="time" placeholder="Heure d'arrivée" required="required" data-validation-required-message="Veuillez entrer une heure d'arrivée correcte." step="60"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>

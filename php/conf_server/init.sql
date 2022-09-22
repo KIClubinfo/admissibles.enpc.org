@@ -59,4 +59,4 @@ INSERT INTO `admissibles`.`serie` (`id_serie`, `arrival_date`)
 VALUES ('4', '2022-07-10');
 
 INSERT INTO `admissibles`.`eleves` (`id`, `prenom`, `nom`, `gender`, `password`, `mail`, `tel`, `distance`, `boursier`, `admin` , `a_reserve`, `change_password`, `activation_code`)
-VALUES ('1', 'admin', 'admin', '3', '$2y$10$5prxR9BDJwZXM1WMikJBX.j/G/h1zMf2bZTUJEdzUlpokEMrMnYrO', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');
+VALUES ('1', 'admin', 'admin', '3', '$2y$10$ppuRHjYx.70aBjBV/5SfPeQCw1Jylop3JQUATbWGIpgsoZ34jSnT.', 'admin@enpc.org', '00000000', '0', '0', '1', '0', 'no', 'activated');
