@@ -56,9 +56,9 @@
                     echo '
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <h4 class="text-secondary text-center" style="text-decoration:underline;">Les candidats sont invités à prendre connaissance des consignes suivantes :</h4>
+                            <!--<h4 class="text-secondary text-center" style="text-decoration:underline;">Les candidats sont invités à prendre connaissance des consignes suivantes :</h4>
                             <a href="assets/Consignes_Oraux_ENPC.pdf"
-    download="Consignes_Oraux_ENPC.pdf" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les consignes</strong></h6></a>
+    download="Consignes_Oraux_ENPC.pdf" class="text-secondary text-center" style="margin-top:1em;"><h6><strong>Télécharger les consignes</strong></h6></a>-->
                             <h4 class="text-secondary text-center" style="text-decoration:underline; margin-top:3em;">Informations personnelles :</h4>
                             <ul style="margin-top:1em;">
                                 <li><h6>Nom : <strong>';echo htmlspecialchars($nom); echo '</strong></h6></li>

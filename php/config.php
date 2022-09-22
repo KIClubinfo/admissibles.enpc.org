@@ -15,11 +15,11 @@ if ($con->connect_error) {
 }
 
 // email configuration TO MODIFY
-define("SENDGRID_API_KEY", "YOUR_API_KEY");
-define("EMAIL_SENDER", "tomodify@tomodify.org");
-define("NAME_SENDER", "tomodify");
-define("EMAIL_REPLY", "tomodify@tomodify.org");
-define("NAME_REPLY", "tomodify");
+define("SENDGRID_API_KEY", "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");
+define("EMAIL_SENDER", "admissibles@enpc.org");
+define("NAME_SENDER", "Logements ENPC admissibles");
+define("EMAIL_REPLY", "noreply@enpc.org");
+define("NAME_REPLY", "no reply");
 define("URL_WEBSITE", "https://admissibles.enpc.org/");
 
 function is_admin()
