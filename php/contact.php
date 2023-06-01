@@ -34,15 +34,15 @@
                 <h5 class="text-center" style="text-decoration:underline; text-align: justify; margin-bottom:2rem; line-height:2rem;">Vous trouverez ci-dessous des contacts pour vous renseigner en cas de problèmes</h5>
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Hilaire Voillat, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
-                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>06 34 54 21 54</strong></br>';}?><strong>admissibles@enpc.org</strong></p>
+                        <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Titouan Pottier, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
+                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>06 32 94 16 99</strong></br>';}?><strong>admissibles@enpc.org</strong></p>
                     </div>
                 </div>
                 <?php if (isset($_SESSION['loggedin'])){echo '
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
-                        <p class="lead" style="text-align: justify"><strong>Pour des questions ne concernant pas le logement ou si Hilaire Voillat est injoignable :</strong></br>Vous pouvez contacter Nicolas Corvol, président du Bureau Des Élèves.</p>
-                        <p class="lead" style="text-align: center"><strong>06 24 92 38 37</strong></p>
+                        <p class="lead" style="text-align: justify"><strong>Pour des questions ne concernant pas le logement ou si Titouan Pottier est injoignable :</strong></br>Vous pouvez contacter Ulysse Dhaenens, président du Bureau Des Élèves.</p>
+                        <p class="lead" style="text-align: center"><strong>07 61 44 97 84</strong></p>
                     </div>
                 </div>';}?>
                 <!--<div class="row justify-content-center">
