@@ -13,6 +13,7 @@
         $results = $stmt->get_result();
         // $row[1] email_address ; $row[1] (0 in email not send 1 else)
         while ($row = $results->fetch_array(MYSQLI_NUM)){
+            echo 'email sent : '.$row[2].'</br>';
             if ($row[2] == 0){ // if email has not sent 
                 // email sending
                 $uniqid = bin2hex(random_bytes(16));
@@ -31,16 +32,16 @@
         }	
     }
     else {
-        header('Location: connexion.php?erreur=querry_error');
+        //header('Location: connexion.php?erreur=querry_error');
         exit();
     } 
     $stmt->close();
     $con->close();
 
     if(is_admin()){
-    	header('Location: admin.php?table=run');
+    	//header('Location: admin.php?table=run');
     }
     else{
-    	header('Location: profile.php');
+    	//header('Location: profile.php');
     }
 ?>
