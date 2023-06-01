@@ -7,7 +7,7 @@
 	    exit();
     } 
 
-    if ($stmt = $con->prepare('SELECT  reservation.id_res, eleves.mail,reservation.email_sent FROM (eleves JOIN reservation ON reservation.id_eleves = eleves.id) WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = ?);')) {
+    if ($stmt = $con->prepare('SELECT  reservation.id_res, eleves.mail,reservation.email_send FROM (eleves JOIN reservation ON reservation.id_eleves = eleves.id) WHERE reservation.date_arrivee IN (SELECT s.arrival_date FROM serie s WHERE s.id_serie = ?);')) {
         $stmt->bind_param('i',$_GET['serie']);
         $stmt->execute();
         $results = $stmt->get_result();
