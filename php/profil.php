@@ -109,14 +109,14 @@
                         }
                         if($type_chambre==1){
                             $type_chambre="Simple";
-                            $prix_chambre = "210€ TTC";
+                            $prix_chambre = "215€ TTC";
                         }
                         else if($type_chambre==2){
                             $type_chambre="Binômée";
                         }
                         else if($type_chambre==3){
                             $type_chambre="Double";
-                            $prix_chambre = "170€ TTC";
+                            $prix_chambre = "175€ TTC";
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');
@@ -241,14 +241,14 @@
 
                         if($type==1){
                             $type_chambre="Simple";
-                            $prix_chambre = "210€ TTC";
+                            $prix_chambre = "215€ TTC";
                         }
                         else if($type==2){
                             $type_chambre="Binômée";
                         }
                         else if($type==3){
                             $type_chambre="Double";
-                            $prix_chambre = "170€ TTC";
+                            $prix_chambre = "175€ TTC";
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');

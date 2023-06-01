@@ -152,6 +152,7 @@
                                 <th scope="col">Numéro chambre</th>
                                 <th scope="col">Date arrivée</th>
                                 <th scope="col">Date départ</th>
+                                <th scope="col">Annuler réservation</th>
                             </tr>
                         </thead>';
 
@@ -172,6 +173,7 @@
                                     <td>';echo htmlspecialchars($numero_chambre); echo '</td>
                                     <td>';echo htmlspecialchars($date_arrivee); echo '</td>
                                     <td>';echo htmlspecialchars($date_depart); echo '</td>
+                                    <td>';echo '<a style="color:blue" href="cancel_reservation.php?type=0&res_id=' . htmlspecialchars($id_res) . '">Annuler</a>'; echo '</td>
                                 </tr>
                             </tbody>';
                         }
