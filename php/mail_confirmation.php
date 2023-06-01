@@ -12,7 +12,7 @@
         $stmt->execute();
         $results = $stmt->get_result();
         // $row[1] email_address ; $row[1] (0 in email not send 1 else)
-        while ($row = $results->fetch_array(MYSQLI_NUM)){
+        while ($row = $results->fetch_array(MYSQL_NUM)){
             echo 'email sent : '.$row[2].'</br>';
             if ($row[2] == 0){ // if email has not sent 
                 // email sending
