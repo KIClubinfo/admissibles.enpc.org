@@ -20,7 +20,7 @@
     header("Content-disposition: attachment; filename=\"serie_$serie.csv\"");
 
     // GET DATA FROM DATABASE
-    if ($stmt = $con->prepare("SELECT id_res, numero_chambre, type, nom, prenom, gender, mail
+    if ($stmt = $con->prepare("SELECT id_res, numero_chambre, type, nom, prenom, gender, mail, paid
                                FROM `reservation` 
                                JOIN eleves ON reservation.id_eleves=eleves.id
                                JOIN chambre ON reservation.numero_chambre=chambre.numero
@@ -32,7 +32,7 @@
         exit();
     }
 
-    $stmt->bind_result($id_res, $numero, $type, $nom, $prenom, $gender, $mail);
+    $stmt->bind_result($id_res, $numero, $type, $nom, $prenom, $gender, $mail, $paid);
 
     // DIRECT OUTPUT
     function fancy_gender($g) {
@@ -59,11 +59,20 @@
         }
     }
 
+    function fancy_paid($paid){
+        if ($paid == 1) {
+            return "Oui";
+        }
+        else {
+            return "Non";
+        }
+    }
 
-    echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Mail", "Sexe"]);
+
+    echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Mail", "Sexe", "Payé"]);
     echo "\r\n";
     while ($row = $stmt->fetch()) {
-      echo implode(",", [$numero, fancy_typo($type), $nom, $prenom, $mail, fancy_gender($gender)]);
+      echo implode(",", [$numero, fancy_typo($type), $nom, $prenom, $mail, fancy_gender($gender), fancy_paid($paid)]);
       echo "\r\n";
     }
 ?>
