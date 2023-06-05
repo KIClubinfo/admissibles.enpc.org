@@ -149,31 +149,42 @@
                             <tr>
                                 <th scope="col">id_res</th>
                                 <th scope="col">id_eleves</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Mail</th>
                                 <th scope="col">Numéro chambre</th>
                                 <th scope="col">Date arrivée</th>
                                 <th scope="col">Date départ</th>
-                                <th scope="col">Annuler réservation</th>
+                                <th scope="col">Modifier le statut</th>
                             </tr>
                         </thead>';
 
-                        if ($stmt = $con->prepare('SELECT id_res, id_eleves, numero_chambre, date_arrivee, date_depart FROM reservation')) {
+                        if ($stmt = $con->prepare('SELECT id_res, id_eleves, numero_chambre, date_arrivee, date_depart, prenom, nom, mail, paid FROM reservation JOIN eleves ON reservation.id_eleves = eleves.id')) {
                             $stmt->execute();
                         }
                         else {
                             header('Location: connexion.php?erreur=querry_error');
                             exit();
                         } 
-                        $stmt->bind_result($id_res, $id_eleves, $numero_chambre, $date_arrivee, $date_depart);
+                        $stmt->bind_result($id_res, $id_eleves, $numero_chambre, $date_arrivee, $date_depart, $prenom, $nom, $mail, $paid);
                         while ($donnees = $stmt->fetch()) {
+                            if($paid==0){
+                                $color = '#edc2c2';
+                            }else{
+                                $color = '#c9e6c9';
+                            }
                             echo '
                             <tbody>
-                                <tr>
+                                <tr style="background-color:'.$color.'">
                                     <th scope="row">';echo htmlspecialchars($id_res); echo '</th>
                                     <td>';echo htmlspecialchars($id_eleves); echo '</td>
+                                    <td>';echo htmlspecialchars($nom); echo '</td>
+                                    <td>';echo htmlspecialchars($prenom); echo '</td>
+                                    <td>';echo htmlspecialchars($mail); echo '</td>
                                     <td>';echo htmlspecialchars($numero_chambre); echo '</td>
                                     <td>';echo htmlspecialchars($date_arrivee); echo '</td>
                                     <td>';echo htmlspecialchars($date_depart); echo '</td>
-                                    <td>';echo '<a style="color:blue" href="cancel_reservation.php?type=0&res_id=' . htmlspecialchars($id_res) . '">Annuler</a>'; echo '</td>
+                                    <td>';echo '<a class="link-primary" style="color:black" href="cancel_reservation.php?type=0&res_id=' . htmlspecialchars($id_res) . '">Modifier</a>'; echo '</td>
                                 </tr>
                             </tbody>';
                         }
