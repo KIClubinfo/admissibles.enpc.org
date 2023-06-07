@@ -238,6 +238,10 @@
                             <a class="btn btn-xl btn-primary" style="margin:1rem" href="https://instagram.com/admissibles.ponts" target="_blank" rel="noopener noreferrer"> Rejoins notre page Instagram <i class="fab fa-fw fa-instagram", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
                         </div>
 
+                        <div class="text-center mt-4">
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer"> Télécharges le planning de la semaine </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
