@@ -8,6 +8,30 @@
         header('Location: profil.php?erreur=interdit');
         exit();
     }
+    // DIRECT OUTPUT
+    function fancy_gender($g) {
+        if ($g == 1) {
+            return "F";
+        }
+        elseif ($g == 2) {
+            return "H";
+        }
+        else {
+            return "Autre/Ne souhaite pas préciser";
+        }
+    }
+    
+    function fancy_typo($t) {
+        if ($t == 1) {
+            return "Simple";
+        }
+        elseif ($t == 2) {
+            return "Double";
+        }
+        else {
+            return "Double";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -149,8 +173,8 @@
                             <tr>
                                 <th scope="col">id_res</th>
                                 <th scope="col">id_eleves</th>
-                                <th scope="col">Nom</th>
                                 <th scope="col">Prénom</th>
+                                <th scope="col">Nom</th>
                                 <th scope="col">Mail</th>
                                 <th scope="col">Numéro chambre</th>
                                 <th scope="col">Date arrivée</th>
@@ -178,8 +202,8 @@
                                 <tr style="background-color:'.$color.'">
                                     <th scope="row">';echo htmlspecialchars($id_res); echo '</th>
                                     <td>';echo htmlspecialchars($id_eleves); echo '</td>
-                                    <td>';echo htmlspecialchars($nom); echo '</td>
                                     <td>';echo htmlspecialchars($prenom); echo '</td>
+                                    <td>';echo htmlspecialchars($nom); echo '</td>
                                     <td>';echo htmlspecialchars($mail); echo '</td>
                                     <td>';echo htmlspecialchars($numero_chambre); echo '</td>
                                     <td>';echo htmlspecialchars($date_arrivee); echo '</td>
@@ -194,6 +218,8 @@
                             <tr>
                                 <th scope="col">id_demande</th>
                                 <th scope="col">id_eleve</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Nom</th>
                                 <th scope="col">Remplace</th>
                                 <th scope="col">Mate_Mail</th>
                                 <th scope="col">Type chambre</th>
@@ -205,20 +231,22 @@
                             </tr>
                         </thead>';
 
-                        if ($stmt = $con->prepare('SELECT id_demande, id_eleve, remplace, type_chambre, arrival_date, arrival_time, departure_date, departure_time, mate_email, demand_time FROM demande')) {
+                        if ($stmt = $con->prepare('SELECT id_demande, id_eleve, prenom, nom, remplace, type_chambre, arrival_date, arrival_time, departure_date, departure_time, mate_email, demand_time FROM demande JOIN eleves ON demande.id_eleve = eleves.id')) {
                             $stmt->execute();
                         }
                         else {
                             header('Location: connexion.php?erreur=querry_error');
                             exit();
                         } 
-                        $stmt->bind_result($id_demande, $id_eleve, $remplace, $type_chambre, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate_email, $demand_time);
+                        $stmt->bind_result($id_demande, $id_eleve, $prenom, $nom, $remplace, $type_chambre, $arrival_date, $arrival_time, $departure_date, $departure_time, $mate_email, $demand_time);
                         while ($donnees = $stmt->fetch()) {
                             echo '
                             <tbody>
                                 <tr>
                                     <th scope="row">';echo htmlspecialchars($id_demande); echo '</th>
                                     <td>';echo htmlspecialchars($id_eleve); echo '</td>
+                                    <td>';echo htmlspecialchars($prenom); echo '</td>
+                                    <td>';echo htmlspecialchars($nom); echo '</td>
                                     <td>';echo htmlspecialchars($remplace); echo '</td>
                                     <td>';echo htmlspecialchars($mate_email); echo '</td>
                                     <td>';echo htmlspecialchars($type_chambre); echo '</td>
@@ -252,7 +280,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">';echo htmlspecialchars($numero); echo '</th>
-                                    <td>';echo htmlspecialchars($type); echo '</td>
+                                    <td>';echo htmlspecialchars(fancy_typo($type)); echo '</td>
                                 </tr>
                             </tbody>';
                         }
