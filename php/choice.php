@@ -99,15 +99,15 @@
 
                                 <script>
                                     // constant to modify for arrival and departure dates with format [output_format, display_format]
-                                    let arrival_dates = ['2022-06-19,Dimanche 19 juin 2022', 
-                                                         '2022-06-26,Dimanche 26 juin 2022', 
-                                                         '2022-07-03,Dimanche 3 juillet 2022', 
-                                                         '2022-07-10,Dimanche 10 juillet 2022'];
+                                    let arrival_dates = ['2022-06-19,Dimanche 18 juin 2023', 
+                                                         '2022-06-26,Dimanche 25 juin 2023', 
+                                                         '2022-07-03,Dimanche 2 juillet 2023', 
+                                                         '2022-07-10,Dimanche 09 juillet 2023'];
 
-                                    let departure_dates = ['2022-06-25,Samedi 25 juin 2022', 
-                                                           '2022-07-02,Samedi 2 juillet 2022', 
-                                                           '2022-07-09,Samedi 9 juillet 2022', 
-                                                           '2022-07-16,Samedi 16 juillet 2022'];
+                                    let departure_dates = ['2022-06-25,Samedi 24 juin 2023', 
+                                                           '2022-07-02,Samedi 1 juillet 2023', 
+                                                           '2022-07-09,Samedi 8 juillet 2023', 
+                                                           '2022-07-16,Samedi 15 juillet 2023'];
 
 
                                     function dateSelector(option_idx) {
