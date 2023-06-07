@@ -228,7 +228,7 @@
                                 </ul></li>
                         </ul>
                         <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
-                        <br/> Télécharges le <strong>planning de la semaine >/strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
+                        <br/> Télécharges le <strong>planning de la semaine </strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
 
                         <div class="text-center mt-4">
                             <a class="btn btn-xl btn-primary" style="margin:1rem" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer"> Télécharges le planning de la semaine </a>
