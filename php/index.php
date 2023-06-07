@@ -18,7 +18,7 @@
             }
         ?>
         <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
+        <header class="masthead text-white text-center" style="background-image:url('./assets/img/enpc.jpg'); background-size:cover;">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <img class="masthead-avatar mb-5" src="assets/img/maison2.svg" alt="..." />

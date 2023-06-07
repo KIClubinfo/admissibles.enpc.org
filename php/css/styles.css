@@ -479,6 +479,11 @@ mark,
   height: auto;
 }
 
+.bg-head{
+  background-color: red;
+  background-image: url('./../assets/img/enpc.jpg');
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
