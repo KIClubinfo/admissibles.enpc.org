@@ -89,7 +89,7 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/double.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-5 text-secondary">La <strong>surface</strong> de la chambre double est d'environ 30 m2. <br/>Chaque chambre inclut une <strong>cuisine</strong>, une <strong>salle de bain</strong> avec <strong>toilettes</strong> et un <strong>bureau individuel</strong>. <br/> La chambre sera potentiellement<strong> partagée </strong> avec un autre admissible.</br> Le <strong> tarif </strong> de la chambre est de <strong> 170 € </strong> pour le séjour.</p>
+                            <p class="mb-5 text-secondary">La <strong>surface</strong> de la chambre double est d'environ 30 m2. <br/>Chaque chambre inclut une <strong>cuisine</strong>, une <strong>salle de bain</strong> avec <strong>toilettes</strong> et un <strong>bureau individuel</strong>. <br/> La chambre sera potentiellement<strong> partagée </strong> avec un autre admissible.</br> Le <strong> tarif </strong> de la chambre est de <strong> 175 € </strong> pour le séjour.</p>
                             <button class="btn btn-primary" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
                                 Fermer
