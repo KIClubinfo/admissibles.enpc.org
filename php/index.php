@@ -218,18 +218,14 @@
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> s\'effectue selon le calendrier suivant :</p>
                         <ul class = "lead">
-                            <li> Les inscriptions toutes les séries ouvrent le <strong>mardi 13 juin à 20h</strong>. </li>
-                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>jeudi 15 juin à 12h</strong>. </li>
+                            <li> Les inscriptions toutes les séries ouvrent le <strong>jeudi 8 juin à 20h</strong>. </li>
+                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>vendredi 9 juin à 12h</strong>. </li>
                             <li> L\' algorithme d\'attribution est relancé tous les jours à <strong>12h</strong>.
                             <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> mercerdi 21 juin </strong> à <strong> 12h </strong> </li>
                         </ul>
                         <h4 style="text-decoration:underline;">Attention à trois points !</h4>
                         <ul class="lead">
                             <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
-                            <!--- 
-                            This isnt true anymore 
-                            <li>Une fois le premier tour passé, il ne sera plus possible de s\'inscrire pour la série en question.</li>
-                            ----------->
                             <li> Une fois qu\'une chambre t\' as été attibuée, tu as <strong> 48h </strong> pour payer. Pour cela, tu recevras un mail de la part du gestionnaire de la résidence. </li>
                             <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
                                 </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
