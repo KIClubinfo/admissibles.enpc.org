@@ -32,7 +32,7 @@
                 </div>
                 <!-- Masthead Subheading-->
                 <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles au concours Mines-Ponts</p>
-                <p class="masthead-subheading font-weight-light mb-0">Pour plus d'information sur l'acceuil des admissibles :</p>
+                <p class="masthead-subheading font-weight-light mb-0">Pour plus d'information sur l'accueil des admissibles :</p>
                 <div class="text-center mt-4">
                     <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer" > Télécharges le planning de la semaine </a>
                 </div>
