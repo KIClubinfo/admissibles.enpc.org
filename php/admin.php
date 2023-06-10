@@ -264,23 +264,26 @@
                             <tr>
                                 <th scope="col">Numéro de la chambre</th>
                                 <th scope="col">Type</th>
+                                <th scope="col">Séries occupées</th>
                             </tr>
                         </thead>';
-
-                        if ($stmt = $con->prepare('SELECT numero,type FROM chambre')) {
+                        
+                        if ($stmt = $con->prepare('SELECT chambre.numero, chambre.type, GROUP_CONCAT(serie.id_serie) AS series FROM `chambre` JOIN reservation ON chambre.numero = reservation.numero_chambre JOIN serie ON reservation.date_arrivee = serie.arrival_date GROUP BY chambre.numero, type')) {
                             $stmt->execute();
                         }
                         else {
                             header('Location: connexion.php?erreur=querry_error');
                             exit();
                         } 
-                        $stmt->bind_result($numero,$type);
+                        $stmt->bind_result($numero,$type, $series);
+                        $records = array();
                         while ($donnees = $stmt->fetch()) {
                             echo '
                             <tbody>
                                 <tr>
                                     <th scope="row">';echo htmlspecialchars($numero); echo '</th>
                                     <td>';echo htmlspecialchars(fancy_typo($type)); echo '</td>
+                                    <td>';echo htmlspecialchars($series); echo '</td>
                                 </tr>
                             </tbody>';
                         }
