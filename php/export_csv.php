@@ -20,7 +20,7 @@
     header("Content-disposition: attachment; filename=\"serie_$serie.csv\"");
 
     // GET DATA FROM DATABASE
-    if ($stmt = $con->prepare("SELECT id_res, numero_chambre, type, nom, prenom, gender, mail, paid
+    if ($stmt = $con->prepare("SELECT id_res, numero_chambre, type, nom, prenom, gender, mail, tel, paid
                                FROM `reservation` 
                                JOIN eleves ON reservation.id_eleves=eleves.id
                                JOIN chambre ON reservation.numero_chambre=chambre.numero
