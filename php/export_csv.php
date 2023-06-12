@@ -32,7 +32,7 @@
         exit();
     }
 
-    $stmt->bind_result($id_res, $numero, $type, $nom, $prenom, $gender, $mail, $paid);
+    $stmt->bind_result($id_res, $numero, $type, $nom, $prenom, $gender, $mail, $tel, $paid);
 
     // DIRECT OUTPUT
     function fancy_gender($g) {
@@ -69,10 +69,10 @@
     }
 
 
-    echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Mail", "Sexe", "Payé"]);
+    echo implode(",", ["N° logement", "Typologie", "Nom", "Prenom", "Mail", "Telephone", "Sexe", "Payé"]);
     echo "\r\n";
     while ($row = $stmt->fetch()) {
-      echo implode(",", [$numero, fancy_typo($type), $nom, $prenom, $mail, fancy_gender($gender), fancy_paid($paid)]);
+      echo implode(",", [$numero, fancy_typo($type), $nom, $prenom, $mail, $tel, fancy_gender($gender), fancy_paid($paid)]);
       echo "\r\n";
     }
 ?>
