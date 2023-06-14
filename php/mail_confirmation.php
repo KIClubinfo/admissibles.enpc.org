@@ -28,6 +28,21 @@
                 } 
                 $stmt_update->close();              
             }
+            if ($row[2] == 1){ // if email has been sent, send email rectificatif
+                // email sending
+                $uniqid = bin2hex(random_bytes(16));
+                send_mail($row[1], $uniqid,4);
+                // update the table
+                if ($stmt_update = $con->prepare('UPDATE reservation SET email_send = TRUE WHERE id_res = ?;')) {
+                    $stmt_update->bind_param('i',$row[0]);
+                    $stmt_update->execute();
+                }
+                else {
+                    header('Location: connexion.php?erreur=querry_error');
+                    exit();
+                } 
+                $stmt_update->close();  
+            }
         }	
     }
     else {
