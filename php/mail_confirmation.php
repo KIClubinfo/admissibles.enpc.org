@@ -28,6 +28,7 @@
                 } 
                 $stmt_update->close();              
             }
+            /*
             if ($row[2] == 1){ // if email has been sent, send email rectificatif
                 // email sending
                 $uniqid = bin2hex(random_bytes(16));
@@ -43,6 +44,7 @@
                 } 
                 $stmt_update->close();  
             }
+            */
         }	
     }
     else {
