@@ -230,7 +230,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                         <tr>
                                             <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                 <br/>Tu pourras y trouver des informations telles que ton numéro de chambre, son type (simple ou double) ainsi que le prix à régler.<br/><br/>
-                                                <strong>Le paiment se fera par chèque ou CB à l\'arrivée sur place.</strong><br/>
+                                                <strong>Le paiment se fera via un mail que tu vas recevoir de la part du gestionnaire de la résidence, Arpej.</strong><br/>
                                             </td>
                                         </tr>
                                         <tr>
