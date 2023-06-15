@@ -343,13 +343,13 @@ function send_mail($email_address, $activation_code, $typemessage) {
             </body>
         </html>
     ';}
-    if($typemessage==4){
-        $subject = 'Résidence admissibles ENPC : RECTIFICATIF';
+    if($typemessage==4){ //Mail d'annulation de la résa
+        $subject = 'Admissibles ENPC: Annuation de la résevation de logement';
         $message= '
         <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Résidence admissibles ENPC : RECTIFICATIF</title>
+        <title>Admissibles ENPC: Annuation de la résevation de logement</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </head>
         <body style="margin: 0; padding: 0;">
@@ -367,39 +367,14 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
                                             <td style="text-align: center; color: #2c2e50; font-family: Arial, sans-serif; font-size: 24px;">
-                                                <b>Ta demande de logement a été acceptée</b>
+                                                <b>Ta réservation de logement est annulée</b>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                                 Bonjour,<br/>
                                                 <br/>
-                                                Nous te confirmons que ta demande de logement a été acceptée.<br/><br/>
-                                                <strong>Nous t\'invitons à consulter ton profil pour plus d\'informations :</strong><br/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align:center; font-family: Arial, sans-serif;">
-                                                <a href="'.URL_WEBSITE.'/profil.php" 
-                                                style="display: inline-block;
-                                                font-weight: 400;
-                                                color: #5fa8d3;
-                                                text-align: center;
-                                                background-color: transparent;
-                                                border: 0.125rem solid #5fa8d3;
-                                                padding: 0.375rem 0.75rem;
-                                                font-size: 1.1rem;
-                                                line-height: 1.5;
-                                                border-radius: 0.5rem;
-                                                text-decoration: none;">
-                                                Consulter mon profil
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-                                                <br/>Tu pourras y trouver des informations telles que ton numéro de chambre, son type (simple ou double) ainsi que le prix à régler.<br/><br/>
-                                                <strong>Le paiment se fera via un mail que tu vas recevoir de la part du gestionnaire de la résidence, Arpej.</strong><br/>
+                                                Nous t\'informons que ta réservation de logement a été annulée, pour cause de réglement non effectué sous le delai de 48h.<br/><br/>
                                             </td>
                                         </tr>
                                         <tr>
