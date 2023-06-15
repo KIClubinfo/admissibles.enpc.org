@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-require_once 'config.php';
-require __DIR__ . '/vendor/autoload.php';
+require_once "config.php";
+require __DIR__ . "/vendor/autoload.php";
 use SendGrid\Mail\Mail;
 
 function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep) {
-    $subject = 'Admissibles ENPC: Annuation de la résevation de logement';
+    $subject = "Admissibles ENPC: Annuation de la résevation de logement";
     $message= '
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -35,7 +35,7 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
                                         <td style="text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
                                             Bonjour,<br/>
                                             <br/>
-                                            Nous t\'informons que ta réservation pour un logement du '.$date_arr.' au '.$date_dep.' a été annulée, pour cause de réglement non effectué sous le delai de 48h.<br/><br/>
+                                            Nous t\'informons que ta réservation pour un logement du $date_arr au $date_dep. a été annulée, pour cause de réglement non effectué sous le delai de 48h.<br/><br/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -73,7 +73,7 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
     $email->addTo($email_address);
     $email->setReplyTo(EMAIL_REPLY);
     $email->addContent(
-        'text/html',
+        "text/html",
         $message
     );
 
@@ -82,7 +82,7 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
         $sendgrid->send($email);
         }
     catch (Exception $e) {
-        header('Location: connexion.php?erreur=mail_error');
+        header("Location: connexion.php?erreur=mail_error");
         exit();
     };
 ?>
