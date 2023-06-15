@@ -35,7 +35,7 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
                                         <td style='text-align: justify; padding: 20px 0 30px 0; color: #2c2e50; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'>
                                             Bonjour,<br/>
                                             <br/>
-                                            Nous t'informons que ta réservation pour un logement du ".$date_arr" au ".$date_dep." a été annulée, pour cause de réglement non effectué sous le delai de 48h.<br/><br/>
+                                            Nous t'informons que ta réservation pour un logement du ".$date_arr." au ".$date_dep." a été annulée, pour cause de réglement non effectué sous le delai de 48h.<br/><br/>
                                         </td>
                                     </tr>
                                     <tr>
