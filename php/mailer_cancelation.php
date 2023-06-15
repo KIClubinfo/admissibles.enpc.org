@@ -5,7 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 use SendGrid\Mail\Mail;
 
 function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep) {
-    $subject = 'Admissibles ENPC: Annuation de la résevation de logement';
+    $subject = 'Admissibles ENPC: Annulation de la réservation de logement';
     $message= "
     <html xmlns='http://www.w3.org/1999/xhtml'>
     <head>
