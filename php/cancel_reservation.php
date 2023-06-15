@@ -45,7 +45,7 @@
                     </a>
                 </div>';
     }else if($_GET['type'] == 1){
-        if ($stmt = $con->prepare('SELECT id_res, id_eleves, numero_chambre, date_arrivee, date_depart, mail, paid, email_send FROM reservation JOIN eleves ON reservation.id_eleves = eleves.id WHERE id_res = ?')){
+        if ($stmt = $con->prepare('SELECT id_res, id_eleves, date_arrivee, date_depart, mail, paid, email_send FROM reservation JOIN eleves ON reservation.id_eleves = eleves.id WHERE id_res = ?')){
             $stmt->execute();
             $stmt->bind_result($id_res, $id_eleves, $date_arrivee, $date_depart, $mail, $paid, $email_sent);
             if ($stmt->num_rows > 0) {
