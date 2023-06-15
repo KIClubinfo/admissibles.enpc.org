@@ -46,9 +46,9 @@
     }else if($_GET['type'] == 1){
         if ($stmt = $con->prepare('SELECT id_res, id_eleves, date_arrivee, date_depart, mail, paid, email_send FROM reservation JOIN eleves ON reservation.id_eleves = eleves.id WHERE id_res = ?')){
             $stmt->execute();
-            $stmt->bind_result($id_res, $id_eleves, $date_arrivee, $date_depart, $mail, $paid, $email_sent);
-            $donnes = $stmt->fetch();
             if ($stmt->num_rows > 0) {
+                $stmt->bind_result($id_res, $id_eleves, $date_arrivee, $date_depart, $mail, $paid, $email_sent);
+                $stmt->fetch();
                 if ($email_sent == 1 && $paid == 0) { // Only send mail if a mail had been sent to confirm reservation && reservation is not paid
                     send_mail_cancel($mail, $unique_id, $date_arrivee, $date_depart);
                 }
