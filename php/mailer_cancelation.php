@@ -65,7 +65,7 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
         </table>
     </body>
     </html>
-    ';}
+    ';
     // email setup
     $email = new Mail();
     $email->setFrom(EMAIL_SENDER, NAME_SENDER);
@@ -85,4 +85,5 @@ function send_mail_cancel($email_address, $activation_code, $date_arr, $date_dep
         header("Location: connexion.php?erreur=mail_error");
         exit();
     };
+};
 ?>
