@@ -50,7 +50,7 @@
          <section class="page-section text-secondary mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary">à quoi sert ce site ?</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">À quoi sert ce site ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
