@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 require_once 'config.php';
-require __DIR__ . '/vendor/autoload.php';
 use SendGrid\Mail\Mail;
+require __DIR__ . '/vendor/autoload.php';
 
 function send_mail($email_address, $activation_code, $typemessage) {
     // email for account validation
