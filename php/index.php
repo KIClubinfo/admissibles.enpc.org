@@ -34,7 +34,7 @@
                 <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles au concours Mines-Ponts</p>
                 <p class="masthead-subheading font-weight-light mb-0">Pour plus d'information sur l'accueil des admissibles :</p>
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer" > Télécharges le planning de la semaine </a>
+                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer" > Télécharge le planning de la semaine</a>
                 </div>
                         
                 <div class="text-center mt-4">
@@ -176,7 +176,20 @@
                             <li><h5>Le statut de boursier<h5></li>
                             <li><h5>La distance entre le domicile et l\'École des Ponts</h5></li>
                         </ul>
-                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>';
+                        <p class="lead" style="text-align: justify">Si ces paramètres ne permettent pas de déterminer l\'attribution des chambres, la rapidité de réponse au questionnaire sera prise en compte.</p>
+                        <h4 style="text-decoration:underline;">Attention à trois points !</h4>
+                        <ul class="lead">
+                            <li>L\'attribution se fait grâce à un algorithme qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
+                            <li> Une fois qu\'une chambre t\'a été attibuée, tu as <strong> 48h </strong> pour payer. Pour cela, tu recevras un mail de la part du gestionnaire de la résidence. </li>
+                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
+                                </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
+                                <ul class="lead">
+                                    <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>
+                                    <li>Le <strong>samedi</strong>, 9h30-13h puis 14h-17h;</li>
+                                    <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-18h30.</li>
+                                </ul></li>
+                        </ul>';
+                        
                         if(isset($_SESSION['loggedin'])){echo '<p class="lead" style="text-align: center"><strong>Tu peux faire ta demande dans l\'onglet profil</strong></p>
                     </div>
                 </div>
@@ -223,18 +236,7 @@
                             <li> L\' algorithme d\'attribution est relancé tous les jours à <strong>12h</strong>.
                             <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> mercerdi 21 juin </strong> à <strong> 12h </strong> </li>
                         </ul>
-                        <h4 style="text-decoration:underline;">Attention à trois points !</h4>
-                        <ul class="lead">
-                            <li>L\'attribution se fait grâce à un <strong>algorithme</strong> qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
-                            <li> Une fois qu\'une chambre t\' as été attibuée, tu as <strong> 48h </strong> pour payer. Pour cela, tu recevras un mail de la part du gestionnaire de la résidence. </li>
-                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
-                                </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
-                                <ul class="lead">
-                                    <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>
-                                    <li>Le <strong>samedi</strong>, 9h30-13h puis 14h-17h;</li>
-                                    <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-18h30.</li>
-                                </ul></li>
-                        </ul>
+                        
                         <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
                         <!-------
                         <br/> Télécharges le <strong>planning de la semaine </strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
