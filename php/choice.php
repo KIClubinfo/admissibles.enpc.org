@@ -131,7 +131,11 @@
                                         <br>
                                         <span class="form-control" id="arrival-date-display">  </span>
                                         <br>                                  
+<<<<<<< HEAD
                                         <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention les jours non-passées au logement ne seront pas remboursés</p></div>
+=======
+                                        <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention, les jours non passés au logement ne seront pas remboursés</p></div>
+>>>>>>> 2d827684159158e1d7d0d8eb571a7987df45f76a
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
@@ -149,7 +153,7 @@
                                         <br>
                                         <span class="form-control" id="departure-date-display">  </span>
                                         <br>
-                                        <div class="text"><p><strong>À noter : </strong> Il est possible de quitter le logement avant cette date. Attention, les jours non-passés au logement ne seront pas remboursés</p></div>
+                                        <div class="text"><p><strong>À noter : </strong> Il est possible de quitter le logement avant cette date. Attention, les jours non passés au logement ne seront pas remboursés</p></div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
