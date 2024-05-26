@@ -131,7 +131,7 @@
                                         <br>
                                         <span class="form-control" id="arrival-date-display">  </span>
                                         <br>                                  
-                                        <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention les jours non-passées au logement ne seront pas rembousés</p></div>
+                                        <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention les jours non-passées au logement ne seront pas remboursés</p></div>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
