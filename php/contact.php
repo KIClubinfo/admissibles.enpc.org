@@ -35,6 +35,7 @@
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Alexis Zecevic, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
+
                         <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>+33 6 29 19 40 11</strong></br>';}?><strong>admissibles@enpc.org</strong></p>
                     </div>
                 </div>
@@ -42,7 +43,9 @@
                 <div class="row justify-content-center" style="margin-bottom:2rem;">
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify"><strong>Pour des questions ne concernant pas le logement ou si Alexis Zecevic est injoignable :</strong></br>Vous pouvez contacter Lamia Kaderbay, présidente du Bureau Des Élèves.</p>
+
                         <p class="lead" style="text-align: center"><strong>+33 7 68 08 62 64</strong></p>
+
                     </div>
                 </div>';}?>
                 <!--<div class="row justify-content-center">

@@ -231,10 +231,10 @@
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> s\'effectue selon le calendrier suivant :</p>
                         <ul class = "lead">
-                            <li> Les inscriptions toutes les séries ouvrent le <strong>jeudi 8 juin à 20h</strong>. </li>
-                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>vendredi 9 juin à 12h</strong>. </li>
+                            <li> Les inscriptions toutes les séries ouvrent le <strong>lundi 10 juin à 20h</strong>. </li>
+                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>mardi 11 juin à 12h</strong>. </li>
                             <li> L\' algorithme d\'attribution est relancé tous les jours à <strong>12h</strong>.
-                            <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> mercerdi 21 juin </strong> à <strong> 12h </strong> </li>
+                            <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> jeudi 23 juin </strong> à <strong> 12h </strong> </li>
                         </ul>
                         
                         <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
