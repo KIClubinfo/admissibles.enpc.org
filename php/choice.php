@@ -99,15 +99,15 @@
 
                                 <script>
                                     // constant to modify for arrival and departure dates with format [output_format, display_format]
-                                    let arrival_dates = ['2023-06-18,Dimanche 23 juin 2024', 
-                                                         '2023-06-25,Dimanche 30 juin 2024', 
-                                                         '2023-07-02,Dimanche 7 juillet 2024', 
-                                                         '2023-07-09,Dimanche 14 juillet 2024'];
+                                    let arrival_dates = ['2024-06-23,Dimanche 23 juin 2024', 
+                                                         '2024-06-30,Dimanche 30 juin 2024', 
+                                                         '2024-07-07,Dimanche 7 juillet 2024', 
+                                                         '2024-07-14,Dimanche 14 juillet 2024'];
 
-                                    let departure_dates = ['2023-06-24,Samedi 29 juin 2024', 
-                                                           '2023-07-01,Samedi 6 juillet 2024', 
-                                                           '2023-07-08,Samedi 13 juillet 2024', 
-                                                           '2023-07-15,Samedi 20 juillet 2024'];
+                                    let departure_dates = ['2024-06-29,Samedi 29 juin 2024', 
+                                                           '2024-07-06,Samedi 6 juillet 2024', 
+                                                           '2024-07-13,Samedi 13 juillet 2024', 
+                                                           '2024-07-20,Samedi 20 juillet 2024'];
 
 
                                     function dateSelector(option_idx) {
@@ -131,11 +131,7 @@
                                         <br>
                                         <span class="form-control" id="arrival-date-display">  </span>
                                         <br>                                  
-<<<<<<< HEAD
                                         <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention les jours non-passées au logement ne seront pas remboursés</p></div>
-=======
-                                        <div class="text"><p><strong>À noter : </strong> Il est possible d'arriver dans le logement après cette date. Attention, les jours non passés au logement ne seront pas remboursés</p></div>
->>>>>>> 2d827684159158e1d7d0d8eb571a7987df45f76a
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>

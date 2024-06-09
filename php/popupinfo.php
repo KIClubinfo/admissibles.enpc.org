@@ -28,10 +28,10 @@
                                 echo '<h4 class="mb-5" style="color:grey;">Ton mot de passe a bien été changé. </br> </br> Tu peux te connecter.</h4>';
                             }
                             else if($_GET['info'] == "mailinscription"){
-                                echo '<h4 class="mb-5" style="color:grey;">Un lien d\'activation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail et penses à vérifier tes spams.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Un lien d\'activation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail et pense à vérifier tes spams.</h4>';
                             }
                             else if($_GET['info'] == "changepassword"){
-                                echo '<h4 class="mb-5" style="color:grey;">Un lien de réinitialisation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail et penses à vérifier tes spams.</h4>';
+                                echo '<h4 class="mb-5" style="color:grey;">Un lien de réinitialisation t\'a été envoyé par mail. </br> </br> Merci de vérifier ta boîte mail et pense à vérifier tes spams.</h4>';
                             }
                             else if($_GET['info'] == "asrefused"){
                                 echo '<h4 class="mb-5" style="color:grey;">Ta réservation à bien été annulée. </br> </br> Tu vas recevoir un mail l\'attestant.</h4>';

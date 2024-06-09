@@ -38,7 +38,7 @@ function send_mail($email_address, $activation_code, $typemessage) {
                                                 Bonjour,<br/>
                                                 <br/>
                                                 Le Club Informatique de l\'École des Ponts confirme que ton inscription a bien été prise en compte.<br/><br/>
-                                                Finalise là en cliquant sur le lien ci-dessous :
+                                                Finalise-là en cliquant sur le lien ci-dessous :
                                             </td>
                                         </tr>
                                         <tr>
