@@ -129,7 +129,7 @@
                                 <div class="control-group">
                                     <div class="form-group">
                                         <div>
-                                            <input type="checkbox" id="engagement" name="engagement" required="required"> &nbsp Je certifie l\'exactitude des informations renseignées et suis conscient que tout abus peut entraîner des poursuites. </input>
+                                            <input type="checkbox" id="engagement" name="engagement" required="required"> &nbsp Je certifie l\'exactitude des informations renseignées. Je suis conscient que tout abus peut entraîner des poursuites. En partiulier, un seul compte par candidat est autorisé. </input>
                                         </div>
                                         <p class="help-block text-danger"></p>
                                     </div>

@@ -232,14 +232,15 @@
                         <p class="lead" style="text-align: justify">L\'attribution des <strong>logements</strong> s\'effectue selon le calendrier suivant :</p>
                         <ul class = "lead">
                             <li> Les inscriptions pour toutes les séries ouvrent le <strong>vendredi 14 juin à 18h</strong>. </li>
-                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>samedi 15 juin à 9h</strong>. </li>
+                            <li> La demande de logement pour la première série peut se faire à partir du <strong>lundi 17 juin à 18h</strong>. </li>
+                            <li> Le premier tour des attributions pour la <strong> série 1 </strong> sera effectué le <strong>mardi 18 juin à 21h</strong>. </li>
                             <li> L\' algorithme d\'attribution est relancé tous les jours à <strong>12h</strong>.
                             <li> Pour les <strong> séries suivantes </strong>, le premier tour sera effectué le <strong> lundi 17 juin </strong> à <strong> 12h </strong> </li>
                         </ul>
                         
                         <p class="lead" style="text-align: justify">Si tu as des questions, des remarques, des demandes, n’hésite pas à nous contacter par mail ou téléphone !
                         <!-------
-                        <br/> Télécharges le <strong>planning de la semaine </strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
+                        <br/> Télécharge le <strong>planning de la semaine </strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
 
                         <div class="text-center mt-4">
                             <a class="btn btn-xl btn-primary" style="margin:1rem" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer"> Télécharges le planning de la semaine </a>
