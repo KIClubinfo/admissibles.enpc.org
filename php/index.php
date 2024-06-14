@@ -34,11 +34,11 @@
                 <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles au concours Mines-Ponts</p>
                 <p class="masthead-subheading font-weight-light mb-0">Pour plus d'information sur l'accueil des admissibles :</p>
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer" > Télécharge le planning de la semaine</a>
+                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_S1.pdf" target="_blank" rel="noopener noreferrer" > Télécharge le planning de la semaine</a>
                 </div>
                         
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="https://www.facebook.com/groups/195943456308867/?ref=share" target="_blank" rel="noopener noreferrer"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
+                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="https://www.facebook.com/share/M4FPwHQ7ugkjWTcq/" target="_blank" rel="noopener noreferrer"> Rejoins notre groupe Facebook <i class="fab fa-fw fa-facebook", style="font-size: 1.4em; vertical-align: middle;"></i> </a>
                 </div>
 
                 <div class="text-center mt-4">
