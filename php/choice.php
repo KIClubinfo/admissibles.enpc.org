@@ -107,7 +107,7 @@
                                     let departure_dates = ['2024-06-29,Samedi 29 juin 2024', 
                                                            '2024-07-06,Samedi 6 juillet 2024', 
                                                            '2024-07-13,Samedi 13 juillet 2024', 
-                                                           '2024-07-24,Lundi 24 juillet 2024'];
+                                                           '2024-07-20,Samedi 20 juillet 2024'];
 
 
                                     function dateSelector(option_idx) {
