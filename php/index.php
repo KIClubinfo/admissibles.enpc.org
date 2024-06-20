@@ -181,13 +181,14 @@
                         <ul class="lead">
                             <li>L\'attribution se fait grâce à un algorithme qui crée une <strong>liste d\'attente</strong>. Si tu n\'as pas eu de chambre au premier tour, tu peux toujours en obtenir une en cas de <strong>désistement</strong> d\'un autre candidat.</li>
                             <li> Une fois qu\'une chambre t\'a été attibuée, tu as <strong> 48h </strong> pour payer. Pour cela, tu recevras un mail de la part du gestionnaire de la résidence. </li>
-                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
+                            <li>Pour les <strong>dates d\'arrivée</strong>, c\'est à partir du dimanche. <strong>L\'arrivée est possible tous les jours de la semaine.</strong> Pareil pour les <strong>dates de sortie</strong>, c\'est possible tous les jours de la semaine mais <strong>le logement doit être rendu avant le samedi à 17h</strong>.
                                 </br>Plus précisément, les <strong>horaires d\'arrivée</strong> sont les suivants :
                                 <ul class="lead">
                                     <li>En <strong>semaine</strong>, 9h-13h puis 14h-18h;</li>
                                     <li>Le <strong>samedi</strong>, 9h30-13h puis 14h-17h;</li>
                                     <li>Le <strong>dimanche</strong>, 11h-13h puis 14h-18h30.</li>
                                 </ul></li>
+                                Le tarif est <strong>unique quelque soit le nombre de jours</strong> passés dans la résidence !
                         </ul>';
                         
                         if(isset($_SESSION['loggedin'])){echo '<p class="lead" style="text-align: center"><strong>Tu peux faire ta demande dans l\'onglet profil</strong></p>

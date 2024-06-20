@@ -109,14 +109,14 @@
                         }
                         if($type_chambre==1){
                             $type_chambre="Simple";
-                            $prix_chambre = "220€ TTC";
+                            $prix_chambre = "220€ TTC"; // à mettre en variable globale 
                         }
                         else if($type_chambre==2){
                             $type_chambre="Binômée";
                         }
                         else if($type_chambre==3){
                             $type_chambre="Double";
-                            $prix_chambre = "180€ TTC";
+                            $prix_chambre = "180€ TTC"; // à mettre en variable globale 
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');
@@ -137,7 +137,7 @@
                                                                                     echo ' : <strong>Accepte un autre type de chambre</strong>';
                                                                                 }
                                                                                 else{
-                                                                                    echo ' : <strong>Ne prends pas de chambre d\'un autre type</strong>';
+                                                                                    echo ' : <strong>Ne prend pas de chambre d\'un autre type</strong>';
                                                                                 }
                                                                                 echo ' </h6></li>
                                 <li><h6>Date d\'arrivée : <strong>'; echo $day1; echo '/'; echo $month1; echo '/'; echo $year1; echo '</strong></h6></li>
@@ -241,14 +241,14 @@
 
                         if($type==1){
                             $type_chambre="Simple";
-                            $prix_chambre = "215€ TTC";
+                            $prix_chambre = "220€ TTC";
                         }
                         else if($type==2){
                             $type_chambre="Binômée";
                         }
                         else if($type==3){
                             $type_chambre="Double";
-                            $prix_chambre = "175€ TTC";
+                            $prix_chambre = "180€ TTC";
                         }
                         else {
                             header('Location: connexion.php?erreur=unknown_error');
@@ -261,8 +261,8 @@
                                 <h4 class="text-secondary text-center" style="text-decoration:underline;">Chambre attribuée :</h4>
                                 <ul style="margin-top:1em">
                                     <li><h6>Type de chambre : <strong>'; echo $type_chambre; echo '</strong></h6></li>
-                                    <li><h6>Prix à régler à l\'arrivée (Chèque ou CB) : <strong>';echo $prix_chambre; echo '</strong></h6></li>
-                                    <li><h6>Numéro de chambre : <strong>'; echo $numero_chambre; echo '</strong></h6></li>
+                                    <li><h6>Prix à régler : <strong>';echo $prix_chambre; echo "</strong></h6></li>. Vous allez recevoir un <strong>mail d'Arpej</strong> vous expliquant la procédure à suivre. Le paiement doit se faire impérativement <strong>dans les 48h</strong>.
+                                    <li><h6>Numéro de chambre : <strong>"; echo $numero_chambre; echo '</strong></h6></li>
                                 </ul>
                             </div>
                         </div>
