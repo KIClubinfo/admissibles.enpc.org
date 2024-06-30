@@ -34,7 +34,7 @@
                 <p class="masthead-subheading font-weight-light mb-0">Répartition des logements pour les admissibles au concours Mines-Ponts</p>
                 <p class="masthead-subheading font-weight-light mb-0">Pour plus d'information sur l'accueil des admissibles :</p>
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_S1.pdf" target="_blank" rel="noopener noreferrer" > Télécharge le planning de la semaine</a>
+                    <a class="btn btn-xl btn-primary" style="margin:1rem; background-color: rgba(00, 00, 25, 0.3); color: white" href="assets/img/planning_S2.jpg" target="_blank" rel="noopener noreferrer" > Télécharge le planning de la semaine</a>
                 </div>
                         
                 <div class="text-center mt-4">
@@ -244,7 +244,7 @@
                         <br/> Télécharge le <strong>planning de la semaine </strong> et rejoins-nous aussi sur le <strong>groupe Facebook</strong> et la <strong> page Instagram </strong> dédiés aux admissibles passant leurs oraux aux Ponts!</p>
 
                         <div class="text-center mt-4">
-                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="assets/img/planning_semaine_1.jpg" target="_blank" rel="noopener noreferrer"> Télécharges le planning de la semaine </a>
+                            <a class="btn btn-xl btn-primary" style="margin:1rem" href="assets/img/planning_S2.jpg" target="_blank" rel="noopener noreferrer"> Télécharges le planning de la semaine </a>
                         </div>
                         
                         <div class="text-center mt-4">
