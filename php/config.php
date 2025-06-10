@@ -35,7 +35,7 @@ function is_admin()
 $debut_inscription=new DateTime('2025-06-13 18:00:00');//à modifier
 $debut_demande=new DateTime('2025-06-16 10:00:00');//à modifier
 $debut_oraux=new DateTime('2025-06-23');//à modifier
-$fin_oraux=new DateTime('2025-07-2019');//à modifier
+$fin_oraux=new DateTime('2025-07-19');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));
