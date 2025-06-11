@@ -36,7 +36,8 @@
                     <div class="col-lg-8">
                         <p class="lead" style="text-align: justify;"><strong>Pour des problèmes concernant le logement :</strong> </br>Vous pouvez contacter Gaël Foubert, membre du Bureau Des Élèves en charge du logement à la résidence Meunier.</br></p>
 
-                        <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>+33 6 47 36 53 65</strong></br>';}?><strong>admissibles@enpc.org</strong></p>
+                        <!-- <p class="lead" style="text-align: center"><?php if (isset($_SESSION['loggedin'])){echo '<strong>+33 6 47 36 53 65</strong></br>';}?><strong>admissibles@enpc.org</strong></p> -->
+                        <p class="lead" style="text-align: center"><strong>+33 6 47 36 53 65,   admissibles@enpc.org</strong></p>
                     </div>
                 </div>
                 <?php if (isset($_SESSION['loggedin'])){echo '
