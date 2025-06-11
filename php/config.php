@@ -15,7 +15,7 @@ if ($con->connect_error) {
 }
 
 // email configuration TO MODIFY
-define("SENDGRID_API_KEY", "SG.C7GBSvOpSbGEUVe2B668hg.cEGS-rnWsnzWg30e-F_cBM71hzSVg99sBtFcew6mg2w");
+define("SENDGRID_API_KEY", "YOUR KEY");
 define("EMAIL_SENDER", "admissibles@enpc.org");
 define("NAME_SENDER", "Logements ENPC admissibles");
 define("EMAIL_REPLY", "noreply@enpc.org");
