@@ -15,7 +15,7 @@ if ($con->connect_error) {
 }
 
 // email configuration TO MODIFY
-define("SENDGRID_API_KEY", "YOUR API KEY");
+define("SENDGRID_API_KEY", "KEY");
 define("EMAIL_SENDER", "admissibles@enpc.org");
 define("NAME_SENDER", "Logements ENPC admissibles");
 define("EMAIL_REPLY", "noreply@enpc.org");
@@ -32,10 +32,10 @@ function is_admin()
     return False;
 }
 
-$debut_demande=new DateTime('2024-06-11 20:00:00');//à modifier
-$debut_inscription=new DateTime('2024-06-10 18:00:0');//à modifier
-$debut_oraux=new DateTime('2024-06-24');//à modifier
-$fin_oraux=new DateTime('2024-07-19');//à modifier
+$debut_inscription=new DateTime('2025-06-13 18:00:00');//à modifier
+$debut_demande=new DateTime('2025-06-16 10:00:00');//à modifier
+$debut_oraux=new DateTime('2025-06-23');//à modifier
+$fin_oraux=new DateTime('2025-07-19');//à modifier
 
 function protect($dateprotection) {
     $date = new DateTime(null, new DateTimeZone('Europe/Paris'));

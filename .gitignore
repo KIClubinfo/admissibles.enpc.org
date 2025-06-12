@@ -139,4 +139,4 @@ php/solver/gurobi.lic
 # Emails
 php/composer.phar
 php/composer.lock
-php/vendor/
+php/vendor/sendgrid.env
